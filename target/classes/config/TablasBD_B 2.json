@@ -1,0 +1,21 @@
+{
+	"title": "Nombres de las tablas de Alohandes Uniandes para la aplicación B",
+	"unidadPersistencia": "Alohandes",
+	"tablas":
+	[
+		"Alohandes_sequence",
+		"B_PRPIETARIO",
+		"B_DOMINIO",
+		"B_VECINOS",
+		"B_CLIENTE",
+		"B_APARTAMENTO",
+		"B_VIVIENDA",
+		"B_HABITACION",
+		"B_OFERTA",
+		"B_RESERVA",
+		"B_SERVICIOSADICIONALES",
+		"B_OFERTAHABITACION",
+		"B_OFERTAVIVIENDA",
+		"B_OFERTAAPARTAMENTO"
+    ]
+}

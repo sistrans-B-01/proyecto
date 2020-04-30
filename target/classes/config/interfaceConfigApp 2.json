@@ -1,0 +1,175 @@
+{
+	"title": "Aplicación transaccional de Alohandes Uniandes",
+	"frameH": 600,
+	"frameW": 800,
+	"bannerPath": "./resources/config/logo.png",
+	"menuBar":
+	[
+		{ "menuTitle": "Operadores",
+		  "options":
+			[
+				{
+					"label": "AdicionarPropietario",
+					"event": "adicionarPropietario"
+				},
+				{
+					"label": "AdicionarVecino",
+					"event": "adicionarVecino"
+				},
+				{
+					"label": "AdicionarDominio",
+					"event": "adicionarDominio"
+				}
+			]
+		},
+		{ "menuTitle": "Alojamiento",
+		  "options":
+			[
+				{
+					"label": "AdicionarApartamento",
+					"event": "adicionarApartamento"
+				},
+				{
+					"label": "AdicionarVivienda",
+					"event": "adicionarVivienda"
+				},
+				{
+					"label": "AdicionarHabitacion",
+					"event": "adicionarHabitacion"
+				}
+			]
+		},
+		{ "menuTitle": "Cliente",
+		  "options":
+			[
+				{
+					"label": "AdicionarCliente",
+					"event": "adicionarCliente"
+				}
+			]
+		},		
+		{ "menuTitle": "Ofertas",
+		  "options":
+			[
+				{
+					"label": "AdicionarOferta",
+					"event": "adicionarOferta"
+				},
+				{
+					"label": "RelacionarOfertaApartamento",
+					"event": "relacionarOfertaApartamento"
+				},
+				{
+					"label": "RelacionarOfertaVivienda",
+					"event": "relacionarOfertaVivienda"
+				},
+				{
+				    "label": "RelacionarOfertaHabitacion",
+					"event": "relacionarOfertaHabitacion"
+				},
+				{
+					"label": "EliminarOfertaApartamento",
+					"event": "eliminarOfertaApartamento"
+				},
+				{
+					"label": "EliminarOfertaVivienda",
+					"event": "eliminarOfertaVivienda"
+				},
+				{
+					"label": "EliminarOfertaHabitacion",
+					"event": "eliminarOfertaHabitacion"
+				},
+				{
+				    "label": "EliminarOferta",
+					"event": "eliminarOferta"
+				}
+			]
+		},
+		{ "menuTitle": "Reserva",
+		  "options":
+			[
+				{
+					"label": "AdicionarReserva",
+					"event": "adicionarReserva"
+				},
+				{
+					"label": "EliminarReserva",
+					"event": "eliminarReserva"
+				}
+			]
+		},
+		{ "menuTitle": "Consultas",
+		  "options":
+			[
+				{
+					"label": "ListarDineroRecibido",
+					"event": "listarDineroRecibido"
+				},
+				{
+					"label": "ListarOfertasPopulares",
+					"event": "listarOfertasPopulares"
+				},
+				{
+					"label": "ListarIndiceOcupacion",
+					"event": "listarIndiceOcupacion"
+				}
+			]
+		},
+		{ "menuTitle": "Mantenimiento",
+		  "options":
+			[
+				{
+					"label": "Mostrar log Parranderos",
+					"event": "mostrarLogParranderos"
+				},
+				{
+					"label": "Mostrar log datanucleus",
+					"event": "mostrarLogDatanuecleus"
+				},
+				{
+					"label": "Limpiar log de parranderos",
+					"event": "limpiarLogParranderos"
+				},
+				{
+					"label": "Limpiar log de datanucleus",
+					"event": "limpiarLogDatanucleus"
+				},
+				{
+					"label": "Limpiar Base de Datos",
+					"event": "limpiarBD"
+				}
+			]
+		},		
+		{ "menuTitle": "Documentación",
+		  "options":
+			[
+				{
+					"label": "Presentación general",
+					"event": "mostrarPresentacionGeneral"
+				},
+				{
+					"label": "Modelo conceptual",
+					"event": "mostrarModeloConceptual"
+				},
+				{
+					"label": "Esquema de la BD",
+					"event": "mostrarEsquemaBD"
+				},
+				{
+					"label": "Script creación de la BD",
+					"event": "mostrarScriptBD"
+				},
+				{
+					"label": "Arquitectura de referencia",
+					"event": "mostrarArqRef"
+				},
+				{
+					"label": "Javadoc Parranderos",
+					"event": "mostrarJavadoc"
+				}
+			]
+		}		
+		
+	]
+}
+	

@@ -1,0 +1,294 @@
+13:58:34,913 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos
+13:58:45,907 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Borrada la base de datos
+13:58:45,909 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos: Listo!
+13:59:59,867 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando Tipo de bebida: mojito
+14:00:00,694 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando Tipo de bebida: TipoBebida [id=1, nombre=mojito]
+14:00:08,529 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Generando los VO de Tipos de bebida
+14:00:08,582 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Generando los VO de Tipos de bebida: 1 existentes
+14:00:17,222 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Eliminando Tipo de bebida por id: 1
+14:00:17,787 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Eliminando Tipo de bebida por id: 1 tuplas eliminadas
+14:00:29,723 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando Tipo de bebida: mojito
+14:00:29,871 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando Tipo de bebida: TipoBebida [id=2, nombre=mojito]
+14:00:39,714 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Buscando Tipo de bebida por nombre: mojito
+14:09:12,207 (main) INFO  [uniandes.isis2304.parranderos.interfazDemo.InterfazParranderosDemo] - Se encontró un archivo de configuración válido: Interfaz
+14:09:12,209 (main) INFO  [uniandes.isis2304.parranderos.interfazDemo.InterfazParranderosDemo] - Se aplica configuración indicada en el archivo de configuración
+14:09:12,255 (main) INFO  [uniandes.isis2304.parranderos.interfazDemo.InterfazParranderosDemo] - Se encontró un archivo de configuración válido: Tablas BD
+14:09:32,660 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando Tipo de bebida: Vino tinto
+14:09:38,227 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando Tipo de bebida: TipoBebida [id=3, nombre=Vino tinto]
+14:09:38,227 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Generando los VO de Tipos de bebida
+14:09:38,261 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Generando los VO de Tipos de bebida: 2 existentes
+14:09:38,261 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Eliminando Tipo de bebida por id: 3
+14:09:38,345 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Eliminando Tipo de bebida por id: 1 tuplas eliminadas
+14:09:56,579 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando Tipo de bebida: Vino tinto
+14:09:57,534 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando Tipo de bebida: TipoBebida [id=4, nombre=Vino tinto]
+14:09:57,535 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando bebida 120
+14:09:57,711 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando bebida: Bebida [id=5, nombre=120, idTipoBebida=4, gradoAlcohol=10]
+14:09:57,711 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Generando los VO de Tipos de bebida
+14:09:57,747 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Generando los VO de Tipos de bebida: 2 existentes
+14:09:57,747 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Generando los VO de las bebidas
+14:09:58,031 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Generando los VO de las bebidas: 1 existentes
+14:09:58,031 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Eliminando bebida por nombre: 120
+14:09:58,485 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Eliminando bebida por nombre: 1 tuplas eliminadas
+14:09:58,485 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Eliminando Tipo de bebida por id: 4
+14:09:58,541 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Eliminando Tipo de bebida por id: 1 tuplas eliminadas
+11:01:50,832 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Interfaz
+11:01:50,834 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se aplica configuración indicada en el archivo de configuración
+11:01:50,891 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Tablas BD
+11:02:04,761 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando Tipo de bebida: mojito
+11:02:05,341 (AWT-EventQueue-0) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Error con la ejecucion de Query de SQL "INSERT INTO A_TIPOBEBIDA(id, nombre) values (?, ?)".
+ORA-00001: restricción única (ISIS2304B012010.UN_TIPOBEB_NOMBRE) violada
+
+11:02:05,373 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando Tipo de bebida: null
+19:42:13,789 (main) INFO  [uniandes.isis2304.parranderos.test.ConexionTest] - Probando el acceso a la base de datos con datos de usuario correctos, pero sin crear el esquema
+19:42:14,021 (main) INFO  [uniandes.isis2304.parranderos.test.ConexionTest] - Se encontró un archivo de configuración de tablas válido
+19:42:20,592 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Consultando Tipos de bebida
+19:42:20,763 (main) INFO  [uniandes.isis2304.parranderos.test.ConexionTest] - Prueba de tabla inexistente correcta. La excepción generada es: javax.jdo.JDODataStoreException
+19:42:20,764 (main) INFO  [uniandes.isis2304.parranderos.test.ConexionTest] - La causa es: java.sql.SQLSyntaxErrorException: ORA-00942: la tabla o vista no existe
+
+19:42:20,764 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos
+19:42:20,977 (main) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Error con la ejecucion de Query de SQL "DELETE FROM B_GUSTAN".
+ORA-00942: la tabla o vista no existe
+
+19:42:21,002 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos: Listo!
+19:42:21,027 (main) INFO  [uniandes.isis2304.parranderos.test.ConexionTest] - Probando el acceso a la base de datos con una base de datos que no existe
+19:42:21,029 (main) INFO  [uniandes.isis2304.parranderos.test.ConexionTest] - Se encontró un archivo de configuración de tablas válido
+19:42:21,155 (main) INFO  [uniandes.isis2304.parranderos.test.ConexionTest] - Prueba realizada exitosamente. La excepción generada es: javax.jdo.JDOFatalUserException
+19:42:21,155 (main) INFO  [uniandes.isis2304.parranderos.test.ConexionTest] - La causa es: javax.jdo.JDOFatalDataStoreException: Listener refused the connection with the following error:
+ORA-12505, TNS:listener does not currently know of SID given in connect descriptor
+ 
+NestedThrowables:
+java.sql.SQLException: Listener refused the connection with the following error:
+ORA-12505, TNS:listener does not currently know of SID given in connect descriptor
+ 
+19:42:21,156 (main) INFO  [uniandes.isis2304.parranderos.test.ConexionTest] - Probando el acceso a la base de datos con datos de usuario incorrectos
+19:42:21,158 (main) INFO  [uniandes.isis2304.parranderos.test.ConexionTest] - Se encontró un archivo de configuración de tablas válido
+19:42:22,360 (main) INFO  [uniandes.isis2304.parranderos.test.ConexionTest] - Prueba realizada exitosamente. La excepción generada es: javax.jdo.JDOFatalUserException
+19:42:22,360 (main) INFO  [uniandes.isis2304.parranderos.test.ConexionTest] - La causa es: javax.jdo.JDOFatalDataStoreException: ORA-01017: invalid username/password; logon denied
+
+NestedThrowables:
+java.sql.SQLException: ORA-01017: invalid username/password; logon denied
+
+19:42:22,360 (main) INFO  [uniandes.isis2304.parranderos.test.ConexionTest] - Probando el acceso a la base de datos con datos válidos (BD, credenciales, esquema
+19:42:22,363 (main) INFO  [uniandes.isis2304.parranderos.test.ConexionTest] - Se encontró un archivo de configuración de tablas válido
+19:42:22,742 (main) INFO  [uniandes.isis2304.parranderos.test.ConexionTest] - Conexión realizada correstamente
+19:42:22,742 (main) INFO  [uniandes.isis2304.parranderos.test.ConexionTest] - Cerrando la conexión
+19:42:22,749 (main) INFO  [uniandes.isis2304.parranderos.test.ConexionTest] - Conexión cerrada
+19:50:58,847 (main) INFO  [uniandes.isis2304.parranderos.test.ConexionTest] - Probando el acceso a la base de datos con datos de usuario correctos, pero sin crear el esquema
+19:50:59,038 (main) INFO  [uniandes.isis2304.parranderos.test.ConexionTest] - Se encontró un archivo de configuración de tablas válido
+19:51:02,997 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Consultando Tipos de bebida
+19:51:03,428 (main) INFO  [uniandes.isis2304.parranderos.test.ConexionTest] - Prueba de tabla inexistente correcta. La excepción generada es: javax.jdo.JDODataStoreException
+19:51:03,428 (main) INFO  [uniandes.isis2304.parranderos.test.ConexionTest] - La causa es: java.sql.SQLSyntaxErrorException: ORA-00942: la tabla o vista no existe
+
+19:51:03,429 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos
+19:51:03,638 (main) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Error con la ejecucion de Query de SQL "DELETE FROM B_GUSTAN".
+ORA-00942: la tabla o vista no existe
+
+19:51:03,663 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos: Listo!
+19:51:03,699 (main) INFO  [uniandes.isis2304.parranderos.test.ConexionTest] - Probando el acceso a la base de datos con una base de datos que no existe
+19:51:03,700 (main) INFO  [uniandes.isis2304.parranderos.test.ConexionTest] - Se encontró un archivo de configuración de tablas válido
+19:51:03,843 (main) INFO  [uniandes.isis2304.parranderos.test.ConexionTest] - Prueba realizada exitosamente. La excepción generada es: javax.jdo.JDOFatalUserException
+19:51:03,844 (main) INFO  [uniandes.isis2304.parranderos.test.ConexionTest] - La causa es: javax.jdo.JDOFatalDataStoreException: Listener refused the connection with the following error:
+ORA-12505, TNS:listener does not currently know of SID given in connect descriptor
+ 
+NestedThrowables:
+java.sql.SQLException: Listener refused the connection with the following error:
+ORA-12505, TNS:listener does not currently know of SID given in connect descriptor
+ 
+19:51:03,844 (main) INFO  [uniandes.isis2304.parranderos.test.ConexionTest] - Probando el acceso a la base de datos con datos de usuario incorrectos
+19:51:03,846 (main) INFO  [uniandes.isis2304.parranderos.test.ConexionTest] - Se encontró un archivo de configuración de tablas válido
+19:51:05,148 (main) INFO  [uniandes.isis2304.parranderos.test.ConexionTest] - Prueba realizada exitosamente. La excepción generada es: javax.jdo.JDOFatalUserException
+19:51:05,148 (main) INFO  [uniandes.isis2304.parranderos.test.ConexionTest] - La causa es: javax.jdo.JDOFatalDataStoreException: ORA-01017: invalid username/password; logon denied
+
+NestedThrowables:
+java.sql.SQLException: ORA-01017: invalid username/password; logon denied
+
+19:51:05,149 (main) INFO  [uniandes.isis2304.parranderos.test.ConexionTest] - Probando el acceso a la base de datos con datos válidos (BD, credenciales, esquema
+19:51:05,151 (main) INFO  [uniandes.isis2304.parranderos.test.ConexionTest] - Se encontró un archivo de configuración de tablas válido
+19:51:06,077 (main) INFO  [uniandes.isis2304.parranderos.test.ConexionTest] - Conexión realizada correstamente
+19:51:06,078 (main) INFO  [uniandes.isis2304.parranderos.test.ConexionTest] - Cerrando la conexión
+19:51:06,090 (main) INFO  [uniandes.isis2304.parranderos.test.ConexionTest] - Conexión cerrada
+20:04:18,590 (main) INFO  [uniandes.isis2304.parranderos.test.ConexionTest] - Probando el acceso a la base de datos con datos de usuario correctos, pero sin crear el esquema
+20:04:18,783 (main) INFO  [uniandes.isis2304.parranderos.test.ConexionTest] - Se encontró un archivo de configuración de tablas válido
+20:04:22,263 (main) INFO  [uniandes.isis2304.parranderos.test.ConexionTest] - Probando el acceso a la base de datos con una base de datos que no existe
+20:04:22,264 (main) INFO  [uniandes.isis2304.parranderos.test.ConexionTest] - Se encontró un archivo de configuración de tablas válido
+20:04:22,267 (main) INFO  [uniandes.isis2304.parranderos.test.ConexionTest] - Probando el acceso a la base de datos con datos de usuario incorrectos
+20:04:22,269 (main) INFO  [uniandes.isis2304.parranderos.test.ConexionTest] - Se encontró un archivo de configuración de tablas válido
+20:04:22,269 (main) INFO  [uniandes.isis2304.parranderos.test.ConexionTest] - Probando el acceso a la base de datos con datos válidos (BD, credenciales, esquema
+20:04:22,270 (main) INFO  [uniandes.isis2304.parranderos.test.ConexionTest] - Se encontró un archivo de configuración de tablas válido
+20:04:22,270 (main) INFO  [uniandes.isis2304.parranderos.test.ConexionTest] - Conexión realizada correstamente
+20:04:22,270 (main) INFO  [uniandes.isis2304.parranderos.test.ConexionTest] - Cerrando la conexión
+20:04:22,294 (main) INFO  [uniandes.isis2304.parranderos.test.ConexionTest] - Conexión cerrada
+20:09:59,078 (main) INFO  [uniandes.isis2304.parranderos.test.ConexionTest] - Probando el acceso a la base de datos con datos de usuario correctos, pero sin crear el esquema
+20:09:59,261 (main) INFO  [uniandes.isis2304.parranderos.test.ConexionTest] - Se encontró un archivo de configuración de tablas válido
+20:10:01,422 (main) INFO  [uniandes.isis2304.parranderos.test.ConexionTest] - Probando el acceso a la base de datos con una base de datos que no existe
+20:10:01,423 (main) INFO  [uniandes.isis2304.parranderos.test.ConexionTest] - Se encontró un archivo de configuración de tablas válido
+20:10:01,426 (main) INFO  [uniandes.isis2304.parranderos.test.ConexionTest] - Probando el acceso a la base de datos con datos de usuario incorrectos
+20:10:01,428 (main) INFO  [uniandes.isis2304.parranderos.test.ConexionTest] - Se encontró un archivo de configuración de tablas válido
+20:10:01,428 (main) INFO  [uniandes.isis2304.parranderos.test.ConexionTest] - Probando el acceso a la base de datos con datos válidos (BD, credenciales, esquema
+20:10:01,429 (main) INFO  [uniandes.isis2304.parranderos.test.ConexionTest] - Se encontró un archivo de configuración de tablas válido
+20:10:01,429 (main) INFO  [uniandes.isis2304.parranderos.test.ConexionTest] - Conexión realizada correstamente
+20:10:01,430 (main) INFO  [uniandes.isis2304.parranderos.test.ConexionTest] - Cerrando la conexión
+20:10:01,441 (main) INFO  [uniandes.isis2304.parranderos.test.ConexionTest] - Conexión cerrada
+20:12:50,860 (main) INFO  [uniandes.isis2304.parranderos.test.ConexionTest] - Probando el acceso a la base de datos con datos de usuario correctos, pero sin crear el esquema
+20:12:51,044 (main) INFO  [uniandes.isis2304.parranderos.test.ConexionTest] - Se encontró un archivo de configuración de tablas válido
+20:12:53,881 (main) INFO  [uniandes.isis2304.parranderos.test.ConexionTest] - Probando el acceso a la base de datos con una base de datos que no existe
+20:12:53,882 (main) INFO  [uniandes.isis2304.parranderos.test.ConexionTest] - Se encontró un archivo de configuración de tablas válido
+20:12:53,885 (main) INFO  [uniandes.isis2304.parranderos.test.ConexionTest] - Probando el acceso a la base de datos con datos de usuario incorrectos
+20:12:53,886 (main) INFO  [uniandes.isis2304.parranderos.test.ConexionTest] - Se encontró un archivo de configuración de tablas válido
+20:12:53,887 (main) INFO  [uniandes.isis2304.parranderos.test.ConexionTest] - Probando el acceso a la base de datos con datos válidos (BD, credenciales, esquema
+20:12:53,888 (main) INFO  [uniandes.isis2304.parranderos.test.ConexionTest] - Se encontró un archivo de configuración de tablas válido
+20:12:53,888 (main) INFO  [uniandes.isis2304.parranderos.test.ConexionTest] - Conexión realizada correstamente
+20:12:53,888 (main) INFO  [uniandes.isis2304.parranderos.test.ConexionTest] - Cerrando la conexión
+20:12:53,899 (main) INFO  [uniandes.isis2304.parranderos.test.ConexionTest] - Conexión cerrada
+20:16:03,936 (main) INFO  [uniandes.isis2304.parranderos.test.ConexionTest] - Probando el acceso a la base de datos con datos de usuario correctos, pero sin crear el esquema
+20:16:04,117 (main) INFO  [uniandes.isis2304.parranderos.test.ConexionTest] - Se encontró un archivo de configuración de tablas válido
+20:16:06,412 (main) INFO  [uniandes.isis2304.parranderos.test.ConexionTest] - Probando el acceso a la base de datos con una base de datos que no existe
+20:16:06,413 (main) INFO  [uniandes.isis2304.parranderos.test.ConexionTest] - Se encontró un archivo de configuración de tablas válido
+20:16:06,417 (main) INFO  [uniandes.isis2304.parranderos.test.ConexionTest] - Probando el acceso a la base de datos con datos de usuario incorrectos
+20:16:06,418 (main) INFO  [uniandes.isis2304.parranderos.test.ConexionTest] - Se encontró un archivo de configuración de tablas válido
+20:16:06,418 (main) INFO  [uniandes.isis2304.parranderos.test.ConexionTest] - Probando el acceso a la base de datos con datos válidos (BD, credenciales, esquema
+20:16:06,419 (main) INFO  [uniandes.isis2304.parranderos.test.ConexionTest] - Se encontró un archivo de configuración de tablas válido
+20:16:06,420 (main) INFO  [uniandes.isis2304.parranderos.test.ConexionTest] - Conexión realizada correstamente
+20:16:06,420 (main) INFO  [uniandes.isis2304.parranderos.test.ConexionTest] - Cerrando la conexión
+20:16:06,430 (main) INFO  [uniandes.isis2304.parranderos.test.ConexionTest] - Conexión cerrada
+20:19:48,328 (main) INFO  [uniandes.isis2304.parranderos.test.ConexionTest] - Probando el acceso a la base de datos con datos de usuario correctos, pero sin crear el esquema
+20:19:48,437 (main) INFO  [uniandes.isis2304.parranderos.test.ConexionTest] - Se encontró un archivo de configuración de tablas válido
+20:19:51,514 (main) INFO  [uniandes.isis2304.parranderos.test.ConexionTest] - Prueba de tabla inexistente incompleta. No se pudo conectar a la base de datos !!. La excepción generada es: javax.jdo.JDOFatalUserException
+20:19:51,514 (main) INFO  [uniandes.isis2304.parranderos.test.ConexionTest] - La causa es: javax.jdo.JDOFatalDataStoreException: ORA-01017: invalid username/password; logon denied
+
+NestedThrowables:
+java.sql.SQLException: ORA-01017: invalid username/password; logon denied
+
+20:19:51,519 (main) INFO  [uniandes.isis2304.parranderos.test.ConexionTest] - Probando el acceso a la base de datos con una base de datos que no existe
+20:19:51,520 (main) INFO  [uniandes.isis2304.parranderos.test.ConexionTest] - Se encontró un archivo de configuración de tablas válido
+20:19:51,633 (main) INFO  [uniandes.isis2304.parranderos.test.ConexionTest] - Prueba realizada exitosamente. La excepción generada es: javax.jdo.JDOFatalUserException
+20:19:51,633 (main) INFO  [uniandes.isis2304.parranderos.test.ConexionTest] - La causa es: javax.jdo.JDOFatalDataStoreException: Listener refused the connection with the following error:
+ORA-12505, TNS:listener does not currently know of SID given in connect descriptor
+ 
+NestedThrowables:
+java.sql.SQLException: Listener refused the connection with the following error:
+ORA-12505, TNS:listener does not currently know of SID given in connect descriptor
+ 
+20:19:51,634 (main) INFO  [uniandes.isis2304.parranderos.test.ConexionTest] - Probando el acceso a la base de datos con datos de usuario incorrectos
+20:19:51,640 (main) INFO  [uniandes.isis2304.parranderos.test.ConexionTest] - Se encontró un archivo de configuración de tablas válido
+20:19:53,264 (main) INFO  [uniandes.isis2304.parranderos.test.ConexionTest] - Prueba realizada exitosamente. La excepción generada es: javax.jdo.JDOFatalUserException
+20:19:53,264 (main) INFO  [uniandes.isis2304.parranderos.test.ConexionTest] - La causa es: javax.jdo.JDOFatalDataStoreException: ORA-01017: invalid username/password; logon denied
+
+NestedThrowables:
+java.sql.SQLException: ORA-01017: invalid username/password; logon denied
+
+20:19:53,265 (main) INFO  [uniandes.isis2304.parranderos.test.ConexionTest] - Probando el acceso a la base de datos con datos válidos (BD, credenciales, esquema
+20:19:53,267 (main) INFO  [uniandes.isis2304.parranderos.test.ConexionTest] - Se encontró un archivo de configuración de tablas válido
+20:19:54,479 (main) INFO  [uniandes.isis2304.parranderos.test.ConexionTest] - Prueba de acceso normal FALLÓ !!. La excepción generada es: javax.jdo.JDOFatalUserException
+20:19:54,479 (main) INFO  [uniandes.isis2304.parranderos.test.ConexionTest] - La causa es: javax.jdo.JDOFatalDataStoreException: ORA-01017: invalid username/password; logon denied
+
+NestedThrowables:
+java.sql.SQLException: ORA-01017: invalid username/password; logon denied
+
+20:20:51,409 (main) INFO  [uniandes.isis2304.parranderos.test.ConexionTest] - Probando el acceso a la base de datos con datos válidos (BD, credenciales, esquema
+20:20:51,516 (main) INFO  [uniandes.isis2304.parranderos.test.ConexionTest] - Se encontró un archivo de configuración de tablas válido
+20:20:53,856 (main) INFO  [uniandes.isis2304.parranderos.test.ConexionTest] - Conexión realizada correstamente
+20:20:53,857 (main) INFO  [uniandes.isis2304.parranderos.test.ConexionTest] - Cerrando la conexión
+20:20:53,869 (main) INFO  [uniandes.isis2304.parranderos.test.ConexionTest] - Conexión cerrada
+20:20:53,870 (main) INFO  [uniandes.isis2304.parranderos.test.ConexionTest] - Probando el acceso a la base de datos con datos de usuario correctos, pero sin crear el esquema
+20:20:53,872 (main) INFO  [uniandes.isis2304.parranderos.test.ConexionTest] - Se encontró un archivo de configuración de tablas válido
+20:20:54,132 (main) INFO  [uniandes.isis2304.parranderos.test.ConexionTest] - Probando el acceso a la base de datos con una base de datos que no existe
+20:20:54,134 (main) INFO  [uniandes.isis2304.parranderos.test.ConexionTest] - Se encontró un archivo de configuración de tablas válido
+20:20:54,138 (main) INFO  [uniandes.isis2304.parranderos.test.ConexionTest] - Probando el acceso a la base de datos con datos de usuario incorrectos
+20:20:54,139 (main) INFO  [uniandes.isis2304.parranderos.test.ConexionTest] - Se encontró un archivo de configuración de tablas válido
+21:06:53,819 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Interfaz
+21:06:53,821 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se aplica configuración indicada en el archivo de configuración
+21:06:53,857 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+21:07:59,808 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Adicionando Propietario: jorge
+21:08:00,165 (AWT-EventQueue-0) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaAlohAndes] - Exception : Error con la ejecucion de Query de SQL "INSERT INTO PROPIETARIO(nombre, numeroidentificacion, tipoidentificacion, tipopropietario) values (?, ?, ?, ?)".
+ORA-02290: restricción de control (ISIS2304B012010.SYS_C00759112) violada
+
+21:08:00,187 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Adicionando propietario: null
+21:10:26,361 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Adicionando Propietario: jorge
+21:10:26,758 (AWT-EventQueue-0) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaAlohAndes] - Exception : Error con la ejecucion de Query de SQL "INSERT INTO PROPIETARIO(nombre, numeroidentificacion, tipoidentificacion, tipopropietario) values (?, ?, ?, ?)".
+ORA-02290: restricción de control (ISIS2304B012010.SYS_C00759112) violada
+
+21:10:26,841 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Adicionando propietario: null
+21:29:02,056 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Interfaz
+21:29:02,057 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se aplica configuración indicada en el archivo de configuración
+21:29:02,098 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+21:29:33,507 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Adicionando Propietario: nwj
+21:29:33,910 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Adicionando propietario: Propietario [nombre=nwj, identificacion=3784713, tipoIdentificacion=3, tipoPropietario=PROFESOR]
+12:42:08,328 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Interfaz
+12:42:08,330 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se aplica configuración indicada en el archivo de configuración
+12:42:08,372 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+12:43:03,298 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Adicionando Propietario: Jorge
+12:43:03,581 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Adicionando propietario: Propietario [nombre=Jorge, identificacion=12, tipoIdentificacion=CC, tipoPropietario=PROFESOR]
+12:44:00,067 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Adicionando Apartamento: calle 25
+12:44:00,221 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Adicionando Apartamento: Apartemento [ubicacion=calle 25, idPropietario=12, numeroHabitaciones=4, servicios=muchos, tipoIdetificacionPropiestario=CC]
+12:49:10,092 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Adicionando Oferta: [2020-03-20 00:00:00.0, 2020-03-27 00:00:00.0]
+12:49:10,245 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Adicionando oferta: Oferta [id=1, fechaInicio=2020-03-20 00:00:00.0, fechaFin=2020-03-27 00:00:00.0, diasActiva=7, descuento=20, tiempoContrato=UNA SEMANA]
+12:49:10,246 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Adicionando OfertaApartamento: [1, calle 25]
+12:49:10,247 (AWT-EventQueue-0) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaAlohAndes] - Exception : Index: 13, Size: 11
+
+12:49:10,248 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Adicionando ofertaApartamento: null
+12:50:49,314 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Interfaz
+12:50:49,315 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se aplica configuración indicada en el archivo de configuración
+12:50:49,342 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+12:51:41,234 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Adicionando Oferta: [2020-03-20 00:00:00.0, 2020-03-27 00:00:00.0]
+12:51:41,651 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Adicionando oferta: Oferta [id=2, fechaInicio=2020-03-20 00:00:00.0, fechaFin=2020-03-27 00:00:00.0, diasActiva=7, descuento=20, tiempoContrato=UNA SEMANA]
+12:51:41,651 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Adicionando OfertaApartamento: [2, calle 25]
+12:51:41,653 (AWT-EventQueue-0) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaAlohAndes] - Exception : Index: 13, Size: 11
+
+12:51:41,655 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Adicionando ofertaApartamento: null
+12:58:42,748 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Interfaz
+12:58:42,749 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se aplica configuración indicada en el archivo de configuración
+12:58:42,773 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+12:59:26,434 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Adicionando Oferta: [2020-03-20 00:00:00.0, 2020-03-27 00:00:00.0]
+12:59:26,914 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Adicionando oferta: Oferta [id=3, fechaInicio=2020-03-20 00:00:00.0, fechaFin=2020-03-27 00:00:00.0, diasActiva=10, descuento=10, tiempoContrato=UNA SEMANA]
+12:59:26,915 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Adicionando OfertaApartamento: [3, calle 25]
+12:59:26,916 (AWT-EventQueue-0) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaAlohAndes] - Exception : Index: 13, Size: 11
+
+12:59:26,917 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Adicionando ofertaApartamento: null
+13:00:53,263 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Interfaz
+13:00:53,264 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se aplica configuración indicada en el archivo de configuración
+13:00:53,310 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+13:01:32,135 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Adicionando Oferta: [2020-02-20 00:00:00.0, 2020-02-27 00:00:00.0]
+13:01:32,497 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Adicionando oferta: Oferta [id=4, fechaInicio=2020-02-20 00:00:00.0, fechaFin=2020-02-27 00:00:00.0, diasActiva=10, descuento=10, tiempoContrato=UNA SEMANA]
+13:31:56,474 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Interfaz
+13:31:56,476 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se aplica configuración indicada en el archivo de configuración
+13:31:56,515 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+13:32:50,719 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Adicionando Oferta: [2020-03-21 00:00:00.0, 2020-03-24 00:00:00.0]
+13:32:51,066 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Adicionando oferta: Oferta [id=5, fechaInicio=2020-03-21 00:00:00.0, fechaFin=2020-03-24 00:00:00.0, diasActiva=12, descuento=20, tiempoContrato=UNA SEMANA]
+13:33:20,275 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Adicionando OfertaApartamento: [5, calle 25]
+13:33:20,278 (AWT-EventQueue-0) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaAlohAndes] - Exception : Index: 13, Size: 11
+
+13:33:20,279 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Adicionando ofertaApartamento: null
+13:35:39,679 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Adicionando OfertaApartamento: [8, calle 4]
+13:35:39,682 (AWT-EventQueue-0) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaAlohAndes] - Exception : Index: 13, Size: 11
+
+13:35:39,683 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Adicionando ofertaApartamento: null
+14:10:37,955 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Interfaz
+14:10:37,957 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se aplica configuración indicada en el archivo de configuración
+14:10:38,013 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+14:10:53,524 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Adicionando OfertaApartamento: [5, calle 25]
+14:10:53,840 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Adicionando ofertaApartamento: OfertaHabitacion [idOferta=5, idApartamento=calle 25]
+16:47:39,432 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Interfaz
+16:47:39,434 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se aplica configuración indicada en el archivo de configuración
+16:47:39,485 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+18:47:39,455 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Interfaz
+18:47:39,458 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se aplica configuración indicada en el archivo de configuración
+18:47:39,501 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+19:42:51,052 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Interfaz
+19:42:51,054 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se aplica configuración indicada en el archivo de configuración
+19:42:51,102 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+15:47:33,619 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Interfaz
+15:47:33,623 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se aplica configuración indicada en el archivo de configuración
+15:47:33,697 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+15:50:10,866 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Adicionando Propietario: ALBERTO
+15:50:11,976 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Adicionando propietario: Propietario [nombre=ALBERTO, identificacion=141, tipoIdentificacion=CC, tipoPropietario=ESTUDIANTE]
+15:51:34,555 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Adicionando Apartamento: CALLE 25 
+15:51:34,734 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Adicionando Apartamento: Apartemento [ubicacion=CALLE 25 , idPropietario=141, numeroHabitaciones=4, servicios=INTERNET, tipoIdetificacionPropiestario=CC]
+15:52:31,759 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Adicionando Cliente: LUIS
+15:52:31,840 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Adicionando cliente: Cliente [numeroIdentificacion=234 nombre=LUIS, tipoIdentificacion=CC, TipoCliente=ESTUDIANTE]
+15:55:55,013 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Adicionando Oferta: [2020-03-20 00:00:00.0, 2020-03-04 00:00:00.0]
+15:55:55,173 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Adicionando oferta: Oferta [id=21, fechaInicio=2020-03-20 00:00:00.0, fechaFin=2020-03-04 00:00:00.0, diasActiva=0, descuento=0, tiempoContrato=UNA SEMANA]
+15:57:09,722 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Adicionando Reserva: [234, 21]
+15:57:09,887 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Adicionando Reserva: Reserva [id=22, idCliente=234, idOferta=21, costoPagado=0.0, costoTotal=4.0, fechaIda=2020-03-24 00:00:00.0, fechaLlegada=2020-03-20 00:00:00.0, tiempoAlojamiento=UNA SEMANA]
+16:06:26,602 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Listando el índice de ocupacion de cada oferta
+16:06:26,659 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Listando el indice de ocupacion de cada oferta
