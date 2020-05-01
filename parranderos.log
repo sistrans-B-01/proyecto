@@ -292,3 +292,25 @@ ORA-02290: restricción de control (ISIS2304B012010.SYS_C00759112) violada
 15:57:09,887 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Adicionando Reserva: Reserva [id=22, idCliente=234, idOferta=21, costoPagado=0.0, costoTotal=4.0, fechaIda=2020-03-24 00:00:00.0, fechaLlegada=2020-03-20 00:00:00.0, tiempoAlojamiento=UNA SEMANA]
 16:06:26,602 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Listando el índice de ocupacion de cada oferta
 16:06:26,659 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Listando el indice de ocupacion de cada oferta
+13:17:15,827 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Interfaz
+13:17:15,855 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se aplica configuración indicada en el archivo de configuración
+13:17:16,150 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+13:18:22,278 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Adicionando Propietario: rodolfo
+13:18:28,275 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Adicionando propietario: Propietario [nombre=rodolfo, identificacion=123, tipoIdentificacion=CC, tipoPropietario=PROFESOR]
+13:20:07,309 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Adicionando Apartamento: CL 25
+13:20:07,450 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Adicionando Apartamento: Apartemento [ubicacion=CL 25, idPropietario=123, numeroHabitaciones=1, servicios=LUZ, tipoIdetificacionPropiestario=CC]
+13:20:40,565 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Adicionando Cliente: SO
+13:20:40,626 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Adicionando cliente: Cliente [numeroIdentificacion=456 nombre=SO, tipoIdentificacion=CC, TipoCliente=PROFESOR]
+13:22:10,542 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Adicionando Oferta: [2020-01-01 00:00:00.0, 2020-01-04 00:00:00.0]
+13:22:11,289 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Adicionando oferta: Oferta [id=41, fechaInicio=2020-01-01 00:00:00.0, fechaFin=2020-01-04 00:00:00.0, diasActiva=4, descuento=20, tiempoContrato=UNA SEMANA]
+13:22:35,152 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Adicionando OfertaApartamento: [41, CL 25]
+13:22:35,205 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Adicionando ofertaApartamento: OfertaHabitacion [idOferta=41, idApartamento=CL 25]
+13:22:51,891 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Eliminando OfertaApartamento por ids: [41 ,CL 25]
+13:22:51,922 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Eliminando OfertaApartamento por ids: 1 tuplas eliminadas
+13:25:17,796 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Adicionando Reserva: [456, 41]
+13:25:17,921 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Adicionando Reserva: Reserva [id=42, idCliente=456, idOferta=41, costoPagado=20.0, costoTotal=4.0, fechaIda=2020-01-04 00:00:00.0, fechaLlegada=2020-01-01 00:00:00.0, tiempoAlojamiento=UNA SEMANA]
+13:26:06,241 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Listando el índice de ocupacion de cada oferta
+13:26:06,432 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Listando el indice de ocupacion de cada oferta
+13:30:15,853 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Interfaz
+13:30:15,855 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se aplica configuración indicada en el archivo de configuración
+13:30:15,909 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Tablas BD
