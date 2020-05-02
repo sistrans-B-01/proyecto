@@ -1,0 +1,5 @@
+UPDATE OFERTA
+SET oferta.activa='1'
+WHERE OFERTA.ID=205;
+
+COMMIT;
