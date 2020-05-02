@@ -929,6 +929,25 @@ public class InterfazAlohandesApp extends JFrame implements ActionListener
 			panelDatos.actualizarInterfaz(resultado);
 		}
     }
+    
+    public void listarAnalisisOperacion( )
+    {
+    	try
+    	{
+    		List<Object[ ]> lista= parranderos.darAnalisisOcupacion();
+    		
+    		String resultado = "En listarAnalisisOperacion";
+    		resultado += "\n" + lista;
+    		panelDatos.actualizarInterfaz(resultado);
+    		resultado += "\n Operación terminada";
+    	}
+    	catch (Exception e) 
+    	{
+//			e.printStackTrace();
+			String resultado = generarMensajeError(e);
+			panelDatos.actualizarInterfaz(resultado);
+		}
+    }
 
 
 	/* ****************************************************************

@@ -937,6 +937,32 @@ public class PersistenciaAlohAndes
 		return sqlHabitacion.darHabitacionPorId(pmf.getPersistenceManager(), idh);
 	}
 	
+	public List<Object[ ]> darAnalisisOperacion()
+	{
+		List<Object []> analisis = new LinkedList <Object []> ();
+		List<Object> tuplas= sqlHabitacion.darAnalisisOperacion(pmf.getPersistenceManager());
+		for (Object tupla : tuplas)
+		{
+			Object [] datos = (Object []) tupla;
+			String alojamiento = (String) datos [0];
+			int maximo = ((BigDecimal) datos[1]).intValue();
+			Timestamp mejorPaga = (Timestamp) datos [2];
+			int maxocu = ((BigDecimal) datos[3]).intValue();
+			Timestamp mejorOcupa = (Timestamp) datos [4];
+						
+			Object [] indiceO = new Object [5];
+			indiceO[0] = alojamiento;
+			indiceO [1] = maximo;
+			indiceO[2] = mejorPaga;
+			indiceO[3] = maxocu;
+			indiceO[4] = mejorOcupa;
+
+			analisis.add (indiceO);
+			
+		}
+		return analisis;
+	}
+	
 	/* ****************************************************************
 	 * 			Métodos para manejar las OFERTA
 	 *****************************************************************/

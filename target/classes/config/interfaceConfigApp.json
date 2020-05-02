@@ -116,6 +116,10 @@
 				{
 				    "label": "ListarInfoGeneral" ,
 				    "event": "listarInfoGeneral"
+				},
+				{
+				    "label": "ListarAnalisisOperacion",
+				    "event": "listarAnalisisOperacion"
 				}
 			]
 		},

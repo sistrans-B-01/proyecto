@@ -150,6 +150,15 @@ public class AlohAndes
         return habit;
 	}
 	
+	public List<Object[]> darAnalisisOcupacion( )
+	{
+		log.info("Listando el analisis de ocupacion");
+		List<Object[]> tuplas= pp.darAnalisisOperacion();
+		log.info("Listando el analisis de ocupacion");
+		return tuplas;
+	}
+	
+	
 	/* ****************************************************************
 	 * 			Métodos para manejar las OFERTAS
 	 *****************************************************************/

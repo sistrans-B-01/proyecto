@@ -113,4 +113,37 @@ public class SQLHabitacion
 		q.setResultClass(Habitacion.class);
 		return (List<Habitacion>) q.executeList();
 	}
+	
+	public List<Object> darAnalisisOperacion( PersistenceManager pm)
+	{
+		String sql= "SELECT 'HABITACION' AS ALOJAMIENTO, MAX(SUMAS) AS MAXIMO, MEJORPAGADA, MAX(OCU) AS MAXOCU, MEJOROCUPA";
+		      sql+= " FROM( SELECT SUM(RES.COSTOPAGADO) AS SUMAS, RES.FECHADEPAGO AS MEJORPAGADA, COUNT(disponible) AS OCU, RES.FECHALLEGADA AS MEJOROCUPA";
+		      sql+= " FROM " + pp.darTablaOfertaHabitacion() + " OFEHAB, " + pp.darTablaOferta() + " OFE, " + pp.darTablaReserva() + " RES";
+		      sql+= " WHERE( OFEHAB.IDOFERTA= OFE.ID AND RES.IDOFERTA= OFE.ID AND ofe.disponible='N')";
+		      sql+= " GROUP BY RES.FECHADEPAGO, res.fechallegada";
+		      sql+= " HAVING(RES.FECHADEPAGO <= '10-ENE-2020' AND RES.FECHADEPAGO>= '28-DIC-2019'))";
+		      sql+= " WHERE ROWNUM <=5";
+		      sql+= " GROUP BY MEJORPAGADA, MEJOROCUPA";
+		      sql+= " UNION";
+		      sql+= " SELECT 'VIVIENDA' AS ALOJAMIENTO, MAX(SUMAS) AS MAXIMO, MEJORPAGADA, MAX(OCU) AS MAXOCU, MEJOROCUPA";
+		      sql+= " FROM( SELECT SUM(RES.COSTOPAGADO) AS SUMAS, RES.FECHADEPAGO AS MEJORPAGADA, COUNT(disponible) AS OCU, res.fechallegada AS MEJOROCUPA";
+		      sql+= " FROM " + pp.darTablaOfertaVivienda() + " OFEVIV, " + pp.darTablaOferta() + " OFE, " + pp.darTablaReserva() + " RES";
+		      sql+= " WHERE (OFEVIV.IDOFERTA= OFE.ID AND RES.IDOFERTA= OFE.ID AND ofe.disponible='N')";
+		      sql+= " GROUP BY RES.FECHADEPAGO, res.fechallegada";
+		      sql+= " HAVING(RES.FECHADEPAGO <= '10-ENE-2020' AND RES.FECHADEPAGO>= '28-DIC-2019'))";
+		      sql+= " WHERE ROWNUM<= 5";
+		      sql+= " GROUP BY MEJORPAGADA, MEJOROCUPA";
+		      sql+= " UNION";
+		      sql+= " SELECT 'APARTAMENTO' AS ALOJAMIENTO, MAX(SUMAS) AS MAXIMO, MEJORPAGADA, MAX(OCU) AS MAXOCU, MEJOROCUPA";
+		      sql+= " FROM( SELECT SUM(RES.COSTOPAGADO) AS SUMAS, RES.FECHADEPAGO AS MEJORPAGADA, COUNT(disponible) AS OCU, res.fechallegada AS MEJOROCUPA";
+		      sql+= " FROM " + pp.darTablaOfertaApartamento() + " OFEAPT, " + pp.darTablaOferta() + " OFE, " + pp.darTablaReserva() + " RES";
+		      sql+= " WHERE (OFEAPT.IDOFERTA= OFE.ID AND RES.IDOFERTA= OFE.ID AND ofe.disponible='N')";
+		      sql+= " GROUP BY RES.FECHADEPAGO, res.fechallegada";
+		      sql+= " HAVING(RES.FECHADEPAGO <= '10-ENE-2020' AND RES.FECHADEPAGO>= '28-DIC-2019'))";
+		      sql+= " WHERE ROWNUM<= 5";
+		      sql+= " GROUP BY MEJORPAGADA, MEJOROCUPA";
+		      sql+= " ORDER BY MAXIMO DESC";
+		Query q = pm.newQuery(SQL, sql);
+	    return q.executeList();
+	}
 }
