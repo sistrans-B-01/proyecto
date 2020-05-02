@@ -743,7 +743,7 @@ public class InterfazAlohandesApp extends JFrame implements ActionListener
 		}
     }
     
-    public void eliminarOfertaPorId( )
+    public void eliminarOferta( )
     {
     	try 
     	{
@@ -813,7 +813,7 @@ public class InterfazAlohandesApp extends JFrame implements ActionListener
 		}
     }
     
-    public void eliminarReservaPorId( )
+    public void eliminarReserva( )
     {
     	try 
     	{
@@ -848,7 +848,7 @@ public class InterfazAlohandesApp extends JFrame implements ActionListener
     /**
      * Consulta en la base de datos los tipos de bebida existentes y los muestra en el panel de datos de la aplicación
      */
-    public void listarDineroPorProveedor( )
+    public void listarDineroRecibido( )
     {
     	try 
     	{
@@ -870,7 +870,7 @@ public class InterfazAlohandesApp extends JFrame implements ActionListener
     /**
      * Consulta en la base de datos los tipos de bebida existentes y los muestra en el panel de datos de la aplicación
      */
-    public void listar20Ofertaspopulares( )
+    public void listarOfertasPopulares( )
     {
     	try 
     	{
