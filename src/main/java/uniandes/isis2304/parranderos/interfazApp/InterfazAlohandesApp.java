@@ -47,6 +47,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.stream.JsonReader;
 
+import oracle.sql.CHAR;
 import uniandes.isis2304.parranderos.negocio.AlohAndes;
 import uniandes.isis2304.parranderos.negocio.Oferta;
 import uniandes.isis2304.parranderos.negocio.VOApartamento;
@@ -531,10 +532,12 @@ public class InterfazAlohandesApp extends JFrame implements ActionListener
     		String fechaIni= JOptionPane.showInputDialog(this, "Fecha de inicio", "Adicionar una oferta", JOptionPane.QUESTION_MESSAGE);
     		String fechaFin= JOptionPane.showInputDialog(this, "Fecha de finalizacion", "Adicionar una oferta", JOptionPane.QUESTION_MESSAGE);
     		String tiempoCont= JOptionPane.showInputDialog(this, "Tiempo del contrato", "Adicionar una oferta", JOptionPane.QUESTION_MESSAGE);
+    		String activa= JOptionPane.showInputDialog(this, "Oferta activa", "Adicionar una oferta", JOptionPane.QUESTION_MESSAGE);
+    		String disponible= JOptionPane.showInputDialog(this, "Oferta disponible", "Adicionar una oferta", JOptionPane.QUESTION_MESSAGE);
 
     		if (fechaIni != null && fechaFin != null)
     		{
-        		VOOferta tb = parranderos.adicionarOferta(Integer.valueOf(descuento), Integer.valueOf(diasActiva), Integer.valueOf(diasUsada), Timestamp.valueOf(fechaFin), Timestamp.valueOf(fechaIni), tiempoCont);
+        		VOOferta tb = parranderos.adicionarOferta(Integer.valueOf(descuento), Integer.valueOf(diasActiva), Integer.valueOf(diasUsada), Timestamp.valueOf(fechaFin), Timestamp.valueOf(fechaIni), tiempoCont, activa, disponible);
         		if (tb == null)
         		{
         			throw new Exception ("No se pudo crear una oferta con fecha Inicio: " + fechaIni + "y fecha Final: " + fechaFin);
@@ -900,6 +903,25 @@ public class InterfazAlohandesApp extends JFrame implements ActionListener
 			panelDatos.actualizarInterfaz(resultado);
 			resultado += "\n Operación terminada";
 		} 
+    	catch (Exception e) 
+    	{
+//			e.printStackTrace();
+			String resultado = generarMensajeError(e);
+			panelDatos.actualizarInterfaz(resultado);
+		}
+    }
+    
+    public void listarInfoGeneral( )
+    {
+    	try
+    	{
+    		List<Object[ ]> lista= parranderos.darInfoGeneral();
+    		
+    		String resultado = "En listarInfoGeneral";
+    		resultado += "\n" + lista;
+    		panelDatos.actualizarInterfaz(resultado);
+    		resultado += "\n Operación terminada";
+    	}
     	catch (Exception e) 
     	{
 //			e.printStackTrace();

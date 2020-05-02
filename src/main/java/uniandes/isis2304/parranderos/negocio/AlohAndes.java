@@ -165,10 +165,10 @@ public class AlohAndes
 	 * @param idh - El id de la habitacion
 	 * @return El objeto Oferta adicionado. null si ocurre alguna Excepción
 	 */
-	public Oferta adicionarOferta (int desc, int dias, int usada, Timestamp fin, Timestamp lle, String tiem)
+	public Oferta adicionarOferta (int desc, int dias, int usada, Timestamp fin, Timestamp lle, String tiem, String activa, String disponible)
 	{
         log.info ("Adicionando Oferta: [" + lle + ", " + fin + "]");
-        Oferta oferta = pp.adicionarOferta(desc, dias, usada, fin, lle, tiem);
+        Oferta oferta = pp.adicionarOferta(desc, dias, usada, fin, lle, tiem, activa, disponible);
         log.info ("Adicionando oferta: " + oferta);
         return oferta;
 	}
@@ -215,6 +215,14 @@ public class AlohAndes
         Cliente cliente = pp.adicionarCliente(nom, numid, tipoid, tipoc);
         log.info ("Adicionando cliente: " + cliente);
         return cliente;
+	}
+	
+	public List<Object[]> darInfoGeneral( )
+	{
+		log.info("Listando la info general de clientes");
+		List<Object[]> tuplas= pp.darInfoGeneral();
+		log.info("Listando la info general del clientes");
+		return tuplas;
 	}
 	
 	/* ****************************************************************

@@ -97,4 +97,14 @@ public class SQLCliente
 		q.setResultClass(Cliente.class);
 		return (List<Cliente>) q.executeList();
 	}
+	
+	public List<Object> darInfoGeneral ( PersistenceManager pm)
+	{
+		String sql= "SELECT CLI.NOMBRE, CLI.TIPOCLIENTE, SUM(RES.COSTOPAGADO) AS DINEROPAGADO, (RES.FECHAIDA - RES.FECHALLEGADA) AS DIAS, COUNT(RES.ID) AS RESERVAS";
+		      sql+= " FROM " + pp.darTablaCliente() + " CLI, " + pp.darTablaReserva() + " RES";
+		      sql+= " WHERE( CLI.NUMEROIDENTIFICACION = RES.IDCLIENTE)";
+		      sql+= " GROUP BY CLI.NOMBRE, CLI.TIPOCLIENTE, RES.FECHALLEGADA, RES.FECHAIDA";
+		Query q = pm.newQuery(SQL, sql);
+	    return q.executeList();
+	}
 }

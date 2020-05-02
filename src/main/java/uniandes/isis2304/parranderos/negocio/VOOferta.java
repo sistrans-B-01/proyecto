@@ -18,6 +18,10 @@ public interface VOOferta
 	public int getDescuento();
 	
 	public String getTiempoContraro();
+	
+	public String getActiva();
+	
+	public String getDisponible();
 
 	/** 
 	 * @return Una cadena con la información básica

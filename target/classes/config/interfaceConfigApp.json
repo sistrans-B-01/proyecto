@@ -112,6 +112,10 @@
 				{
 					"label": "ListarIndiceOcupacion",
 					"event": "listarIndiceOcupacion"
+				},
+				{
+				    "label": "ListarInfoGeneral" ,
+				    "event": "listarInfoGeneral"
 				}
 			]
 		},
