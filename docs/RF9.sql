@@ -23,10 +23,6 @@ where(oferta.id in (select distinct oferta.id
         )
         ;
 
-select oferta.id
-from oferta
-where disponible='Y'
-
 --update reserva
 --set reserva.idoferta= oferta.id, reserva.id= reserva.id
 --from oferta, reserva
