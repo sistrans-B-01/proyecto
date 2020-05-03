@@ -15,7 +15,7 @@
 
 package uniandes.isis2304.parranderos.interfazApp;
 
-import java.awt.BorderLayout; 
+import java.awt.BorderLayout;  
 import java.awt.Color;
 import java.awt.Desktop;
 import java.awt.event.ActionEvent;
@@ -26,6 +26,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.lang.reflect.Method;
+import java.math.BigDecimal;
 import java.sql.Timestamp;
 import java.util.List;
 
@@ -533,10 +534,12 @@ public class InterfazAlohandesApp extends JFrame implements ActionListener
     		String fechaIni= JOptionPane.showInputDialog(this, "Fecha de inicio", "Adicionar una oferta", JOptionPane.QUESTION_MESSAGE);
     		String fechaFin= JOptionPane.showInputDialog(this, "Fecha de finalizacion", "Adicionar una oferta", JOptionPane.QUESTION_MESSAGE);
     		String tiempoCont= JOptionPane.showInputDialog(this, "Tiempo del contrato", "Adicionar una oferta", JOptionPane.QUESTION_MESSAGE);
+    		String activa= JOptionPane.showInputDialog(this, "Oferta activa", "Adicionar una oferta", JOptionPane.QUESTION_MESSAGE);
+    		String disponible= JOptionPane.showInputDialog(this, "Oferta disponible", "Adicionar una oferta", JOptionPane.QUESTION_MESSAGE);
 
     		if (fechaIni != null && fechaFin != null)
     		{
-        		VOOferta tb = parranderos.adicionarOferta(Integer.valueOf(descuento), Integer.valueOf(diasActiva), Integer.valueOf(diasUsada), Timestamp.valueOf(fechaFin), Timestamp.valueOf(fechaIni), tiempoCont);
+        		VOOferta tb = parranderos.adicionarOferta(Integer.valueOf(descuento), Integer.valueOf(diasActiva), Integer.valueOf(diasUsada), Timestamp.valueOf(fechaFin), Timestamp.valueOf(fechaIni), tiempoCont, activa, disponible);
         		if (tb == null)
         		{
         			throw new Exception ("No se pudo crear una oferta con fecha Inicio: " + fechaIni + "y fecha Final: " + fechaFin);
@@ -742,7 +745,7 @@ public class InterfazAlohandesApp extends JFrame implements ActionListener
 		}
     }
     
-    public void eliminarOfertaPorId( )
+    public void eliminarOferta( )
     {
     	try 
     	{
@@ -761,6 +764,66 @@ public class InterfazAlohandesApp extends JFrame implements ActionListener
     		{
     			panelDatos.actualizarInterfaz("Operación cancelada por el usuario");
     		}
+		} 
+    	catch (Exception e) 
+    	{
+//			e.printStackTrace();
+			String resultado = generarMensajeError(e);
+			panelDatos.actualizarInterfaz(resultado);
+		}
+    }
+    
+    public void actualizarOfertaActiva()
+    {
+    	try 
+    	{
+    		String idOfe= JOptionPane.showInputDialog(this, "Identificador de la oferta", "Actualizar la desactivacion de una oferta", JOptionPane.QUESTION_MESSAGE);
+    		if( idOfe != null)
+    		{
+    			long tbActualizada = parranderos.actulizarOfertaActiva(Long.valueOf(idOfe));
+    			
+    			List <long[]> lista = parranderos.darReservasPorCambiar();
+    			
+    			long tbResActualizada = parranderos.actualizarReservas();
+
+    			String resultado = "En actualizarOfertaActiva";
+    			resultado += "\n Cambia oferta a desactivada: " + tbActualizada;
+    			resultado +=  "\n" + listarPrueba (lista);
+    			resultado += "\n Cambia las reservas: " + tbResActualizada;
+    			panelDatos.actualizarInterfaz(resultado);
+    			resultado += "\n Operación terminada";
+    		}
+    		else
+    		{
+    			panelDatos.actualizarInterfaz("Operación cancelada por el usuario");
+    		}			
+		} 
+    	catch (Exception e) 
+    	{
+//			e.printStackTrace();
+			String resultado = generarMensajeError(e);
+			panelDatos.actualizarInterfaz(resultado);
+		}
+    }
+    
+    public void actualizarOfertaDesactiva()
+    {
+    	try 
+    	{
+    		String idOfe= JOptionPane.showInputDialog(this, "Identificador de la oferta", "Actualizar la activacion de una oferta", JOptionPane.QUESTION_MESSAGE);
+    		if( idOfe != null)
+    		{
+    			long tbActualizada = parranderos.actulizarOfertaDesactiva(Long.valueOf(idOfe));
+
+    			String resultado = "En actualizarOfertaDesactiva";
+    			resultado += "\n Cambia oferta a activada: " + tbActualizada;
+    			panelDatos.actualizarInterfaz(resultado);
+    			resultado += "\n Operación terminada";
+    		}
+    		else
+    		{
+    			panelDatos.actualizarInterfaz("Operación cancelada por el usuario");
+    		}			
 		} 
     	catch (Exception e) 
     	{
@@ -794,10 +857,25 @@ public class InterfazAlohandesApp extends JFrame implements ActionListener
         		{
         			throw new Exception ("No se pudo crear una reserva con Id de Cliente: " + idCli + "y Id de oferta: " + idOfe);
         		}
-        		String resultado = "En adicionarReserva\n\n";
-        		resultado += "Reserva adicionada exitosamente: " + tb;
-    			resultado += "\n Operación terminada";
-    			panelDatos.actualizarInterfaz(resultado);
+        		
+        		long tbEliminados = parranderos.elimResSiOfeInac(tb.getId());
+        		if( tbEliminados != 0)
+        		{
+        			String resultado = "En adicionarReserva\n\n";
+            		resultado += "La reserva no se pudo adicionar: " + tbEliminados;
+        			resultado += "\n Operación terminada";
+        			panelDatos.actualizarInterfaz(resultado);
+        		}
+        		else
+        		{
+        			long tbActualizada = parranderos.cambiarDisponibleOferta(tb.getOferta());
+        			String resultado = "En adicionarReserva\n\n";
+            		resultado += "Reserva adicionada exitosamente: " + tb;
+            		resultado += "\n Cambia oferta a NO disponible: " + tbActualizada;
+        			resultado += "\n Operación terminada";
+        			panelDatos.actualizarInterfaz(resultado);
+        		}
+        		
     		}
     		else
     		{
@@ -812,7 +890,7 @@ public class InterfazAlohandesApp extends JFrame implements ActionListener
 		}
     }
     
-    public void eliminarReservaPorId( )
+    public void eliminarReserva( )
     {
     	try 
     	{
@@ -847,14 +925,14 @@ public class InterfazAlohandesApp extends JFrame implements ActionListener
     /**
      * Consulta en la base de datos los tipos de bebida existentes y los muestra en el panel de datos de la aplicación
      */
-    public void listarDineroPorProveedor( )
+    public void listarDineroRecibido( )
     {
     	try 
     	{
 			List <Object[]> lista = parranderos.darDineroRecibidPorProveedor();
 
 			String resultado = "En listarDineroRecibido";
-			resultado +=  "\n" + lista;
+			resultado +=  "\n" + listarDineroRecibido(lista);
 			panelDatos.actualizarInterfaz(resultado);
 			resultado += "\n Operación terminada";
 		} 
@@ -869,7 +947,7 @@ public class InterfazAlohandesApp extends JFrame implements ActionListener
     /**
      * Consulta en la base de datos los tipos de bebida existentes y los muestra en el panel de datos de la aplicación
      */
-    public void listar20Ofertaspopulares( )
+    public void listarOfertasPopulares( )
     {
     	try 
     	{
@@ -898,7 +976,7 @@ public class InterfazAlohandesApp extends JFrame implements ActionListener
 			List <Object[]> lista = parranderos.darIndiceOcupacion();
 
 			String resultado = "En listarIndiceOcupacion";
-			resultado +=  "\n" + lista;
+			resultado +=  "\n" + listarIndiceOcupacion(lista);
 			panelDatos.actualizarInterfaz(resultado);
 			resultado += "\n Operación terminada";
 		} 
@@ -909,6 +987,48 @@ public class InterfazAlohandesApp extends JFrame implements ActionListener
 			panelDatos.actualizarInterfaz(resultado);
 		}
     }
+    
+    public void listarInfoGeneral( )
+    {
+    	try
+    	{
+    		List<Object[ ]> lista= parranderos.darInfoGeneral();
+    		
+    		String resultado = "En listarInfoGeneral";
+    		resultado += "\n" + listarInfoGeneral(lista);
+    		panelDatos.actualizarInterfaz(resultado);
+    		resultado += "\n Operación terminada";
+    	}
+    	catch (Exception e) 
+    	{
+//			e.printStackTrace();
+			String resultado = generarMensajeError(e);
+			panelDatos.actualizarInterfaz(resultado);
+		}
+    }
+    
+    public void listarAnalisisOperacion( )
+    {
+    	try
+    	{
+    		List<Object[ ]> lista= parranderos.darAnalisisOcupacion();
+    		
+    		String resultado = "En listarAnalisisOperacion";
+    		resultado += "\n" + listarAnalisisOperacion(lista);
+    		panelDatos.actualizarInterfaz(resultado);
+    		resultado += "\n Operación terminada";
+    	}
+    	catch (Exception e) 
+    	{
+//			e.printStackTrace();
+			String resultado = generarMensajeError(e);
+			panelDatos.actualizarInterfaz(resultado);
+		}
+    }
+    
+    /* ****************************************************************
+	 * 			Métodos para las listas
+	 *****************************************************************/
 
     /* ****************************************************************
 	 * 			Métodos RF7-RESERVAS-MASIVAS
@@ -1007,11 +1127,117 @@ public class InterfazAlohandesApp extends JFrame implements ActionListener
 			panelDatos.actualizarInterfaz(resultado);
 		}
     }
+    private String listarPrueba (List<long[]> lista) 
+    {
+    	String resp = "Las ofertas disponibles y las reservas a cambiar son:\n";
+    	int i = 1;
+        for ( long [] tupla : lista)
+        {
+			long [] datos = tupla;
+	        String resp1 = i++ + ". " + "[";
+			resp1 += "ofertas disponibles: " + datos [0] + ", ";
+			resp1 += "reservas a cambiar: " + datos [1];
+	        resp1 += "]";
+	        resp += resp1 + "\n";
+        }
+        return resp;
+	}
+    
+    private String listarDineroRecibido(List<Object[]> lista)
+    {
+    	String resp= "El dinero recibido por proveedor es: \n";
+    	int i = 1;
+    	for ( Object[ ] tupla : lista)
+    	{
+    		String dominio = (String) tupla[0];
+    		String propietario = (String) tupla[1];
+    		String vecinos = (String) tupla[2];
+    		long suma = (long) tupla[3];
+    		String resp1 = i++ + ". " + "[";
+			resp1 += "Nombre dominio: " + dominio + ", ";
+			resp1 += "Nombre propietario: " + propietario + ",";
+			resp1 += "Nombre vecino: " + vecinos + ",";
+			resp1 += "Dinero recibido: " + suma ;
+	        resp1 += "]";
+	        resp += resp1 + "\n";
+    		
+    	}
+    	return resp;
+    }
+    
+    private String listarIndiceOcupacion( List <Object[]> lista)
+    {
+    	String resp= " El indice de ocupacion es: \n";
+    	int i = 1;
+    	for ( Object[ ] tupla : lista)
+    	{
+    		long activa = (long) tupla[0];
+    		int usada = (int) tupla[1];
+    		int usada2 = (int) tupla[2];
+    		double indice = (double) tupla[3];
+    		String resp1 = i++ + ". " + "[";
+    		resp1 += "Id oferta: " + activa + ", ";
+			resp1 += "Dias activa: " + usada + ", ";
+			resp1 += "Dias usada: " + usada2 + ",";
+			resp1 += "Indice de uso: " + indice ;
+	        resp1 += "]";
+	        resp += resp1 + "\n";
+    	}
+    	return resp;
+    }
+    
+    private String listarInfoGeneral(List<Object[ ]> lista)
+    {
+    	String resp= "El uso de Alohandes es: \n";
+    	int i = 1;
+    	for( Object[] tupla: lista)
+    	{
+    		String nombre = (String) tupla[0];
+    		String tipo = (String) tupla[1];
+    		long pagado = (long) tupla[2];
+    		int dias = (int)tupla[3];
+    		int reservas = (int) tupla[4];
+    		String resp1 = i++ + ". " + "[";
+    		resp1 += "Nombre del cliente: " + nombre + ", ";
+			resp1 += "Tipo de usuario: " + tipo + ", ";
+			resp1 += "Dinero pagado: " + pagado + ",";
+			resp1 += "Cantidad de dias reservados: " + dias + ",";
+			resp1 += "Cantidas de reservas: " + reservas;
+	        resp1 += "]";
+	        resp += resp1 + "\n";
+    	}
+    	return resp;
+    }
+    
+    private String listarAnalisisOperacion(List<Object[ ]> lista)
+    {
+    	String resp= "El analisis de la ocupacion de Alohandes: \n";
+    	int i = 1;
+    	for( Object[] tupla : lista)
+    	{
+    		String aloja = (String) tupla[0];
+    		long max = (long) tupla[1];
+    		Timestamp mejorPaga = (Timestamp) tupla [2];
+    		long maxocu = (long) tupla[3];
+			Timestamp mejorOcupa = (Timestamp) tupla [4];
+			String resp1 = i++ + ". " + "[";
+    		resp1 += "Alojamiento: " + aloja + ", ";
+			resp1 += "Maxima cantidad de dinero: " + max + ", ";
+			resp1 += "Fecha de mejor pago: " + mejorPaga + ",";
+			resp1 += "Maxima ocupacion: " + maxocu + ",";
+			resp1 += "Fecha de mejor ocupacion: " + mejorOcupa;
+	        resp1 += "]";
+	        resp += resp1 + "\n";
+    	}
+    	return resp;
+
+    }
 
 	/**
 	/* ****************************************************************
 	 * 			Métodos administrativos
 	 *****************************************************************/
+    
 	/**
 	 * Muestra el log de Parranderos
 	 */

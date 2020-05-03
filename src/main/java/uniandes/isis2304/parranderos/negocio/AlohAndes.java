@@ -152,6 +152,15 @@ public class AlohAndes
         return habit;
 	}
 	
+	public List<Object[]> darAnalisisOcupacion( )
+	{
+		log.info("Listando el analisis de ocupacion");
+		List<Object[]> tuplas= pp.darAnalisisOperacion();
+		log.info("Listando el analisis de ocupacion");
+		return tuplas;
+	}
+	
+	
 	/* ****************************************************************
 	 * 			Métodos para manejar las OFERTAS
 	 *****************************************************************/
@@ -167,10 +176,10 @@ public class AlohAndes
 	 * @param idh - El id de la habitacion
 	 * @return El objeto Oferta adicionado. null si ocurre alguna Excepción
 	 */
-	public Oferta adicionarOferta (int desc, int dias, int usada, Timestamp fin, Timestamp lle, String tiem)
+	public Oferta adicionarOferta (int desc, int dias, int usada, Timestamp fin, Timestamp lle, String tiem, String activa, String disponible)
 	{
         log.info ("Adicionando Oferta: [" + lle + ", " + fin + "]");
-        Oferta oferta = pp.adicionarOferta(desc, dias, usada, fin, lle, tiem);
+        Oferta oferta = pp.adicionarOferta(desc, dias, usada, fin, lle, tiem, activa, disponible);
         log.info ("Adicionando oferta: " + oferta);
         return oferta;
 	}
@@ -199,6 +208,38 @@ public class AlohAndes
 		return tuplas;
 	}
 	
+	public long actulizarOfertaActiva (long ido)
+	{
+		log.info("Actualizando desactivacion de oferta: " + ido);
+		long resp= pp.actulizarOfertaActiva(ido);
+		log.info ("Actualizando desactivacion de oferta: " + resp);
+        return resp;
+	}
+	
+	public long actualizarReservas()
+	{
+		log.info("Actualizando las reservas ");
+		long resp= pp.actualizarReservas();
+		log.info ("Actualizando las reservas: " + resp);
+        return resp;
+	}
+	
+	public List<long[]> darReservasPorCambiar()
+	{
+		log.info("Listando las reservas a cambiar");
+		List<long[]> tuplas= pp.darReservasPorCambiar();
+		log.info("Listando las reservas a cambiar");
+		return tuplas;
+	}
+	
+	public long actulizarOfertaDesactiva (long ido)
+	{
+		log.info("Actualizando activacion de oferta: " + ido);
+		long resp= pp.actualizarOfertaDesactiva(ido);
+		log.info ("Actualizando activacion de oferta: " + resp);
+        return resp;
+	}
+	
 	/* ****************************************************************
 	 * 			Métodos para manejar los CLIENTES
 	 *****************************************************************/
@@ -217,6 +258,14 @@ public class AlohAndes
         Cliente cliente = pp.adicionarCliente(nom, numid, tipoid, tipoc);
         log.info ("Adicionando cliente: " + cliente);
         return cliente;
+	}
+	
+	public List<Object[]> darInfoGeneral( )
+	{
+		log.info("Listando la info general de clientes");
+		List<Object[]> tuplas= pp.darInfoGeneral();
+		log.info("Listando la info general del clientes");
+		return tuplas;
 	}
 	
 	/* ****************************************************************
@@ -371,6 +420,22 @@ public class AlohAndes
 		log.info ("Eliminando Reserva por id: " + idr);
         long resp = pp.eliminarReservaPorId(idr);		
         log.info ("Eliminando Reserva por id: " + resp + " tuplas eliminadas");
+        return resp;
+	}
+	
+	public long elimResSiOfeInac (long idr)
+	{
+		log.info("Eliminando reserva porque la oferta esta inactiva: " + idr);
+		long resp= pp.elimResSiOfeInac(idr);
+		log.info ("Eliminando Reserva: " + resp + " tuplas eliminadas");
+        return resp;
+	}
+	
+	public long cambiarDisponibleOferta(long ido)
+	{
+		log.info("Actualizando disponibilidad de oferta: " + ido);
+		long resp= pp.cambiarDisponibleOferta(ido);
+		log.info ("Actualizando oferta: " + resp);
         return resp;
 	}
 	

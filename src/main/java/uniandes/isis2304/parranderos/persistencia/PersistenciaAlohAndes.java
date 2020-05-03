@@ -701,6 +701,32 @@ public class PersistenciaAlohAndes
 		return sqlCliente.darClientePorNumeroId(pmf.getPersistenceManager(), idc);
 	}
 	
+	public List<Object[ ]> darInfoGeneral()
+	{
+		List<Object []> info = new LinkedList <Object []> ();
+		List<Object> tuplas= sqlCliente.darInfoGeneral(pmf.getPersistenceManager());
+		for (Object tupla : tuplas)
+		{
+			Object [] datos = (Object []) tupla;
+			String nombre = (String) datos [0];
+			String tipoCliente= (String) datos[1];
+			long dineroPagado = ((BigDecimal) datos[2]).longValue();
+			int dias = ((BigDecimal) datos[3]).intValue();
+			int reservas = ((BigDecimal) datos[4]).intValue();
+			
+			Object [] indiceO = new Object [5];
+			indiceO[0] = nombre;
+			indiceO [1] = tipoCliente;
+			indiceO[2] = dineroPagado;
+			indiceO[3] = dias;
+			indiceO[4] = reservas;
+
+			info.add (indiceO);
+			
+		}
+		return info;
+	}
+	
 	/* ****************************************************************
 	 * 			Métodos para manejar los APARTAMENTO
 	 *****************************************************************/
@@ -933,11 +959,36 @@ public class PersistenciaAlohAndes
 		return sqlHabitacion.darHabitacionPorId(pmf.getPersistenceManager(), idh);
 	}
 	
+	public List<Object[ ]> darAnalisisOperacion()
+	{
+		List<Object []> analisis = new LinkedList <Object []> ();
+		List<Object[]> tuplas= sqlHabitacion.darAnalisisOperacion(pmf.getPersistenceManager());
+		for (Object[] tupla : tuplas)
+		{
+			String alojamiento = (String) tupla [0];
+			long maximo = ((BigDecimal) tupla[1]).longValue();
+			Timestamp mejorPaga = (Timestamp) tupla [2];
+			long maxocu = ((BigDecimal) tupla[3]).longValue();
+			Timestamp mejorOcupa = (Timestamp) tupla [4];
+						
+			Object [] indiceO = new Object [5];
+			indiceO[0] = alojamiento;
+			indiceO [1] = maximo;
+			indiceO[2] = mejorPaga;
+			indiceO[3] = maxocu;
+			indiceO[4] = mejorOcupa;
+
+			analisis.add (indiceO);
+			
+		}
+		return analisis;
+	}
+	
 	/* ****************************************************************
 	 * 			Métodos para manejar las OFERTA
 	 *****************************************************************/
 
-	public Oferta adicionarOferta(int des, int dias, int usada, Timestamp fin, Timestamp lle, String tiem) 
+	public Oferta adicionarOferta(int des, int dias, int usada, Timestamp fin, Timestamp lle, String tiem, String activa, String disponible) 
 	{
 		PersistenceManager pm = pmf.getPersistenceManager();
         Transaction tx=pm.currentTransaction();
@@ -945,12 +996,12 @@ public class PersistenciaAlohAndes
         {
             tx.begin();
             long ido = nextval ();
-            long tuplasInsertadas = sqlOferta.adicionarOferta(pm, ido, des, dias, usada, fin, lle, tiem);
+            long tuplasInsertadas = sqlOferta.adicionarOferta(pm, ido, des, dias, usada, fin, lle, tiem, activa, disponible);
             tx.commit();
 
             log.trace ("Inserción de Oferta: " + ido + ": " + tuplasInsertadas + " tuplas insertadas");
 
-            return new Oferta(ido, fin, lle, dias, usada, des, tiem);
+            return new Oferta(ido, fin, lle, dias, usada, des, tiem, activa, disponible);
         }
         catch (Exception e)
         {
@@ -1020,8 +1071,10 @@ public class PersistenciaAlohAndes
 			Timestamp fechaFin = (Timestamp) datos [4];
 			Timestamp fechaIni = (Timestamp) datos [5];
 			String tiempoContrato = (String) datos [6];
+			String activa = (String) datos[7];
+			String disponible= (String) datos[8];
 
-			Oferta resp = new Oferta(idOferta, fechaFin, fechaIni, diasActiva, diasUsada, descuento, tiempoContrato);	
+			Oferta resp = new Oferta(idOferta, fechaFin, fechaIni, diasActiva, diasUsada, descuento, tiempoContrato, activa, disponible);	
 			
 			respuesta.add(resp);
         }
@@ -1053,6 +1106,104 @@ public class PersistenciaAlohAndes
 		
 	}
 	
+	public long actulizarOfertaActiva (long ido) 
+	{
+		PersistenceManager pm = pmf.getPersistenceManager();
+        Transaction tx=pm.currentTransaction();
+        try
+        {
+            tx.begin();
+            long resp = sqlOferta.actulizarOfertaActiva(pm, ido);
+            tx.commit();
+
+            return resp;
+        }
+        catch (Exception e)
+        {
+//        	e.printStackTrace();
+        	log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+            return -1;
+        }
+        finally
+        {
+            if (tx.isActive())
+            {
+                tx.rollback();
+            }
+            pm.close();
+        }
+	} 
+	
+	public List<long[]> darReservasPorCambiar()
+	{
+		List<long[]> respuesta = new LinkedList<long[]>();
+		List<Object[]> tuplas = sqlOferta.darReservasPorCambiar(pmf.getPersistenceManager());
+		for( Object[] tupla : tuplas)
+		{
+			long[] datos = new long [2];
+			datos[0]= ((BigDecimal) tupla [0]).longValue ();
+			datos[1]= ((BigDecimal) tupla [1]).longValue ();
+			respuesta.add(datos);	
+		}
+		return respuesta;
+	}
+	
+	public long actualizarReservas()
+	{
+		PersistenceManager pm = pmf.getPersistenceManager();
+        Transaction tx=pm.currentTransaction();
+        try
+        {
+            tx.begin();
+            long resp = sqlOferta.actualizarReservas(pm);
+            tx.commit();
+
+            return resp;
+        }
+        catch (Exception e)
+        {
+//        	e.printStackTrace();
+        	log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+            return -1;
+        }
+        finally
+        {
+            if (tx.isActive())
+            {
+                tx.rollback();
+            }
+            pm.close();
+        }
+	}
+	
+	public long actualizarOfertaDesactiva(long ido) 
+	{
+		PersistenceManager pm = pmf.getPersistenceManager();
+        Transaction tx=pm.currentTransaction();
+        try
+        {
+            tx.begin();
+            long resp = sqlOferta.actualizarOfertaDesactiva(pm, ido);
+            tx.commit();
+
+            return resp;
+        }
+        catch (Exception e)
+        {
+//        	e.printStackTrace();
+        	log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+            return -1;
+        }
+        finally
+        {
+            if (tx.isActive())
+            {
+                tx.rollback();
+            }
+            pm.close();
+        }
+	} 
+	
 	/* ****************************************************************
 	 * 			Métodos para manejar las RESERVA
 	 *****************************************************************/
@@ -1077,6 +1228,62 @@ public class PersistenciaAlohAndes
 //        	e.printStackTrace();
         	log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
         	return null;
+        }
+        finally
+        {
+            if (tx.isActive())
+            {
+                tx.rollback();
+            }
+            pm.close();
+        }
+	}
+	
+	public long elimResSiOfeInac (long idr) 
+	{
+		PersistenceManager pm = pmf.getPersistenceManager();
+        Transaction tx=pm.currentTransaction();
+        try
+        {
+            tx.begin();
+            long resp = sqlReserva.elimResSiOfeInac(pm, idr);
+            tx.commit();
+
+            return resp;
+        }
+        catch (Exception e)
+        {
+//        	e.printStackTrace();
+        	log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+            return -1;
+        }
+        finally
+        {
+            if (tx.isActive())
+            {
+                tx.rollback();
+            }
+            pm.close();
+        }
+	}
+	
+	public long cambiarDisponibleOferta (long ido) 
+	{
+		PersistenceManager pm = pmf.getPersistenceManager();
+        Transaction tx=pm.currentTransaction();
+        try
+        {
+            tx.begin();
+            long resp = sqlReserva.cambiarDisponibleOferta(pm, ido);
+            tx.commit();
+
+            return resp;
+        }
+        catch (Exception e)
+        {
+//        	e.printStackTrace();
+        	log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+            return -1;
         }
         finally
         {
