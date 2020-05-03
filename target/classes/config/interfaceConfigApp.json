@@ -128,6 +128,19 @@
 				}
 			]
 		},
+		{ "menuTitle": "RFC8",
+		  "options":
+			[
+				{
+					"label": "8-CLIENTE HABITUAL",
+					"event": "darClientesHabituales"
+				},
+				{
+					"label": "8-DEl RES COLECT",
+					"event": "eliminarReservaColectivaPorId"
+				}
+			]
+		},
 		{ "menuTitle": "Mantenimiento",
 		  "options":
 			[
