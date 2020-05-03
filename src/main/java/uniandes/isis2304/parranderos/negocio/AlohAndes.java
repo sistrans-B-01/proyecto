@@ -206,6 +206,38 @@ public class AlohAndes
 		return tuplas;
 	}
 	
+	public long actulizarOfertaActiva (long ido)
+	{
+		log.info("Actualizando desactivacion de oferta: " + ido);
+		long resp= pp.actulizarOfertaActiva(ido);
+		log.info ("Actualizando desactivacion de oferta: " + resp);
+        return resp;
+	}
+	
+	public long actualizarReservas()
+	{
+		log.info("Actualizando las reservas ");
+		long resp= pp.actualizarReservas();
+		log.info ("Actualizando las reservas: " + resp);
+        return resp;
+	}
+	
+	public List<long[]> darReservasPorCambiar()
+	{
+		log.info("Listando las reservas a cambiar");
+		List<long[]> tuplas= pp.darReservasPorCambiar();
+		log.info("Listando las reservas a cambiar");
+		return tuplas;
+	}
+	
+	public long actulizarOfertaDesactiva (long ido)
+	{
+		log.info("Actualizando activacion de oferta: " + ido);
+		long resp= pp.actualizarOfertaDesactiva(ido);
+		log.info ("Actualizando activacion de oferta: " + resp);
+        return resp;
+	}
+	
 	/* ****************************************************************
 	 * 			Métodos para manejar los CLIENTES
 	 *****************************************************************/

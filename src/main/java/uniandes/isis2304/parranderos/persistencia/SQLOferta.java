@@ -122,6 +122,16 @@ public class SQLOferta
 		return q.executeList();
 	}
 	
+	public long actulizarOfertaActiva( PersistenceManager pm, long ido)
+	{
+		String sql= "update " + pp.darTablaOferta();
+		      sql+= " set oferta.activa= '0'";
+		      sql+= " where oferta.id= ?";
+		Query q = pm.newQuery(SQL, sql);
+		q.setParameters(ido);
+		return (long) q.executeUnique();      
+	}
+	
 	public List<Object> darIndiceDeOcupacion( PersistenceManager pm)
 	{
 		String sql = "SELECT ID, DIASACTIVA,DIASUSADA, ROUND(DIASUSADA/DIASACTIVA,2) AS INDICEUSO";
@@ -129,5 +139,51 @@ public class SQLOferta
 		sql +=       " WHERE DIASACTIVA !=0";
 		Query q = pm.newQuery(SQL, sql);
 		return q.executeList();
+	}
+	
+	public List<Object[]> darReservasPorCambiar( PersistenceManager pm) 
+	{
+		String sql= "select distinct oferta.id as ofertas, reserva.id as cambiar";
+		      sql+= " from " + pp.darTablaOferta() + ", " + pp.darTablaReserva();
+		      sql+= " where(oferta.id in (select distinct oferta.id";
+		      sql+= " from " + pp.darTablaOferta() + ", " + pp.darTablaReserva();
+		      sql+= " where (oferta.id!= reserva.idoferta";
+		      sql+= " and oferta.disponible= 'Y'";
+		      sql+= " and reserva.id in( select reserva.id";
+		      sql+= " from " + pp.darTablaOferta() + ", " + pp.darTablaReserva();
+		      sql+= " where (reserva.idoferta=oferta.id and oferta.activa='0'))";
+		      sql+= " and oferta.fechainicio= reserva.fechallegada))";
+		      sql+= " and reserva.id in ( select distinct reserva.id";
+		      sql+= " from " + pp.darTablaOferta() + ", " + pp.darTablaReserva();
+		      sql+= " where (reserva.idoferta=oferta.id and oferta.activa='0')))";
+		      Query q = pm.newQuery(SQL, sql);
+				return q.executeList();      
+	}
+	
+	public long actualizarReservas(PersistenceManager pm)
+	{
+		String sql= " update " + pp.darTablaReserva();
+		      sql+= " set reserva.idoferta=( select distinct oferta.id";
+		      sql+= " from "+ pp.darTablaOferta() +" , " + pp.darTablaReserva();
+		      sql+= " where (oferta.id!= reserva.idoferta";
+		      sql+= " and oferta.disponible= 'Y'";
+		      sql+= " and reserva.id in( select reserva.id";
+		      sql+= " from " + pp.darTablaOferta() + ", " + pp.darTablaReserva();
+		      sql+= " where (reserva.idoferta=oferta.id and oferta.activa='0'))))";
+		      sql+= " where reserva.id in ( select reserva.id";
+		      sql+= " from "+ pp.darTablaOferta() +" , " + pp.darTablaReserva();
+		      sql+= " where (reserva.idoferta=oferta.id and oferta.activa='0'))";
+		      Query q = pm.newQuery(SQL, sql);
+		      return (long) q.executeUnique(); 
+	}
+	
+	public long actualizarOfertaDesactiva( PersistenceManager pm, long ido)
+	{
+		String sql= "update " + pp.darTablaOferta();
+		      sql+= " set oferta.activa = '1'";
+		      sql+= " where oferta.id = ?";
+		Query q = pm.newQuery(SQL, sql);
+	    q.setParameters(ido);
+		return (long) q.executeUnique();
 	}
 }

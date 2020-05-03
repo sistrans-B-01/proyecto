@@ -80,10 +80,18 @@
 					"event": "eliminarOfertaHabitacion"
 				},
 				{
+				    "label": "ActualizarOfertaActiva",
+				    "event": "actualizarOfertaActiva"
+				},
+				{
+				    "label": "ActualizarOfertaDesactiva",
+				    "event": "actualizarOfertaDesactiva"
+				},
+				{
 				    "label": "EliminarOferta",
 					"event": "eliminarOferta"
 				}
-			]
+		    ]
 		},
 		{ "menuTitle": "Reserva",
 		  "options":

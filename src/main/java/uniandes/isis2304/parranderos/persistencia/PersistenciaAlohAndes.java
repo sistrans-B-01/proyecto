@@ -688,7 +688,7 @@ public class PersistenciaAlohAndes
 			Object [] datos = (Object []) tupla;
 			String nombre = (String) datos [0];
 			String tipoCliente= (String) datos[1];
-			int dineroPagado = ((BigDecimal) datos[2]).intValue();
+			long dineroPagado = ((BigDecimal) datos[2]).longValue();
 			int dias = ((BigDecimal) datos[3]).intValue();
 			int reservas = ((BigDecimal) datos[4]).intValue();
 			
@@ -1083,6 +1083,104 @@ public class PersistenciaAlohAndes
 		return respuesta;
 		
 	}
+	
+	public long actulizarOfertaActiva (long ido) 
+	{
+		PersistenceManager pm = pmf.getPersistenceManager();
+        Transaction tx=pm.currentTransaction();
+        try
+        {
+            tx.begin();
+            long resp = sqlOferta.actulizarOfertaActiva(pm, ido);
+            tx.commit();
+
+            return resp;
+        }
+        catch (Exception e)
+        {
+//        	e.printStackTrace();
+        	log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+            return -1;
+        }
+        finally
+        {
+            if (tx.isActive())
+            {
+                tx.rollback();
+            }
+            pm.close();
+        }
+	} 
+	
+	public List<long[]> darReservasPorCambiar()
+	{
+		List<long[]> respuesta = new LinkedList<long[]>();
+		List<Object[]> tuplas = sqlOferta.darReservasPorCambiar(pmf.getPersistenceManager());
+		for( Object[] tupla : tuplas)
+		{
+			long[] datos = new long [2];
+			datos[0]= ((BigDecimal) tupla [0]).longValue ();
+			datos[1]= ((BigDecimal) tupla [1]).longValue ();
+			respuesta.add(datos);	
+		}
+		return respuesta;
+	}
+	
+	public long actualizarReservas()
+	{
+		PersistenceManager pm = pmf.getPersistenceManager();
+        Transaction tx=pm.currentTransaction();
+        try
+        {
+            tx.begin();
+            long resp = sqlOferta.actualizarReservas(pm);
+            tx.commit();
+
+            return resp;
+        }
+        catch (Exception e)
+        {
+//        	e.printStackTrace();
+        	log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+            return -1;
+        }
+        finally
+        {
+            if (tx.isActive())
+            {
+                tx.rollback();
+            }
+            pm.close();
+        }
+	}
+	
+	public long actualizarOfertaDesactiva(long ido) 
+	{
+		PersistenceManager pm = pmf.getPersistenceManager();
+        Transaction tx=pm.currentTransaction();
+        try
+        {
+            tx.begin();
+            long resp = sqlOferta.actualizarOfertaDesactiva(pm, ido);
+            tx.commit();
+
+            return resp;
+        }
+        catch (Exception e)
+        {
+//        	e.printStackTrace();
+        	log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+            return -1;
+        }
+        finally
+        {
+            if (tx.isActive())
+            {
+                tx.rollback();
+            }
+            pm.close();
+        }
+	} 
 	
 	/* ****************************************************************
 	 * 			Métodos para manejar las RESERVA
