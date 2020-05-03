@@ -373,6 +373,28 @@ public class AlohAndes
 	}
 	
 	/* ****************************************************************
+	 * 			Métodos para manejar las reservasColectivas
+	 *****************************************************************/
+	/**
+	 * de ser factible Adiciona de manera persistente una reserva colectiva
+	 */
+	public ReservaColectiva registrarReservaColectiva (long idresCol, long idc, String tipoc, Timestamp lle,Timestamp ida, Timestamp  fePago,int cantidadRes, String tipoAlojamiento, double costo, String servicios)
+	{
+        log.info ("Adicionando reserva colectiva: " );
+        ReservaColectiva resCol = pp.registrarReservaColectiva( idresCol,  idc,  tipoc,  lle, ida,   fePago, cantidadRes,  tipoAlojamiento,  costo,  servicios);
+        log.info ("Adicionando reserva colectiva: ");
+        return resCol;
+	}
+	
+	public long eliminarReservaColectivaPorId (long idResCol)
+	{
+		log.info ("Eliminando Reserva colectiva por id: " + idResCol);
+        long resp = pp.eliminarReservaColectivaPorId(idResCol);		
+        log.info ("Eliminando Reserva colectiva por id: " + resp + " tuplas eliminadas");
+        return resp;
+	}
+	
+	/* ****************************************************************
 	 * 			Métodos para administración
 	 *****************************************************************/
 

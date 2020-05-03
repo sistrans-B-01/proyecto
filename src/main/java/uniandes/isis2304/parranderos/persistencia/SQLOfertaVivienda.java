@@ -1,5 +1,7 @@
 package uniandes.isis2304.parranderos.persistencia;
 
+import java.util.List;
+
 import javax.jdo.PersistenceManager;
 import javax.jdo.Query;
 
@@ -48,5 +50,22 @@ public class SQLOfertaVivienda
         Query q = pm.newQuery(SQL, "DELETE FROM " + pp.darTablaOfertaVivienda () + " WHERE idoferta = ? AND idvivienda = ?");
         q.setParameters(ido, idv);
         return (long) q.executeUnique();
+	}
+	
+	public List<Object> consultarOfertasDisponiblesVivienda(PersistenceManager pm, int cantidadRes, String servicios)
+	{
+
+		String sql= "SELECT *";
+		sql += "FROM " + pp.darTablaOfertaVivienda () +" OFVI, "+ pp.darTablaOferta () +" OFE, "+ pp.darTablaVivienda () +" VI ";
+		sql += "WHERE OFVI.IDOFERTA = OFE.ID ";
+		sql += "AND OFVI.IDVIVIENDA = VI.UBICACION  ";
+		sql += "AND VI.SERVICIOS = ? ";
+		sql += "AND ROWNUM <= ?";
+		
+		
+		Query q = pm.newQuery(SQL, sql);
+		q.setParameters(servicios,cantidadRes);
+		return (List<Object>) q.executeList();
+
 	}
 }

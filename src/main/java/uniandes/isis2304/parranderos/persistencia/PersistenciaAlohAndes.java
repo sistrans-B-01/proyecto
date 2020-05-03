@@ -1,5 +1,6 @@
 package uniandes.isis2304.parranderos.persistencia;
 
+import java.util.ArrayList;
 import java.util.LinkedList;  
 import java.util.List;
 
@@ -18,6 +19,7 @@ import org.apache.log4j.Logger;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.sun.jdi.LongValue;
 
 import uniandes.isis2304.parranderos.negocio.Apartamento;
 import uniandes.isis2304.parranderos.negocio.Cliente;
@@ -29,6 +31,7 @@ import uniandes.isis2304.parranderos.negocio.OfertaHabitacion;
 import uniandes.isis2304.parranderos.negocio.OfertaVivienda;
 import uniandes.isis2304.parranderos.negocio.Propietario;
 import uniandes.isis2304.parranderos.negocio.Reserva;
+import uniandes.isis2304.parranderos.negocio.ReservaColectiva;
 import uniandes.isis2304.parranderos.negocio.ServiciosAdicionales;
 import uniandes.isis2304.parranderos.negocio.Vecinos;
 import uniandes.isis2304.parranderos.negocio.Vivienda;
@@ -121,6 +124,12 @@ public class PersistenciaAlohAndes
 	
 	private SQLDominio sqlDominio;
 	
+	private SQLReservaColectiva sqlReservaColectiva;
+	
+	private SQLResColRes sqlResColRes;
+	
+	
+	
 	/* ****************************************************************
 	 * 			Métodos del MANEJADOR DE PERSISTENCIA
 	 *****************************************************************/
@@ -149,6 +158,9 @@ public class PersistenciaAlohAndes
 		tablas.add ("OFERTAHABITACION");
 		tablas.add ("OFERTAVIVIENDA");
 		tablas.add ("OFERTAAPARTAMENTO");
+		tablas.add ("RESERVACOLECTIVA");
+		tablas.add ("RESCOLRES");
+		
 }
 
 	/**
@@ -236,6 +248,8 @@ public class PersistenciaAlohAndes
 		sqlOfertaHabitacion = new SQLOfertaHabitacion(this);		
 		sqlOfertaVivienda = new SQLOfertaVivienda(this);		
 		sqlOfertaApartamento = new SQLOfertaApartamento(this);		
+		sqlReservaColectiva = new SQLReservaColectiva(this);		
+		sqlResColRes = new SQLResColRes(this);		
 
 		sqlUtil = new SQLUtil(this);
 	}
@@ -332,6 +346,14 @@ public class PersistenciaAlohAndes
 	public String darTablaOfertaApartamento()
 	{
 		return tablas.get(13);
+	}
+	public String darTablaReservaColectiva()
+	{
+		return tablas.get(14);
+	}
+	public String darTablaResColRes()
+	{
+		return tablas.get(15);
 	}
 	
 	/**
@@ -1386,6 +1408,236 @@ public class PersistenciaAlohAndes
         {
             tx.begin();
             long resp = sqlOfertaApartamento.eliminarOfertaApartamento(pm, ido, ida);
+            tx.commit();
+
+            return resp;
+        }
+        catch (Exception e)
+        {
+//        	e.printStackTrace();
+        	log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+            return -1;
+        }
+        finally
+        {
+            if (tx.isActive())
+            {
+                tx.rollback();
+            }
+            pm.close();
+        }
+	}
+	
+	
+	/* ****************************************************************
+	 * 			Métodos para manejar las reservaColectiva
+	 *****************************************************************/
+	
+	public ReservaColectiva registrarReservaColectiva (long idresCol, long idc, String tipoc, Timestamp lle,Timestamp ida, Timestamp  fePago,int cantidadRes, String tipoAlojamiento, double costo, String servicios) 
+	{
+		
+		
+		PersistenceManager pm = pmf.getPersistenceManager();
+        Transaction tx=pm.currentTransaction();
+        try
+        {
+        	System.out.println("corriendo");
+            tx.begin();
+            //    		revisar que se pueda cubrir la demanda
+            ReservaColectiva resp = null;
+            switch(tipoAlojamiento) {
+    		case "APARTAMENTO":
+    			System.out.println("CORR1");
+    			List<Object> listaOfeApa = sqlOfertaApartamento.consultarOfertasDisponiblesApartamento(pm,  cantidadRes, servicios ) ;
+    			//nunca listaOfeApa.size() nunca va aser mayor a cantidad res porque de ser mayor la recortaría
+    			if(listaOfeApa.size() == cantidadRes)
+    			{
+    				System.out.println("CORR2");
+
+    				//hay que ir guardando los ids de las reservas para luego poder hacer la relacion
+    				List<Long> idsReservas = new ArrayList<Long>();
+    				for( Object tupla : listaOfeApa)
+    				{
+    					
+    					Object[] datos = (Object[]) tupla;
+    					
+    					Long tempId =   nextval(); 
+    					double tempCosPa = 0;
+    					double tempCosTot = 10000;
+    					Long tempIdOfer =  ((BigDecimal) datos[0]).longValue();
+    					idsReservas.add(tempId);
+    					sqlReserva.adicionarReserva(pm, tempId, tempCosPa, tempCosTot, ida, lle, tipoAlojamiento, idc, tipoc, tempIdOfer);
+    				
+    					System.out.println("CORR2.1");
+    				}
+    				System.out.println("CORR3");
+    				
+    				sqlReservaColectiva.registrarReservaColectiva(pm, idresCol, tipoc, idc, lle, ida, fePago, cantidadRes, tipoAlojamiento, costo);
+    				System.out.println("CORR3.01");
+    				
+    				//crear la reservaColectiva
+    				resp = new ReservaColectiva(idresCol, tipoc, idc, lle, ida, fePago, cantidadRes, tipoAlojamiento, costo);
+    				log.trace ("Inserción de reservaColectiva" + idresCol + " tuplas insertadas");
+    				System.out.println("CORR3.1");
+    				//relacionar las reservas con la reservaColectiva
+    				for( Long idReservaRegistrada:  idsReservas)
+    				{
+    					System.out.println("CORR3.2");
+    					sqlResColRes.adicionarResColRes(pm, idReservaRegistrada, idresCol);
+    				}
+    				System.out.println("CORR4");
+    			}
+    			break;
+    		case "VIVIENDA":
+    			System.out.println("CORR1");
+    			List<Object> listaOfeViv = sqlOfertaVivienda.consultarOfertasDisponiblesVivienda(pm, cantidadRes, servicios) ;
+    			//nunca listaOfeApa.size() nunca va aser mayor a cantidad res porque de ser mayor la recortaría
+    			if(listaOfeViv.size() == cantidadRes)
+    			{
+    				System.out.println("CORR2");
+
+    				//hay que ir guardando los ids de las reservas para luego poder hacer la relacion
+    				List<Long> idsReservas = new ArrayList<Long>();
+    				for( Object tupla : listaOfeViv)
+    				{
+    					
+    					Object[] datos = (Object[]) tupla;
+    					
+    					Long tempId =   nextval(); 
+    					double tempCosPa = 0;
+    					double tempCosTot = 10000;
+    					Long tempIdOfer =  ((BigDecimal) datos[0]).longValue();
+    					idsReservas.add(tempId);
+    					sqlReserva.adicionarReserva(pm, tempId, tempCosPa, tempCosTot, ida, lle, tipoAlojamiento, idc, tipoc, tempIdOfer);
+    				
+    					System.out.println("CORR2.1");
+    				}
+    				System.out.println("CORR3");
+    				
+    				sqlReservaColectiva.registrarReservaColectiva(pm, idresCol, tipoc, idc, lle, ida, fePago, cantidadRes, tipoAlojamiento, costo);
+    				System.out.println("CORR3.01");
+    				
+    				//crear la reservaColectiva
+    				resp = new ReservaColectiva(idresCol, tipoc, idc, lle, ida, fePago, cantidadRes, tipoAlojamiento, costo);
+    				log.trace ("Inserción de reservaColectiva" + idresCol + " tuplas insertadas");
+    				System.out.println("CORR3.1");
+    				//relacionar las reservas con la reservaColectiva
+    				for( Long idReservaRegistrada:  idsReservas)
+    				{
+    					System.out.println("CORR3.2");
+    					sqlResColRes.adicionarResColRes(pm, idReservaRegistrada, idresCol);
+    				}
+    				System.out.println("CORR4");
+    			}
+    			break;
+    		case "HABITACION":
+    			System.out.println("CORR1");
+    			List<Object> listaOfeHab = sqlOfertaHabitacion.consultarOfertasDisponiblesHabitacion(pm, cantidadRes, servicios);
+    			//nunca listaOfeApa.size() nunca va aser mayor a cantidad res porque de ser mayor la recortaría
+    			if(listaOfeHab.size() == cantidadRes)
+    			{
+    				System.out.println("CORR2");
+
+    				//hay que ir guardando los ids de las reservas para luego poder hacer la relacion
+    				List<Long> idsReservas = new ArrayList<Long>();
+    				for( Object tupla : listaOfeHab)
+    				{
+    					
+    					Object[] datos = (Object[]) tupla;
+    					
+    					Long tempId =   nextval(); 
+    					double tempCosPa = 0;
+    					double tempCosTot = 10000;
+    					Long tempIdOfer =  ((BigDecimal) datos[0]).longValue();
+    					idsReservas.add(tempId);
+    					sqlReserva.adicionarReserva(pm, tempId, tempCosPa, tempCosTot, ida, lle, tipoAlojamiento, idc, tipoc, tempIdOfer);
+    				
+    					System.out.println("CORR2.1");
+    				}
+    				System.out.println("CORR3");
+    				
+    				sqlReservaColectiva.registrarReservaColectiva(pm, idresCol, tipoc, idc, lle, ida, fePago, cantidadRes, tipoAlojamiento, costo);
+    				System.out.println("CORR3.01");
+    				
+    				//crear la reservaColectiva
+    				resp = new ReservaColectiva(idresCol, tipoc, idc, lle, ida, fePago, cantidadRes, tipoAlojamiento, costo);
+    				log.trace ("Inserción de reservaColectiva" + idresCol + " tuplas insertadas");
+    				System.out.println("CORR3.1");
+    				//relacionar las reservas con la reservaColectiva
+    				for( Long idReservaRegistrada:  idsReservas)
+    				{
+    					System.out.println("CORR3.2");
+    					sqlResColRes.adicionarResColRes(pm, idReservaRegistrada, idresCol);
+    				}
+    				System.out.println("CORR4");
+    			}
+    			break;
+    		default:;
+    		}	
+            
+            tx.commit();
+
+            return resp;
+        }
+        catch (Exception e)
+        {
+//        	e.printStackTrace();
+        	log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+            return null;
+        }
+        finally
+        {
+            if (tx.isActive())
+            {
+                tx.rollback();
+            }
+            pm.close();
+        }
+	}
+	
+	
+	public long eliminarReservaColectivaPorId (long idResCol) 
+	{
+		PersistenceManager pm = pmf.getPersistenceManager();
+        Transaction tx=pm.currentTransaction();
+        try
+        {
+            tx.begin();
+            System.out.println("CORE0 " );
+            List<Object> listaResColRes = sqlResColRes.darReservaPorId(pm, idResCol) ;
+            System.out.println("CORE02");
+            System.out.println("CORE1 " + listaResColRes.size() );
+            //hay que guardar los ids de reservas de rescolres antes de borrarlos
+            List<Long> idsReservas = new ArrayList<Long>();
+            if(listaResColRes.size()>0)
+            {
+            	
+				for( Object tupla : listaResColRes)
+				{
+					
+					Object[] datos = (Object[]) tupla;
+					Long tempIdRes =  ((BigDecimal) datos[0]).longValue();
+					idsReservas.add(tempIdRes);
+					System.out.println("CORE2");
+				}
+            }
+            //eliminar las rescolres relacionadas con la resCol
+             sqlResColRes.eliminarResColResId(pm, idResCol);
+            System.out.println("CORE3");
+            //eliminarLasReservas
+            if(idsReservas.size()>0)
+            {
+            	
+				for( Long idABorrar: idsReservas)
+				{
+					
+					sqlReserva.eliminarReservaPorId(pm, idABorrar);
+					System.out.println("CORE4");
+				}
+            }
+            //finalmente se borra la resCol
+            long resp = sqlReservaColectiva.eliminarReservaColectivaPorId(pm, idResCol);
+            System.out.println("CORE5");
             tx.commit();
 
             return resp;
