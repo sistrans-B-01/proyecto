@@ -1657,4 +1657,27 @@ public class PersistenciaAlohAndes
             pm.close();
         }
 	}
+	
+	public List<Cliente> darClientesHabituales () 
+	{
+		PersistenceManager pm = pmf.getPersistenceManager();
+		List<Cliente> respuesta = new LinkedList <Cliente> ();
+		List<Object> tuplas = sqlResColRes.darClientesHabituales(pm);
+		System.out.println(tuplas.size());
+		for ( Object tupla : tuplas)
+        {
+        	System.out.println("CO2");
+			Object [] datos = (Object []) tupla;
+			long identificacion = ((BigDecimal) datos [0]).longValue ();
+			String tipoid = (String) datos[1];
+			String nom = (String) datos[2];
+			String tipoc = (String) datos[3];
+			
+			Cliente tempCli = new Cliente(identificacion, tipoid, nom, tipoc);
+			respuesta.add(tempCli);
+        }
+
+		return respuesta;
+	}
+	
 }

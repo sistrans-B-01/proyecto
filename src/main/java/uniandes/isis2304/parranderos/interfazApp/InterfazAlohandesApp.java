@@ -48,6 +48,7 @@ import com.google.gson.JsonObject;
 import com.google.gson.stream.JsonReader;
 
 import uniandes.isis2304.parranderos.negocio.AlohAndes;
+import uniandes.isis2304.parranderos.negocio.Cliente;
 import uniandes.isis2304.parranderos.negocio.Oferta;
 import uniandes.isis2304.parranderos.negocio.VOApartamento;
 import uniandes.isis2304.parranderos.negocio.VOCliente;
@@ -981,6 +982,31 @@ public class InterfazAlohandesApp extends JFrame implements ActionListener
 		}
     }
     
+    public void darClientesHabituales( )
+    {
+    	try 
+    	{
+    		
+    		List<Cliente> resp = parranderos.darClientesHabituales();
+
+		
+			String resultado="Los Clientes Habituales Son: \n";
+			for(Cliente tempCli: resp) 
+    		{
+    			 resultado+=tempCli.toString();
+    			resultado+="\n";
+    			
+    		}
+    			
+    		panelDatos.actualizarInterfaz(resultado );
+		}
+    	catch (Exception e) 
+    	{
+//			e.printStackTrace();
+			String resultado = generarMensajeError(e);
+			panelDatos.actualizarInterfaz(resultado);
+		}
+    }
 
 	/**
 	/* ****************************************************************

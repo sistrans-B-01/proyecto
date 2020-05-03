@@ -6,6 +6,8 @@ import com.google.gson.JsonObject;
 import java.sql.Timestamp;
 import java.util.List;
 
+import javax.jdo.PersistenceManager;
+
 import uniandes.isis2304.parranderos.persistencia.PersistenciaAlohAndes;
 
 public class AlohAndes 
@@ -391,6 +393,14 @@ public class AlohAndes
 		log.info ("Eliminando Reserva colectiva por id: " + idResCol);
         long resp = pp.eliminarReservaColectivaPorId(idResCol);		
         log.info ("Eliminando Reserva colectiva por id: " + resp + " tuplas eliminadas");
+        return resp;
+	}
+	
+	public List<Cliente> darClientesHabituales () 
+	{
+		log.info ("consultandoClientesHabituales "  );
+		List<Cliente> resp = pp.darClientesHabituales();		
+        log.info ("consultandoClientesHabituales");
         return resp;
 	}
 	
