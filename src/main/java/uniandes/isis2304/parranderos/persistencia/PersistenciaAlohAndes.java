@@ -940,15 +940,14 @@ public class PersistenciaAlohAndes
 	public List<Object[ ]> darAnalisisOperacion()
 	{
 		List<Object []> analisis = new LinkedList <Object []> ();
-		List<Object> tuplas= sqlHabitacion.darAnalisisOperacion(pmf.getPersistenceManager());
-		for (Object tupla : tuplas)
+		List<Object[]> tuplas= sqlHabitacion.darAnalisisOperacion(pmf.getPersistenceManager());
+		for (Object[] tupla : tuplas)
 		{
-			Object [] datos = (Object []) tupla;
-			String alojamiento = (String) datos [0];
-			int maximo = ((BigDecimal) datos[1]).intValue();
-			Timestamp mejorPaga = (Timestamp) datos [2];
-			int maxocu = ((BigDecimal) datos[3]).intValue();
-			Timestamp mejorOcupa = (Timestamp) datos [4];
+			String alojamiento = (String) tupla [0];
+			long maximo = ((BigDecimal) tupla[1]).longValue();
+			Timestamp mejorPaga = (Timestamp) tupla [2];
+			long maxocu = ((BigDecimal) tupla[3]).longValue();
+			Timestamp mejorOcupa = (Timestamp) tupla [4];
 						
 			Object [] indiceO = new Object [5];
 			indiceO[0] = alojamiento;
@@ -1109,6 +1108,62 @@ public class PersistenciaAlohAndes
 //        	e.printStackTrace();
         	log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
         	return null;
+        }
+        finally
+        {
+            if (tx.isActive())
+            {
+                tx.rollback();
+            }
+            pm.close();
+        }
+	}
+	
+	public long elimResSiOfeInac (long idr) 
+	{
+		PersistenceManager pm = pmf.getPersistenceManager();
+        Transaction tx=pm.currentTransaction();
+        try
+        {
+            tx.begin();
+            long resp = sqlReserva.elimResSiOfeInac(pm, idr);
+            tx.commit();
+
+            return resp;
+        }
+        catch (Exception e)
+        {
+//        	e.printStackTrace();
+        	log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+            return -1;
+        }
+        finally
+        {
+            if (tx.isActive())
+            {
+                tx.rollback();
+            }
+            pm.close();
+        }
+	}
+	
+	public long cambiarDisponibleOferta (long ido) 
+	{
+		PersistenceManager pm = pmf.getPersistenceManager();
+        Transaction tx=pm.currentTransaction();
+        try
+        {
+            tx.begin();
+            long resp = sqlReserva.cambiarDisponibleOferta(pm, ido);
+            tx.commit();
+
+            return resp;
+        }
+        catch (Exception e)
+        {
+//        	e.printStackTrace();
+        	log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+            return -1;
         }
         finally
         {

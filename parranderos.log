@@ -367,3 +367,124 @@ Tipo de columna no válido
 17:53:22,127 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Listando las 20 ofertas mas populares
 17:53:46,085 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Listando el índice de ocupacion de cada oferta
 17:53:46,177 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Listando el indice de ocupacion de cada oferta
+07:21:23,517 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Interfaz
+07:21:23,519 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se aplica configuración indicada en el archivo de configuración
+07:21:23,561 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+07:21:31,586 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Listando el analisis de ocupacion
+07:21:31,785 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Listando el analisis de ocupacion
+07:22:22,744 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Interfaz
+07:22:22,749 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se aplica configuración indicada en el archivo de configuración
+07:22:22,782 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+07:22:27,951 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Listando el analisis de ocupacion
+07:22:28,101 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Listando el analisis de ocupacion
+08:17:28,757 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Interfaz
+08:17:28,759 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se aplica configuración indicada en el archivo de configuración
+08:17:28,805 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+08:18:48,144 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Adicionando Reserva: [380, 210]
+08:18:48,548 (AWT-EventQueue-0) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaAlohAndes] - Exception : Error con la ejecucion de Query de SQL "INSERT INTO RESERVA(id, costopagado, costototal, fechaida, fechallegada, tiempoalojamiento, idcliente, tipoidcliente, idoferta) values (?, ?, ?, ?, ?, ?, ?, ?, ?) DELETE FROM RESERVA WHERE ID= ? AND IDOFERTA IN( SELECT OFERTA.ID FROM OFERTAWHERE OFERTA.ACTIVA= '0') UPDATE OFERTA SET OFERTA.DISPONIBLE = 'N' WHERE OFERTA.ID = ? AND OFERTA.ID IN ( SELECT RESERVA.IDOFERTA FROM RESERVA".
+ORA-00933: comando SQL no terminado correctamente
+
+08:18:48,565 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Adicionando Reserva: null
+08:19:54,306 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Adicionando Reserva: [380, 205]
+08:19:54,342 (AWT-EventQueue-0) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaAlohAndes] - Exception : Error con la ejecucion de Query de SQL "INSERT INTO RESERVA(id, costopagado, costototal, fechaida, fechallegada, tiempoalojamiento, idcliente, tipoidcliente, idoferta) values (?, ?, ?, ?, ?, ?, ?, ?, ?) DELETE FROM RESERVA WHERE ID= ? AND IDOFERTA IN( SELECT OFERTA.ID FROM OFERTAWHERE OFERTA.ACTIVA= '0') UPDATE OFERTA SET OFERTA.DISPONIBLE = 'N' WHERE OFERTA.ID = ? AND OFERTA.ID IN ( SELECT RESERVA.IDOFERTA FROM RESERVA".
+ORA-00933: comando SQL no terminado correctamente
+
+08:19:54,368 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Adicionando Reserva: null
+08:22:10,014 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Interfaz
+08:22:10,016 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se aplica configuración indicada en el archivo de configuración
+08:22:10,060 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+08:22:56,840 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Adicionando Reserva: [380, 205]
+08:22:57,110 (AWT-EventQueue-0) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaAlohAndes] - Exception : Error con la ejecucion de Query de SQL "INSERT INTO RESERVA(id, costopagado, costototal, fechaida, fechallegada, tiempoalojamiento, idcliente, tipoidcliente, idoferta) values (?, ?, ?, ?, ?, ?, ?, ?, ?); DELETE FROM RESERVA WHERE ID= ? AND IDOFERTA IN( SELECT OFERTA.ID FROM OFERTAWHERE OFERTA.ACTIVA= '0'); UPDATE OFERTA SET OFERTA.DISPONIBLE = 'N' WHERE OFERTA.ID = ? AND OFERTA.ID IN ( SELECT RESERVA.IDOFERTA FROM RESERVA)".
+ORA-00933: comando SQL no terminado correctamente
+
+08:22:57,128 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Adicionando Reserva: null
+08:23:42,994 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Interfaz
+08:23:42,995 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se aplica configuración indicada en el archivo de configuración
+08:23:43,037 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+08:24:22,941 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Adicionando Reserva: [380, 205]
+08:24:23,972 (AWT-EventQueue-0) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaAlohAndes] - Exception : Error con la ejecucion de Query de SQL "INSERT INTO RESERVA(id, costopagado, costototal, fechaida, fechallegada, tiempoalojamiento, idcliente, tipoidcliente, idoferta) values (?, ?, ?, ?, ?, ?, ?, ?, ?) DELETE FROM RESERVA WHERE ID= ? AND IDOFERTA IN( SELECT OFERTA.ID FROM OFERTAWHERE OFERTA.ACTIVA= '0') UPDATE OFERTA SET OFERTA.DISPONIBLE = 'N' WHERE OFERTA.ID = ? AND OFERTA.ID IN ( SELECT RESERVA.IDOFERTA FROM RESERVA)".
+ORA-00933: comando SQL no terminado correctamente
+
+08:24:23,988 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Adicionando Reserva: null
+08:27:23,678 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Interfaz
+08:27:23,679 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se aplica configuración indicada en el archivo de configuración
+08:27:23,726 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+08:28:04,546 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Adicionando Reserva: [380, 205]
+08:28:04,852 (AWT-EventQueue-0) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaAlohAndes] - Exception : Error con la ejecucion de Query de SQL "INSERT INTO RESERVA(id, costopagado, costototal, fechaida, fechallegada, tiempoalojamiento, idcliente, tipoidcliente, idoferta) values (?, ?, ?, ?, ?, ?, ?, ?, ?) DELETE FROM RESERVA WHERE ID= ? AND IDOFERTA IN( SELECT OFERTA.ID FROM OFERTA WHERE OFERTA.ACTIVA= '0') UPDATE OFERTA SET OFERTA.DISPONIBLE = 'N' WHERE OFERTA.ID = ? AND OFERTA.ID IN ( SELECT RESERVA.IDOFERTA FROM RESERVA)".
+ORA-00933: comando SQL no terminado correctamente
+
+08:28:04,864 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Adicionando Reserva: null
+08:30:02,572 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Interfaz
+08:30:02,573 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se aplica configuración indicada en el archivo de configuración
+08:30:02,610 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+08:30:45,179 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Adicionando Reserva: [380, 205]
+08:30:45,952 (AWT-EventQueue-0) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaAlohAndes] - Exception : Error con la ejecucion de Query de SQL "INSERT INTO RESERVA(id, costopagado, costototal, fechaida, fechallegada, tiempoalojamiento, idcliente, tipoidcliente, idoferta) values (?, ?, ?, ?, ?, ?, ?, ?, ?); DELETE FROM RESERVA WHERE ID= ? AND IDOFERTA IN( SELECT OFERTA.ID FROM OFERTA WHERE OFERTA.ACTIVA= '0'); UPDATE OFERTA SET OFERTA.DISPONIBLE = 'N' WHERE OFERTA.ID = ? AND OFERTA.ID IN ( SELECT RESERVA.IDOFERTA FROM RESERVA)".
+ORA-00933: comando SQL no terminado correctamente
+
+08:30:45,966 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Adicionando Reserva: null
+08:55:51,075 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Interfaz
+08:55:51,077 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se aplica configuración indicada en el archivo de configuración
+08:55:51,116 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+08:56:43,894 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Adicionando Reserva: [380, 205]
+08:56:44,282 (AWT-EventQueue-0) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaAlohAndes] - Exception : Error con la ejecucion de Query de SQL "INSERT INTO RESERVA(id, costopagado, costototal, fechaida, fechallegada, tiempoalojamiento, idcliente, tipoidcliente, idoferta) values (?, ?, ?, ?, ?, ?, ?, ?, ?); DELETE FROM RESERVA WHERE ID= ? AND IDOFERTA IN( SELECT OFERTA.ID FROM OFERTA WHERE OFERTA.ACTIVA= '0');".
+ORA-00933: comando SQL no terminado correctamente
+
+08:56:44,301 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Adicionando Reserva: null
+08:57:13,984 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Interfaz
+08:57:13,986 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se aplica configuración indicada en el archivo de configuración
+08:57:14,029 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+08:57:51,051 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Adicionando Reserva: [380, 205]
+08:57:51,336 (AWT-EventQueue-0) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaAlohAndes] - Exception : Error con la ejecucion de Query de SQL "INSERT INTO RESERVA(id, costopagado, costototal, fechaida, fechallegada, tiempoalojamiento, idcliente, tipoidcliente, idoferta) values (?, ?, ?, ?, ?, ?, ?, ?, ?) DELETE FROM RESERVA WHERE ID= ? AND IDOFERTA IN( SELECT OFERTA.ID FROM OFERTA WHERE OFERTA.ACTIVA= '0')".
+ORA-00933: comando SQL no terminado correctamente
+
+08:57:51,358 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Adicionando Reserva: null
+08:58:14,199 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Interfaz
+08:58:14,201 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se aplica configuración indicada en el archivo de configuración
+08:58:14,239 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+08:58:53,612 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Adicionando Reserva: [380, 205]
+08:58:53,877 (AWT-EventQueue-0) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaAlohAndes] - Exception : Error con la ejecucion de Query de SQL "INSERT INTO RESERVA(id, costopagado, costototal, fechaida, fechallegada, tiempoalojamiento, idcliente, tipoidcliente, idoferta) values (?, ?, ?, ?, ?, ?, ?, ?, ?); DELETE FROM RESERVA WHERE ID= ? AND IDOFERTA IN( SELECT OFERTA.ID FROM OFERTA WHERE OFERTA.ACTIVA= '0')".
+ORA-00933: comando SQL no terminado correctamente
+
+08:58:53,893 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Adicionando Reserva: null
+09:00:25,716 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Interfaz
+09:00:25,717 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se aplica configuración indicada en el archivo de configuración
+09:00:25,754 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+09:01:03,222 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Adicionando Reserva: [380, 205]
+09:01:03,975 (AWT-EventQueue-0) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaAlohAndes] - Exception : Error con la ejecucion de Query de SQL "INSERT INTO RESERVA(id, costopagado, costototal, fechaida, fechallegada, tiempoalojamiento, idcliente, tipoidcliente, idoferta) values (?, ?, ?, ?, ?, ?, ?, ?, ?)".
+ORA-02291: restricción de integridad (ISIS2304B012010.FK_RES_CLI) violada - clave principal no encontrada
+
+09:01:03,994 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Adicionando Reserva: null
+09:02:25,419 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Adicionando Reserva: [350, 205]
+09:02:25,481 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Adicionando Reserva: Reserva [id=91, idCliente=350, idOferta=205, costoPagado=20.0, costoTotal=7.0, fechaIda=2020-01-08 00:00:00.0, fechaLlegada=2020-01-01 00:00:00.0, tiempoAlojamiento=UNA SEMANA]
+09:02:46,938 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Interfaz
+09:02:46,939 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se aplica configuración indicada en el archivo de configuración
+09:02:46,981 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+09:03:38,357 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Adicionando Reserva: [350, 205]
+09:03:38,791 (AWT-EventQueue-0) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaAlohAndes] - Exception : Error con la ejecucion de Query de SQL "INSERT INTO RESERVA(id, costopagado, costototal, fechaida, fechallegada, tiempoalojamiento, idcliente, tipoidcliente, idoferta) values (?, ?, ?, ?, ?, ?, ?, ?, ?) DELETE FROM RESERVA WHERE ID= ? AND IDOFERTA IN( SELECT OFERTA.ID FROM OFERTA WHERE OFERTA.ACTIVA= '0')".
+ORA-00933: comando SQL no terminado correctamente
+
+09:03:38,812 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Adicionando Reserva: null
+09:08:14,561 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Interfaz
+09:08:14,562 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se aplica configuración indicada en el archivo de configuración
+09:08:14,587 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+09:08:53,711 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Adicionando Reserva: [350, 205]
+09:08:53,998 (AWT-EventQueue-0) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaAlohAndes] - Exception : Error con la ejecucion de Query de SQL "INSERT INTO RESERVA(id, costopagado, costototal, fechaida, fechallegada, tiempoalojamiento, idcliente, tipoidcliente, idoferta) values (?, ?, ?, ?, ?, ?, ?, ?, ?) DELETE FROM RESERVA WHERE ID= id AND IDOFERTA IN( SELECT OFERTA.ID FROM OFERTA WHERE OFERTA.ACTIVA= '0')".
+ORA-00933: comando SQL no terminado correctamente
+
+09:08:54,022 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Adicionando Reserva: null
+09:12:58,202 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Interfaz
+09:12:58,203 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se aplica configuración indicada en el archivo de configuración
+09:12:58,238 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+09:13:44,354 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Adicionando Reserva: [350, 250]
+09:13:45,776 (AWT-EventQueue-0) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaAlohAndes] - Exception : Error con la ejecucion de Query de SQL "INSERT INTO RESERVA(id, costopagado, costototal, fechaida, fechallegada, tiempoalojamiento, idcliente, tipoidcliente, idoferta) values (?, ?, ?, ?, ?, ?, ?, ?, ?) UPDATE OFERTA SET OFERTA.DISPONIBLE = 'N' WHERE OFERTA.ID = ? AND OFERTA.ID IN ( SELECT RESERVA.IDOFERTA FROM RESERVA)".
+ORA-00933: comando SQL no terminado correctamente
+
+09:13:45,792 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Adicionando Reserva: null
+09:14:48,232 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Interfaz
+09:14:48,233 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se aplica configuración indicada en el archivo de configuración
+09:14:48,279 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+09:15:32,128 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Adicionando Reserva: [350, 205]
+09:15:32,405 (AWT-EventQueue-0) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaAlohAndes] - Exception : Error con la ejecucion de Query de SQL "INSERT INTO RESERVA(id, costopagado, costototal, fechaida, fechallegada, tiempoalojamiento, idcliente, tipoidcliente, idoferta) values (?, ?, ?, ?, ?, ?, ?, ?, ?); UPDATE OFERTA SET OFERTA.DISPONIBLE = 'N' WHERE OFERTA.ID = ? AND OFERTA.ID IN ( SELECT RESERVA.IDOFERTA FROM RESERVA)".
+ORA-00933: comando SQL no terminado correctamente
+
+09:15:32,426 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Adicionando Reserva: null

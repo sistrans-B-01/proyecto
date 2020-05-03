@@ -48,6 +48,12 @@ import com.google.gson.JsonObject;
 import com.google.gson.stream.JsonReader;
 import uniandes.isis2304.parranderos.interfazApp.PanelDatos;
 import uniandes.isis2304.parranderos.negocio.AlohAndes;
+import uniandes.isis2304.parranderos.negocio.VOApartamento;
+import uniandes.isis2304.parranderos.negocio.VOCliente;
+import uniandes.isis2304.parranderos.negocio.VOOferta;
+import uniandes.isis2304.parranderos.negocio.VOOfertaApartamento;
+import uniandes.isis2304.parranderos.negocio.VOPropietario;
+import uniandes.isis2304.parranderos.negocio.VOReserva;
 
 /**
  * Clase principal de la interfaz
@@ -238,7 +244,7 @@ public class InterfazAlohandesDemo extends JFrame implements ActionListener
     }
     
 	/* ****************************************************************
-	 * 			Demos de Propietario
+	 * 			Demos de RFC5 Mostrar uso de alohandes
 	 *****************************************************************/
     /**
      * Demostración de creación de Propietario
@@ -301,87 +307,30 @@ public class InterfazAlohandesDemo extends JFrame implements ActionListener
      * Pre: La base de datos está vacía
      * Post: La base de datos está vacía
      */
-    /**public void demoBaresBebidas ( )
+    public void demoRFC5 ( )
     {
 		try 
 		{
     		// Ejecución de la demo y recolección de los resultados
 			// ATENCIÓN: En una aplicación real, los datos JAMÁS están en el código
-			boolean errorTipoBebida = false;
-			VOTipoBebida tipoBebida = parranderos.adicionarTipoBebida ("Vino tinto");
-			if (tipoBebida == null)
-			{
-				tipoBebida = parranderos.darTipoBebidaPorNombre ("Vino tinto");
-				errorTipoBebida = true;
-			}
-			VOBebida bebida1 = parranderos.adicionarBebida ("120", tipoBebida.getId (), 10);
-			VOBebida bebida2 = parranderos.adicionarBebida ("121", tipoBebida.getId (), 10);
-			VOBebida bebida3 = parranderos.adicionarBebida ("122", tipoBebida.getId (), 10);
-			VOBebida bebida4 = parranderos.adicionarBebida ("123", tipoBebida.getId (), 10);
-			VOBebida bebida5 = parranderos.adicionarBebida ("124", tipoBebida.getId (), 10);
-			VOBar bar1 = parranderos.adicionarBar ("Los Amigos1", "Bogotá", "Bajo", 2);
-			VOBar bar2 = parranderos.adicionarBar ("Los Amigos2", "Bogotá", "Bajo", 3);
-			VOBar bar3 = parranderos.adicionarBar ("Los Amigos3", "Bogotá", "Bajo", 4);
-			VOBar bar4 = parranderos.adicionarBar ("Los Amigos4", "Medellín", "Bajo", 5);
-			parranderos.adicionarSirven (bar1.getId (), bebida1.getId (), "diurno");
-			parranderos.adicionarSirven (bar1.getId (), bebida2.getId (), "diurno");
-			parranderos.adicionarSirven (bar2.getId (), bebida1.getId (), "diurno");
-			parranderos.adicionarSirven (bar2.getId (), bebida2.getId (), "diurno");
-			parranderos.adicionarSirven (bar2.getId (), bebida3.getId (), "diurno");
-			parranderos.adicionarSirven (bar3.getId (), bebida1.getId (), "diurno");
-			parranderos.adicionarSirven (bar3.getId (), bebida2.getId (), "diurno");
-			parranderos.adicionarSirven (bar3.getId (), bebida3.getId (), "diurno");
-			parranderos.adicionarSirven (bar3.getId (), bebida4.getId (), "diurno");
-			parranderos.adicionarSirven (bar3.getId (), bebida5.getId (), "diurno");
+			VOPropietario propietario = parranderos.adicionarPropietario("Juan", 10, "CC", "EMPLEADO");
+			VOApartamento apto= parranderos.adicionarApartamento(2, "AGUA", "CL", propietario.getNumeroIdentificacion(), propietario.getTipoIdentificacion());
+			VOCliente cliente= parranderos.adicionarCliente("Oscar", 10, "CC", "PROFESOR");
+			VOCliente cliente1= parranderos.adicionarCliente("Oscar1", 10, "CC", "EMPLEADO");
+			VOCliente cliente2= parranderos.adicionarCliente("Oscar2", 10, "CC", "EGRESADO");
+			VOOferta oferta= parranderos.adicionarOferta(20, 5, 0, Timestamp.valueOf("2020-01-30 00:00:00"), Timestamp.valueOf("2020-01-01 00:00:00"),"UNA SEMANA", "1", "Y");
+			VOOfertaApartamento ofeApto= parranderos.adicionarOfertaApartamento(oferta.getId(), apto.getUbicacion());
+			VOReserva reserva = parranderos.adicionarReserva(200000, 200000, Timestamp.valueOf("2020-01-08 00:00:00"), Timestamp.valueOf("2020-01-01 00:00:00"), "UNA SEMANA", cliente.getNumeroIdentificacion(), cliente.getTipoIdentificacion(), oferta.getId());
+			VOReserva reserva1= parranderos.adicionarReserva(200000, 200000, Timestamp.valueOf("2020-01-18 00:00:00"), Timestamp.valueOf("2020-01-11 00:00:00"), "UNA SEMANA", cliente1.getNumeroIdentificacion(), cliente1.getTipoIdentificacion(), oferta.getId());
+			VOReserva reserva2= parranderos.adicionarReserva(200000, 200000, Timestamp.valueOf("2020-01-28 00:00:00"), Timestamp.valueOf("2020-01-21 00:00:00"), "UNA SEMANA", cliente2.getNumeroIdentificacion(), cliente2.getTipoIdentificacion(), oferta.getId());
 			
-			List <VOTipoBebida> listaTiposBebida = parranderos.darVOTiposBebida ();
-			List <VOBebida> listaBebidas = parranderos.darVOBebidas ();
-			List <VOBar> listaBares = parranderos.darVOBares ();
-			List <VOSirven> listaSirven = parranderos.darVOSirven ();
 
-			List <long []> listaByB = parranderos.darBaresYCantidadBebidasSirven();
-
-			long sirvenEliminados = parranderos.eliminarSirven (bar1.getId (), bebida1.getId ());
-			sirvenEliminados += parranderos.eliminarSirven (bar1.getId (), bebida2.getId ());
-			sirvenEliminados += parranderos.eliminarSirven (bar2.getId (), bebida1.getId ());
-			sirvenEliminados += parranderos.eliminarSirven (bar2.getId (), bebida2.getId ());
-			sirvenEliminados += parranderos.eliminarSirven (bar2.getId (), bebida3.getId ());
-			sirvenEliminados += parranderos.eliminarSirven (bar3.getId (), bebida1.getId ());
-			sirvenEliminados += parranderos.eliminarSirven (bar3.getId (), bebida2.getId ());
-			sirvenEliminados += parranderos.eliminarSirven (bar3.getId (), bebida3.getId ());
-			sirvenEliminados += parranderos.eliminarSirven (bar3.getId (), bebida4.getId ());
-			sirvenEliminados += parranderos.eliminarSirven (bar3.getId (), bebida5.getId ());
-			long bebidasEliminadas = parranderos.eliminarBebidaPorNombre ("120");
-			bebidasEliminadas += parranderos.eliminarBebidaPorNombre ("121");
-			bebidasEliminadas += parranderos.eliminarBebidaPorNombre ("122");
-			bebidasEliminadas += parranderos.eliminarBebidaPorNombre ("123");
-			bebidasEliminadas += parranderos.eliminarBebidaPorNombre ("124");
-			long tbEliminados = parranderos.eliminarTipoBebidaPorNombre ("Vino tinto");
-			long baresEliminados = parranderos.eliminarBarPorNombre ("Los Amigos1");
-			baresEliminados += parranderos.eliminarBarPorNombre ("Los Amigos2");
-			baresEliminados += parranderos.eliminarBarPorNombre ("Los Amigos3");
-			baresEliminados += parranderos.eliminarBarPorId (bar4.getId ());
+			List <Object []> listaRFC5 = parranderos.darAnalisisOcupacion();
 			
 			// Generación de la cadena de caracteres con la traza de la ejecución de la demo
-			String resultado = "Demo de creación y listado de Bares y cantidad de visitas que reciben\n\n";
-			resultado += "\n\n************ Generando datos de prueba ************ \n";
-			if (errorTipoBebida)
-			{
-				resultado += "*** Exception creando tipo de bebida !!\n";
-				resultado += "*** Es probable que ese tipo de bebida ya existiera y hay restricción de UNICIDAD sobre el nombre del tipo de bebida\n";
-				resultado += "*** Revise el log de parranderos para más detalles\n";
-			}
-			resultado += "\n" + listarTiposBebida (listaTiposBebida);
-			resultado += "\n" + listarBebidas (listaBebidas);
-			resultado += "\n" + listarBares (listaBares);
-			resultado += "\n" + listarSirven (listaSirven);
+			String resultado = "Demo de creación y listado de Clientes y la informacion de sus reservas\n\n";
 			resultado += "\n\n************ Ejecutando la demo ************ \n";
-			resultado += "\n" + listarBaresYBebidas (listaByB);
-			resultado += "\n\n************ Limpiando la base de datos ************ \n";
-			resultado += sirvenEliminados + " Sirven eliminados\n";
-			resultado += bebidasEliminadas + " Bebidas eliminados\n";
-			resultado += tbEliminados + " Tipos de Bebida eliminados\n";
-			resultado += baresEliminados + " Bares eliminados\n";
+			resultado += "\n" + listarRFC5 (listaRFC5);
 			resultado += "\n Demo terminada";
    
 			panelDatos.actualizarInterfaz(resultado);
@@ -392,7 +341,7 @@ public class InterfazAlohandesDemo extends JFrame implements ActionListener
 			String resultado = generarMensajeError(e);
 			panelDatos.actualizarInterfaz(resultado);
 		}
-    }**/
+    }
 
     /**
      * Demostración de la modificación: Aumentar en uno el número de sedes de los bares de una ciudad
@@ -616,16 +565,19 @@ public class InterfazAlohandesDemo extends JFrame implements ActionListener
      * @param lista - La lista con las pareja
      * @return La cadena con una líea para cada pareja recibido
      */
-    /**private String listarBaresYBebidas (List<long[]> lista) 
+    private String listarRFC5 (List<Object[]> lista) 
     {
-    	String resp = "Los bares y el número de bebidas que sirven son:\n";
+    	String resp = "El uso de alohandes es:\n";
     	int i = 1;
-        for ( long [] tupla : lista)
+        for ( Object [] tupla : lista)
         {
-			long [] datos = tupla;
+			Object [] datos = tupla;
 	        String resp1 = i++ + ". " + "[";
-			resp1 += "idBar: " + datos [0] + ", ";
-			resp1 += "numBebidas: " + datos [1];
+			resp1 += "nombre: " + datos [0] + ", ";
+			resp1 += "tipo cliente: " + datos [1];
+			resp1 += "dinero pagado: " + datos [2];
+			resp1 += "dias reservados: " + datos [3];
+			resp1 += "cant de reservas: " + datos [4];
 	        resp1 += "]";
 	        resp += resp1 + "\n";
         }

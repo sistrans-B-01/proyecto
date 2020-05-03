@@ -389,6 +389,22 @@ public class AlohAndes
         return resp;
 	}
 	
+	public long elimResSiOfeInac (long idr)
+	{
+		log.info("Eliminando reserva porque la oferta esta inactiva: " + idr);
+		long resp= pp.elimResSiOfeInac(idr);
+		log.info ("Eliminando Reserva: " + resp + " tuplas eliminadas");
+        return resp;
+	}
+	
+	public long cambiarDisponibleOferta(long ido)
+	{
+		log.info("Actualizando disponibilidad de oferta: " + ido);
+		long resp= pp.cambiarDisponibleOferta(ido);
+		log.info ("Actualizando oferta: " + resp);
+        return resp;
+	}
+	
 	/* ****************************************************************
 	 * 			Métodos para administración
 	 *****************************************************************/

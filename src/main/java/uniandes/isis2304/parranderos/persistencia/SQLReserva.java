@@ -45,8 +45,35 @@ public class SQLReserva
 	
 	public long adicionarReserva (PersistenceManager pm, long idr, double costoP, double costoT, Timestamp ida, Timestamp lle, String tiem, long idc, String tipoc, long ido) 
 	{
-        Query q = pm.newQuery(SQL, "INSERT INTO " + pp.darTablaReserva () + "(id, costopagado, costototal, fechaida, fechallegada, tiempoalojamiento, idcliente, tipoidcliente, idoferta) values (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+		String sql= "INSERT INTO " + pp.darTablaReserva () + "(id, costopagado, costototal, fechaida, fechallegada, tiempoalojamiento, idcliente, tipoidcliente, idoferta) values (?, ?, ?, ?, ?, ?, ?, ?, ?);";
+		      //sql += " DELETE FROM " + pp.darTablaReserva ();
+		      //sql += " WHERE ID= id AND IDOFERTA IN(";
+		      //sql += " SELECT OFERTA.ID FROM " + pp.darTablaOferta() + " WHERE OFERTA.ACTIVA= '0')";
+		      //sql += " UPDATE " + pp.darTablaOferta();
+		      //sql += " SET OFERTA.DISPONIBLE = 'N'";
+		      //sql += " WHERE OFERTA.ID = ? AND OFERTA.ID IN ( SELECT RESERVA.IDOFERTA FROM " + pp.darTablaReserva() + ")";
+        Query q = pm.newQuery(SQL, sql);
         q.setParameters(idr, costoP, costoT, ida, lle, tiem, idc, tipoc, ido);
+        return (long) q.executeUnique();
+	}
+	
+	public long elimResSiOfeInac(PersistenceManager pm, long idr)
+	{
+		String sql= "DELETE FROM " + pp.darTablaReserva ();
+		      sql += " WHERE ID= id AND IDOFERTA IN(";
+		      sql += " SELECT OFERTA.ID FROM " + pp.darTablaOferta() + " WHERE OFERTA.ACTIVA= '0')";
+		Query q = pm.newQuery(SQL, sql);
+		q.setParameters(idr);
+		return (long) q.executeUnique();
+	}
+	
+	public long cambiarDisponibleOferta( PersistenceManager pm, long ido)
+	{
+		String sql= "UPDATE " + pp.darTablaOferta();
+		      sql += " SET OFERTA.DISPONIBLE = 'N'";
+		      sql += " WHERE OFERTA.ID = ? AND OFERTA.ID IN ( SELECT RESERVA.IDOFERTA FROM " + pp.darTablaReserva() + ")";
+        Query q = pm.newQuery(SQL, sql);
+        q.setParameters(ido);
         return (long) q.executeUnique();
 	}
 

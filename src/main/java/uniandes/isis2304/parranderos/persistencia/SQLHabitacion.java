@@ -114,7 +114,7 @@ public class SQLHabitacion
 		return (List<Habitacion>) q.executeList();
 	}
 	
-	public List<Object> darAnalisisOperacion( PersistenceManager pm)
+	public List<Object[]> darAnalisisOperacion( PersistenceManager pm)
 	{
 		String sql= "SELECT 'HABITACION' AS ALOJAMIENTO, MAX(SUMAS) AS MAXIMO, MEJORPAGADA, MAX(OCU) AS MAXOCU, MEJOROCUPA";
 		      sql+= " FROM( SELECT SUM(RES.COSTOPAGADO) AS SUMAS, RES.FECHADEPAGO AS MEJORPAGADA, COUNT(disponible) AS OCU, RES.FECHALLEGADA AS MEJOROCUPA";

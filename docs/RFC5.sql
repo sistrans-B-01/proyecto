@@ -3,5 +3,5 @@ FROM CLIENTE CLI, RESERVA RES
 WHERE(
       cli.numeroidentificacion = res.idcliente
       )
-GROUP BY CLI.NOMBRE, cli.tipocliente, res.fechallegada, res.fechaida
+GROUP BY CLI.NOMBRE, cli.tipocliente, res.fechallegada, res.fechaida, (RES.FECHAIDA - RES.FECHALLEGADA)
 ;
