@@ -131,6 +131,32 @@
 				}
 			]
 		},
+		{ "menuTitle": "RF7-8",
+		  "options":
+			[
+				{
+					"label": "7-REG RES COLEC",
+					"event": "registrarReservaColectiva"
+				},
+				{
+					"label": "8-DEl RES COLECT",
+					"event": "eliminarReservaColectivaPorId"
+				}
+			]
+		},
+		{ "menuTitle": "RFC8",
+		  "options":
+			[
+				{
+					"label": "8-CLIENTE HABITUAL",
+					"event": "darClientesHabituales"
+				},
+				{
+					"label": "8-DEl RES COLECT",
+					"event": "eliminarReservaColectivaPorId"
+				}
+			]
+		},
 		{ "menuTitle": "Mantenimiento",
 		  "options":
 			[

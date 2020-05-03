@@ -6,6 +6,8 @@ import com.google.gson.JsonObject;
 import java.sql.Timestamp;
 import java.util.List;
 
+import javax.jdo.PersistenceManager;
+
 import uniandes.isis2304.parranderos.persistencia.PersistenciaAlohAndes;
 
 public class AlohAndes 
@@ -434,6 +436,36 @@ public class AlohAndes
 		log.info("Actualizando disponibilidad de oferta: " + ido);
 		long resp= pp.cambiarDisponibleOferta(ido);
 		log.info ("Actualizando oferta: " + resp);
+        return resp;
+	}
+	
+	/* ****************************************************************
+	 * 			Métodos para manejar las reservasColectivas
+	 *****************************************************************/
+	/**
+	 * de ser factible Adiciona de manera persistente una reserva colectiva
+	 */
+	public ReservaColectiva registrarReservaColectiva (long idresCol, long idc, String tipoc, Timestamp lle,Timestamp ida, Timestamp  fePago,int cantidadRes, String tipoAlojamiento, double costo, String servicios)
+	{
+        log.info ("Adicionando reserva colectiva: " );
+        ReservaColectiva resCol = pp.registrarReservaColectiva( idresCol,  idc,  tipoc,  lle, ida,   fePago, cantidadRes,  tipoAlojamiento,  costo,  servicios);
+        log.info ("Adicionando reserva colectiva: ");
+        return resCol;
+	}
+	
+	public long eliminarReservaColectivaPorId (long idResCol)
+	{
+		log.info ("Eliminando Reserva colectiva por id: " + idResCol);
+        long resp = pp.eliminarReservaColectivaPorId(idResCol);		
+        log.info ("Eliminando Reserva colectiva por id: " + resp + " tuplas eliminadas");
+        return resp;
+	}
+	
+	public List<Cliente> darClientesHabituales () 
+	{
+		log.info ("consultandoClientesHabituales "  );
+		List<Cliente> resp = pp.darClientesHabituales();		
+        log.info ("consultandoClientesHabituales");
         return resp;
 	}
 	
