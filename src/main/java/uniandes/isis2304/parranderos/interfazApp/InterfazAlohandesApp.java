@@ -795,10 +795,25 @@ public class InterfazAlohandesApp extends JFrame implements ActionListener
         		{
         			throw new Exception ("No se pudo crear una reserva con Id de Cliente: " + idCli + "y Id de oferta: " + idOfe);
         		}
-        		String resultado = "En adicionarReserva\n\n";
-        		resultado += "Reserva adicionada exitosamente: " + tb;
-    			resultado += "\n Operación terminada";
-    			panelDatos.actualizarInterfaz(resultado);
+        		
+        		long tbEliminados = parranderos.elimResSiOfeInac(tb.getId());
+        		if( tbEliminados != 0)
+        		{
+        			String resultado = "En adicionarReserva\n\n";
+            		resultado += "La reserva no se pudo adicionar: " + tbEliminados;
+        			resultado += "\n Operación terminada";
+        			panelDatos.actualizarInterfaz(resultado);
+        		}
+        		else
+        		{
+        			long tbActualizada = parranderos.cambiarDisponibleOferta(tb.getOferta());
+        			String resultado = "En adicionarReserva\n\n";
+            		resultado += "Reserva adicionada exitosamente: " + tb;
+            		resultado += "\n Cambia oferta a NO disponible: " + tbActualizada;
+        			resultado += "\n Operación terminada";
+        			panelDatos.actualizarInterfaz(resultado);
+        		}
+        		
     		}
     		else
     		{

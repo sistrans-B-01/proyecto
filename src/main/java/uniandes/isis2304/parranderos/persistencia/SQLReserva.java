@@ -45,7 +45,7 @@ public class SQLReserva
 	
 	public long adicionarReserva (PersistenceManager pm, long idr, double costoP, double costoT, Timestamp ida, Timestamp lle, String tiem, long idc, String tipoc, long ido) 
 	{
-		String sql= "INSERT INTO " + pp.darTablaReserva () + "(id, costopagado, costototal, fechaida, fechallegada, tiempoalojamiento, idcliente, tipoidcliente, idoferta) values (?, ?, ?, ?, ?, ?, ?, ?, ?);";
+		String sql= "INSERT INTO " + pp.darTablaReserva () + "(id, costopagado, costototal, fechaida, fechallegada, tiempoalojamiento, idcliente, tipoidcliente, idoferta) values (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		      //sql += " DELETE FROM " + pp.darTablaReserva ();
 		      //sql += " WHERE ID= id AND IDOFERTA IN(";
 		      //sql += " SELECT OFERTA.ID FROM " + pp.darTablaOferta() + " WHERE OFERTA.ACTIVA= '0')";

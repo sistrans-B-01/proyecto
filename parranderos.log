@@ -488,3 +488,36 @@ ORA-00933: comando SQL no terminado correctamente
 ORA-00933: comando SQL no terminado correctamente
 
 09:15:32,426 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Adicionando Reserva: null
+12:50:46,375 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Interfaz
+12:50:46,377 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se aplica configuración indicada en el archivo de configuración
+12:50:46,468 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+12:51:32,915 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Interfaz
+12:51:32,933 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se aplica configuración indicada en el archivo de configuración
+12:51:33,021 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+12:52:25,908 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Adicionando Oferta: [2020-01-01 00:00:00.0, 2020-01-06 00:00:00.0]
+12:52:26,257 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Adicionando oferta: Oferta [id=101, fechaInicio=2020-01-01 00:00:00.0, fechaFin=2020-01-06 00:00:00.0, diasActiva=4, descuento=20, tiempoContrato=UNA SEMANA, activa=0, disponible= Y]
+12:53:22,269 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Adicionando Reserva: [10, 101]
+12:53:22,330 (AWT-EventQueue-0) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaAlohAndes] - Exception : Error con la ejecucion de Query de SQL "INSERT INTO RESERVA(id, costopagado, costototal, fechaida, fechallegada, tiempoalojamiento, idcliente, tipoidcliente, idoferta) values (?, ?, ?, ?, ?, ?, ?, ?, ?);".
+ORA-00933: comando SQL no terminado correctamente
+
+12:53:22,350 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Adicionando Reserva: null
+12:54:28,242 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Interfaz
+12:54:28,243 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se aplica configuración indicada en el archivo de configuración
+12:54:28,353 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+12:55:07,256 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Adicionando Reserva: [10, 101]
+12:55:07,587 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Adicionando Reserva: Reserva [id=103, idCliente=10, idOferta=101, costoPagado=20.0, costoTotal=5.0, fechaIda=2020-01-06 00:00:00.0, fechaLlegada=2020-01-01 00:00:00.0, tiempoAlojamiento=UNA SEMANA]
+12:55:07,587 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Eliminando reserva porque la oferta esta inactiva: 103
+12:55:08,109 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Eliminando Reserva: 1 tuplas eliminadas
+12:59:17,095 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Adicionando Reserva: [10, 11]
+12:59:17,168 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Adicionando Reserva: Reserva [id=104, idCliente=10, idOferta=11, costoPagado=20.0, costoTotal=5.0, fechaIda=2020-01-05 00:00:00.0, fechaLlegada=2020-01-01 00:00:00.0, tiempoAlojamiento=UNA SEMANA]
+12:59:17,168 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Eliminando reserva porque la oferta esta inactiva: 104
+12:59:17,189 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Eliminando Reserva: 0 tuplas eliminadas
+13:01:45,828 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Interfaz
+13:01:45,830 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se aplica configuración indicada en el archivo de configuración
+13:01:45,898 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+13:02:28,055 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Adicionando Reserva: [10, 11]
+13:02:28,395 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Adicionando Reserva: Reserva [id=105, idCliente=10, idOferta=11, costoPagado=1.0, costoTotal=2.0, fechaIda=2020-01-03 00:00:00.0, fechaLlegada=2020-01-02 00:00:00.0, tiempoAlojamiento=UNA SEMANA]
+13:02:28,395 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Eliminando reserva porque la oferta esta inactiva: 105
+13:02:28,864 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Eliminando Reserva: 0 tuplas eliminadas
+13:02:28,864 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Actualizando disponibilidad de oferta: 11
+13:02:28,892 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Actualizando oferta: 1
