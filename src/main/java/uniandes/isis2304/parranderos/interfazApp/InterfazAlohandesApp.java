@@ -1029,104 +1029,6 @@ public class InterfazAlohandesApp extends JFrame implements ActionListener
     /* ****************************************************************
 	 * 			Métodos para las listas
 	 *****************************************************************/
-
-    /* ****************************************************************
-	 * 			Métodos RF7-RESERVAS-MASIVAS
-	 *****************************************************************/
- 
-    public void registrarReservaColectiva( )
-    {
-    	try 
-    	{
-    		String idresCol = JOptionPane.showInputDialog (this, "numero id", "registrar ResColectiva", JOptionPane.QUESTION_MESSAGE);
-    		String tipoIdCliente = JOptionPane.showInputDialog(this, "Tipo de Identificacion cliente", "registrar ResColectiva",JOptionPane.QUESTION_MESSAGE);
-    		String idCliente = JOptionPane.showInputDialog(this, "Numero de id cliente ", "registrar ResColectiva",JOptionPane.QUESTION_MESSAGE);
-    		String fechaLlegada = JOptionPane.showInputDialog(this, "Fecha Llegada", "registrar ResColectiva",JOptionPane.QUESTION_MESSAGE);
-    		String fechaIda = JOptionPane.showInputDialog (this, "Fecha Ida", "registrar ResColectiva", JOptionPane.QUESTION_MESSAGE);
-    		String fechaPago = JOptionPane.showInputDialog(this, "Fecha Pago", "registrar ResColectiva",JOptionPane.QUESTION_MESSAGE);
-    		String cantidadRes = JOptionPane.showInputDialog(this, "cantidad reservas", "registrar ResColectiva",JOptionPane.QUESTION_MESSAGE);
-    		String tipoAlojamiento = JOptionPane.showInputDialog(this, "tipo Aloj. (apartamento, habi...)", "registrar ResColectiva",JOptionPane.QUESTION_MESSAGE);
-    		String costo = JOptionPane.showInputDialog (this, "costo", "registrar ResColectiva", JOptionPane.QUESTION_MESSAGE);
-    		String servicios = JOptionPane.showInputDialog (this, "servicios", "registrar ResColectiva", JOptionPane.QUESTION_MESSAGE);
-    		
-    		if (idresCol != null)
-    		{
-        		VOReservaColectiva tb = parranderos.registrarReservaColectiva(Long.valueOf(idresCol), Long.valueOf(idCliente) ,  tipoIdCliente, Timestamp.valueOf(fechaLlegada),Timestamp.valueOf(fechaIda), Timestamp.valueOf( fechaPago),Integer.valueOf(cantidadRes),  tipoAlojamiento, Double.valueOf(costo), servicios);
-        		if (tb == null)
-        		{
-        			throw new Exception ("No se pudo crear la reserva colectiva con id: " + idresCol);
-        		}
-        		String resultado = "En registrarReservaColectiva\n\n";
-        		resultado += "Registro exitoso de reservaColectiva: " + tb;
-    			resultado += "\n Operación terminada";
-    			panelDatos.actualizarInterfaz(resultado);
-    		}
-    		else
-    		{
-    			panelDatos.actualizarInterfaz("Operación cancelada por el usuario");
-    		}
-		} 
-    	catch (Exception e) 
-    	{
-//			e.printStackTrace();
-			String resultado = generarMensajeError(e);
-			panelDatos.actualizarInterfaz(resultado);
-		}
-    }
-    
-    public void eliminarReservaColectivaPorId( )
-    {
-    	try 
-    	{
-    		String idResCol = JOptionPane.showInputDialog (this, "Id de la reserva colectiva", "Borrar reservaColectiva por Id", JOptionPane.QUESTION_MESSAGE);
-
-    		if (idResCol != null)
-    		{
-    			long tbEliminados = parranderos.eliminarReservaColectivaPorId(Long.valueOf(idResCol));
-
-    			String resultado = "En eliminarReserva\n\n";
-    			resultado += tbEliminados + " Reservas eliminadas\n";
-    			resultado += "\n Operación terminada";
-    			panelDatos.actualizarInterfaz(resultado);
-    		}
-    		else
-    		{
-    			panelDatos.actualizarInterfaz("Operación cancelada por el usuario");
-    		}
-		} 
-    	catch (Exception e) 
-    	{
-//			e.printStackTrace();
-			String resultado = generarMensajeError(e);
-			panelDatos.actualizarInterfaz(resultado);
-		}
-    }
-    
-    public void darClientesHabituales( )
-    {
-    	try 
-    	{
-    		
-    		List<Cliente> resp = parranderos.darClientesHabituales();
-
-		
-			String resultado="Los Clientes Habituales Son: \n";
-			for(Cliente tempCli: resp) 
-    		{
-    			 resultado+=tempCli.toString();
-    			resultado+="\n";
-    			
-    		}
-    			
-    		panelDatos.actualizarInterfaz(resultado );
-		}
-    	catch (Exception e) 
-    	{
-//			e.printStackTrace();
-			String resultado = generarMensajeError(e);
-			panelDatos.actualizarInterfaz(resultado);
-		}
-    }
     private String listarPrueba (List<long[]> lista) 
     {
     	String resp = "Las ofertas disponibles y las reservas a cambiar son:\n";
@@ -1231,6 +1133,104 @@ public class InterfazAlohandesApp extends JFrame implements ActionListener
     	}
     	return resp;
 
+    }
+
+    /* ****************************************************************
+	 * 			Métodos RF7-RESERVAS-MASIVAS
+	 *****************************************************************/
+ 
+    public void registrarReservaColectiva( )
+    {
+    	try 
+    	{
+    		String idresCol = JOptionPane.showInputDialog (this, "numero id", "registrar ResColectiva", JOptionPane.QUESTION_MESSAGE);
+    		String tipoIdCliente = JOptionPane.showInputDialog(this, "Tipo de Identificacion cliente", "registrar ResColectiva",JOptionPane.QUESTION_MESSAGE);
+    		String idCliente = JOptionPane.showInputDialog(this, "Numero de id cliente ", "registrar ResColectiva",JOptionPane.QUESTION_MESSAGE);
+    		String fechaLlegada = JOptionPane.showInputDialog(this, "Fecha Llegada", "registrar ResColectiva",JOptionPane.QUESTION_MESSAGE);
+    		String fechaIda = JOptionPane.showInputDialog (this, "Fecha Ida", "registrar ResColectiva", JOptionPane.QUESTION_MESSAGE);
+    		String fechaPago = JOptionPane.showInputDialog(this, "Fecha Pago", "registrar ResColectiva",JOptionPane.QUESTION_MESSAGE);
+    		String cantidadRes = JOptionPane.showInputDialog(this, "cantidad reservas", "registrar ResColectiva",JOptionPane.QUESTION_MESSAGE);
+    		String tipoAlojamiento = JOptionPane.showInputDialog(this, "tipo Aloj. (apartamento, habi...)", "registrar ResColectiva",JOptionPane.QUESTION_MESSAGE);
+    		String costo = JOptionPane.showInputDialog (this, "costo", "registrar ResColectiva", JOptionPane.QUESTION_MESSAGE);
+    		String servicios = JOptionPane.showInputDialog (this, "servicios", "registrar ResColectiva", JOptionPane.QUESTION_MESSAGE);
+    		
+    		if (idresCol != null)
+    		{
+        		VOReservaColectiva tb = parranderos.registrarReservaColectiva(Long.valueOf(idresCol), Long.valueOf(idCliente) ,  tipoIdCliente, Timestamp.valueOf(fechaLlegada),Timestamp.valueOf(fechaIda), Timestamp.valueOf( fechaPago),Integer.valueOf(cantidadRes),  tipoAlojamiento, Double.valueOf(costo), servicios);
+        		if (tb == null)
+        		{
+        			throw new Exception ("No se pudo crear la reserva colectiva con id: " + idresCol);
+        		}
+        		String resultado = "En registrarReservaColectiva\n\n";
+        		resultado += "Registro exitoso de reservaColectiva: " + tb;
+    			resultado += "\n Operación terminada";
+    			panelDatos.actualizarInterfaz(resultado);
+    		}
+    		else
+    		{
+    			panelDatos.actualizarInterfaz("Operación cancelada por el usuario");
+    		}
+		} 
+    	catch (Exception e) 
+    	{
+//			e.printStackTrace();
+			String resultado = generarMensajeError(e);
+			panelDatos.actualizarInterfaz(resultado);
+		}
+    }
+    
+    public void eliminarReservaColectivaPorId( )
+    {
+    	try 
+    	{
+    		String idResCol = JOptionPane.showInputDialog (this, "Id de la reserva colectiva", "Borrar reservaColectiva por Id", JOptionPane.QUESTION_MESSAGE);
+
+    		if (idResCol != null)
+    		{
+    			long tbEliminados = parranderos.eliminarReservaColectivaPorId(Long.valueOf(idResCol));
+
+    			String resultado = "En eliminarReserva\n\n";
+    			resultado += tbEliminados + " Reservas eliminadas\n";
+    			resultado += "\n Operación terminada";
+    			panelDatos.actualizarInterfaz(resultado);
+    		}
+    		else
+    		{
+    			panelDatos.actualizarInterfaz("Operación cancelada por el usuario");
+    		}
+		} 
+    	catch (Exception e) 
+    	{
+//			e.printStackTrace();
+			String resultado = generarMensajeError(e);
+			panelDatos.actualizarInterfaz(resultado);
+		}
+    }
+    
+    public void darClientesHabituales( )
+    {
+    	try 
+    	{
+    		
+    		List<Cliente> resp = parranderos.darClientesHabituales();
+
+		
+			String resultado="Los Clientes Habituales Son: \n";
+			for(Cliente tempCli: resp) 
+    		{
+    			 resultado+=tempCli.toString();
+    			resultado+="\n";
+    			
+    		}
+    			
+    		panelDatos.actualizarInterfaz(resultado );
+		}
+    	catch (Exception e) 
+    	{
+//			e.printStackTrace();
+			String resultado = generarMensajeError(e);
+			panelDatos.actualizarInterfaz(resultado);
+		}
     }
 
 	/**

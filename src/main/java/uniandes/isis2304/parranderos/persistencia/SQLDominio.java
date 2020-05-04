@@ -108,10 +108,10 @@ public class SQLDominio
 	
 	public List<Object> darDineroRecibidoPorProveedor(PersistenceManager pm)
 	{
-		String sql = "SELECT DO.NOMBRE, PRO.NOMBRE, VEC.NOMBRE, SUM(RES.COSTOPAGADO";
+		String sql = "SELECT DO.NOMBRE, PRO.NOMBRE, VEC.NOMBRE, SUM(RES.COSTOPAGADO)";
 		sql +=       " FROM " + pp.darTablaDominio() + " DO, " + pp.darTablaPropietario() + " PRO, " +pp.darTablaVecinos() + " VEC, " + pp.darTablaHabitacion() + " HAB, "+ pp.darTablaVivienda() + " VIV, " + pp.darTablaApartamento()+ " APA, " + pp.darTablaOferta() + " OFE, " + pp.darTablaOfertaHabitacion() + " OFEHAB, "+ pp.darTablaOfertaVivienda()+ " OFEVIV, "+ pp.darTablaOfertaApartamento()+ " OFEAPA, "+ pp.darTablaReserva() + " RES";
 		sql +=       " WHERE ";
-		sql +=            " ((DO.REGISTRO = HAB.IDDOMINIO AND DO.TIPOREGISTRO = = HAB.TIPOREGDOMINIO)";
+		sql +=            " ((DO.REGISTRO = HAB.IDDOMINIO AND DO.TIPOREGISTRO = HAB.TIPOREGDOMINIO)";
 		sql +=             " OR (PRO.NUMEROIDENTIFICACION = APA.IDPROPIETARIO AND PRO.TIPOIDENTIFICACION = APA.TIPOIDENTIFICACION)";
 		sql +=             " OR (VEC.NUMEROIDENTIFICACION = VIV.IDVECINO AND VEC.TIPOIDENTIFICACION = VIV.TIPOIDENTIFICACION))";
 		sql +=            " AND";

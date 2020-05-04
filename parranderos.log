@@ -969,3 +969,113 @@ ORA-00933: comando SQL no terminado correctamente
 17:52:22,417 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Listando el analisis de ocupacion
 17:52:22,609 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Listando el analisis de ocupacion
 >>>>>>> master
+19:01:37,057 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Interfaz
+19:01:37,059 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se aplica configuración indicada en el archivo de configuración
+19:01:37,108 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+19:01:55,279 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Listando el nombre del proveedor y el dinero que recibe
+19:01:59,520 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Listando el índice de ocupacion de cada oferta
+19:01:59,567 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Listando el indice de ocupacion de cada oferta
+19:02:02,835 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Listando la info general de clientes
+19:02:02,897 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Listando la info general del clientes
+19:02:06,752 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Listando el analisis de ocupacion
+19:02:06,796 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Listando el analisis de ocupacion
+19:03:15,046 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Listando el nombre del proveedor y el dinero que recibe
+19:03:17,486 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Listando la info general de clientes
+19:03:17,534 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Listando la info general del clientes
+19:03:28,159 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Listando el analisis de ocupacion
+19:03:28,195 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Listando el analisis de ocupacion
+19:04:43,663 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Interfaz
+19:04:43,665 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se aplica configuración indicada en el archivo de configuración
+19:04:43,695 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+19:04:50,157 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Listando la info general de clientes
+19:04:50,301 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Listando la info general del clientes
+19:04:53,607 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Listando el analisis de ocupacion
+19:04:53,644 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Listando el analisis de ocupacion
+19:05:00,173 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Listando el índice de ocupacion de cada oferta
+19:05:00,195 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Listando el indice de ocupacion de cada oferta
+19:05:58,039 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Interfaz
+19:05:58,042 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se aplica configuración indicada en el archivo de configuración
+19:05:58,108 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+19:06:27,875 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Actualizando desactivacion de oferta: 205
+19:06:28,139 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Actualizando desactivacion de oferta: 0
+19:06:28,140 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Listando las reservas a cambiar
+19:06:28,266 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Listando las reservas a cambiar
+19:06:28,266 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Actualizando las reservas 
+19:06:28,313 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Actualizando las reservas: 0
+19:07:04,863 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Interfaz
+19:07:04,863 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se aplica configuración indicada en el archivo de configuración
+19:07:04,896 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+19:07:12,300 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - consultandoClientesHabituales 
+19:07:12,532 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - consultandoClientesHabituales
+19:07:21,084 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Interfaz
+19:07:21,085 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se aplica configuración indicada en el archivo de configuración
+19:07:21,133 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+19:07:50,117 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Listando la info general de clientes
+19:07:50,220 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Listando la info general del clientes
+19:08:39,945 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Interfaz
+19:08:39,946 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se aplica configuración indicada en el archivo de configuración
+19:08:40,009 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+19:08:46,658 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Listando la info general de clientes
+19:08:46,839 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Listando la info general del clientes
+19:08:50,571 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Listando el analisis de ocupacion
+19:08:50,599 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Listando el analisis de ocupacion
+19:09:01,811 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Listando el índice de ocupacion de cada oferta
+19:09:01,833 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Listando el indice de ocupacion de cada oferta
+19:09:40,140 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Interfaz
+19:09:40,154 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se aplica configuración indicada en el archivo de configuración
+19:09:40,249 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+19:09:46,640 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Listando la info general de clientes
+19:09:46,796 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Listando la info general del clientes
+19:11:14,216 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Interfaz
+19:11:14,218 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se aplica configuración indicada en el archivo de configuración
+19:11:14,267 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+19:11:20,538 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Listando la info general de clientes
+19:11:20,688 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Listando la info general del clientes
+19:11:26,615 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Listando el analisis de ocupacion
+19:11:26,643 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Listando el analisis de ocupacion
+19:11:41,478 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Interfaz
+19:11:41,481 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se aplica configuración indicada en el archivo de configuración
+19:11:41,511 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+19:11:49,859 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - consultandoClientesHabituales 
+19:11:50,000 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - consultandoClientesHabituales
+19:13:30,140 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Interfaz
+19:13:30,142 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se aplica configuración indicada en el archivo de configuración
+19:13:30,196 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+19:13:38,786 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Listando el índice de ocupacion de cada oferta
+19:13:38,974 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Listando el indice de ocupacion de cada oferta
+19:13:41,673 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Listando la info general de clientes
+19:13:41,696 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Listando la info general del clientes
+19:13:44,659 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Listando el analisis de ocupacion
+19:13:44,693 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Listando el analisis de ocupacion
+19:13:55,587 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Actualizando desactivacion de oferta: 10
+19:13:56,406 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Actualizando desactivacion de oferta: 0
+19:13:56,406 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Listando las reservas a cambiar
+19:13:56,484 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Listando las reservas a cambiar
+19:13:56,484 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Actualizando las reservas 
+19:13:56,534 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Actualizando las reservas: 0
+19:16:33,915 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Interfaz
+19:16:33,917 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se aplica configuración indicada en el archivo de configuración
+19:16:33,973 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+19:16:41,314 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Listando la info general de clientes
+19:16:41,484 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Listando la info general del clientes
+19:17:20,041 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Listando el analisis de ocupacion
+19:17:20,077 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Listando el analisis de ocupacion
+19:17:29,502 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Listando el índice de ocupacion de cada oferta
+19:17:29,532 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Listando el indice de ocupacion de cada oferta
+19:21:47,341 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Interfaz
+19:21:47,343 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se aplica configuración indicada en el archivo de configuración
+19:21:47,406 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+19:21:53,999 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Listando la info general de clientes
+19:21:54,172 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Listando la info general del clientes
+19:21:57,707 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Listando el nombre del proveedor y el dinero que recibe
+19:28:15,748 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Interfaz
+19:28:15,748 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se aplica configuración indicada en el archivo de configuración
+19:28:15,779 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+19:28:23,403 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Listando el nombre del proveedor y el dinero que recibe
+19:28:23,570 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Listando el nombre del proveedor y el dinero recibe: Listo!
+19:28:27,992 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Listando las 20 ofertas mas populares
+19:30:40,006 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Interfaz
+19:30:40,008 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se aplica configuración indicada en el archivo de configuración
+19:30:40,062 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+19:30:47,290 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Listando las 20 ofertas mas populares
+19:30:47,480 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - Listando las 20 ofertas mas populares: Listo!

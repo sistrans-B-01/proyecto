@@ -109,7 +109,7 @@ public class SQLOferta
 		sql +=           " FROM " + pp.darTablaOferta() + " OFE";
 		sql +=                  " INNER JOIN " + pp.darTablaOfertaHabitacion() + " OFEHAB ON OFE.ID = OFEHAB.IDOFERTA";
 		sql +=                  " INNER JOIN " + pp.darTablaOfertaApartamento() + " OFEAPA ON OFE.ID = OFEAPA.IDOFERTA";
-		sql +=                  " INNER JOIN " + pp.darTablaOfertaVivienda() + " OFEVIV ON OFE.ID = OFEVIVI.IDOFERTA";
+		sql +=                  " INNER JOIN " + pp.darTablaOfertaVivienda() + " OFEVIV ON OFE.ID = OFEVIV.IDOFERTA";
 		sql +=                  " INNER JOIN (";
 		sql +=                      " SELECT OFE.ID, COUNT(RES.ID) AS VECESCOMPRADA";
 		sql +=                        " FROM " + pp.darTablaReserva() + " RES, " + pp.darTablaOferta() + " OFE";
@@ -185,5 +185,15 @@ public class SQLOferta
 		Query q = pm.newQuery(SQL, sql);
 	    q.setParameters(ido);
 		return (long) q.executeUnique();
+	}
+	
+	public List<Object> darOfertasMenorDemanda( PersistenceManager pm)
+	{
+		String sql= "select distinct oferta.id";
+		      sql+= " from " + pp.darTablaOferta() + ", " + pp.darTablaReserva();
+		      sql+= " where reserva.idoferta = oferta.id and reserva.fechaida <= '01-ENE-2020'";
+		      sql+= " or oferta.id not in (select oferta.id from " + pp.darTablaOferta() + ", " + pp.darTablaReserva() + " where reserva.idoferta = oferta.id";
+		Query q = pm.newQuery(SQL, sql);
+	    return q.executeList();       
 	}
 }

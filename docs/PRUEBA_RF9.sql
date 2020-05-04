@@ -114,19 +114,19 @@ where(oferta.id in (select distinct oferta.id
 
 update reserva
 set reserva.idoferta=( select distinct oferta.id 
-                      from oferta, reserva
-                      where (oferta.id!= reserva.idoferta 
-                          and oferta.fechainicio<= reserva.fechallegada and oferta.fechafin >= reserva.fechaida
-                          and reserva.id in( select reserva.id
-                                             from reserva, oferta
-                                               where (reserva.idoferta=oferta.id and oferta.activa='0')
-                                            )
-                          ) 
+                       from oferta, reserva
+                       where (oferta.id!= reserva.idoferta 
+                              and oferta.fechainicio<= reserva.fechallegada and oferta.fechafin >= reserva.fechaida
+                              and reserva.id in( select reserva.id
+                                                 from reserva, oferta
+                                                 where (reserva.idoferta=oferta.id and oferta.activa='0')
+                                               )
+                              ) 
                      ) 
 where reserva.id in ( select reserva.id
-                                             from reserva, oferta
-                                             where (reserva.idoferta=oferta.id and oferta.activa='0')
-                          )
+                      from reserva, oferta
+                      where (reserva.idoferta=oferta.id and oferta.activa='0')
+                    )
                  
 
 

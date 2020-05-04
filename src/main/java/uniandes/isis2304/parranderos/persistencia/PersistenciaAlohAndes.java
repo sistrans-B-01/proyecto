@@ -19,7 +19,6 @@ import org.apache.log4j.Logger;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import com.sun.jdi.LongValue;
 
 import uniandes.isis2304.parranderos.negocio.Apartamento;
 import uniandes.isis2304.parranderos.negocio.Cliente;
