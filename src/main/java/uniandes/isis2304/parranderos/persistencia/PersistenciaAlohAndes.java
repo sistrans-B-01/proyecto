@@ -1147,6 +1147,48 @@ public class PersistenciaAlohAndes
 		return respuesta;
 	}
 	
+	public List<long[]> darReservaPorCambiar( )
+	{
+		List<long[]> respuesta = new LinkedList<long[]>();
+		List<Object[]> tuplas = sqlOferta.darReservaPorCambiar(pmf.getPersistenceManager());
+		for( Object[] tupla : tuplas)
+		{
+			long[] datos = new long [2];
+			datos[0]= ((BigDecimal) tupla [0]).longValue ();
+			datos[1]= ((BigDecimal) tupla [1]).longValue ();
+			respuesta.add(datos);	
+		}
+		return respuesta;
+	}
+	
+	public long eliminarReservaSinOferta( )
+	{
+		PersistenceManager pm = pmf.getPersistenceManager();
+        Transaction tx=pm.currentTransaction();
+        try
+        {
+            tx.begin();
+            long resp = sqlOferta.eliminarReservaSinOferta(pm);
+            tx.commit();
+
+            return resp;
+        }
+        catch (Exception e)
+        {
+//        	e.printStackTrace();
+        	log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+            return -1;
+        }
+        finally
+        {
+            if (tx.isActive())
+            {
+                tx.rollback();
+            }
+            pm.close();
+        }
+	}
+	
 	public long actualizarReservas()
 	{
 		PersistenceManager pm = pmf.getPersistenceManager();
@@ -1155,6 +1197,34 @@ public class PersistenciaAlohAndes
         {
             tx.begin();
             long resp = sqlOferta.actualizarReservas(pm);
+            tx.commit();
+
+            return resp;
+        }
+        catch (Exception e)
+        {
+//        	e.printStackTrace();
+        	log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+            return -1;
+        }
+        finally
+        {
+            if (tx.isActive())
+            {
+                tx.rollback();
+            }
+            pm.close();
+        }
+	}
+	
+	public long actualizarOfertaDisponible( )
+	{
+		PersistenceManager pm = pmf.getPersistenceManager();
+        Transaction tx=pm.currentTransaction();
+        try
+        {
+            tx.begin();
+            long resp = sqlOferta.actualizarOfertaDisponible(pm);
             tx.commit();
 
             return resp;

@@ -783,15 +783,31 @@ public class InterfazAlohandesApp extends JFrame implements ActionListener
     			long tbActualizada = parranderos.actulizarOfertaActiva(Long.valueOf(idOfe));
     			
     			List <long[]> lista = parranderos.darReservasPorCambiar();
+    		    
+    			List<long[]> lista2 = parranderos.darReservaPorCambiar();
+    			while( !lista2.isEmpty())
+    			{	
+    				long tbResActualizada = parranderos.actualizarReservas();
+        			long tbOfeActualizada = parranderos.actualizarOfertaDisponible();
+        			
+        			String resultado = "En actualizarOfertaActiva";
+        			resultado += "\n Cambia oferta a desactivada: " + tbActualizada;
+        			resultado +=  "\n" + listarPrueba (lista);
+        			resultado +=  "\n" + listarReservaAcambiar (lista2);
+        			resultado += "\n Cambia las reservas: " + tbResActualizada;
+        			resultado += "\n Cambia la oferta: " + tbOfeActualizada;
+        			panelDatos.actualizarInterfaz(resultado);
+        			resultado += "\n Operación terminada";
+        			lista2= parranderos.darReservaPorCambiar();
+    			}
+    			if( lista2.isEmpty())
+    				{
+    				long tbResEliminada = parranderos.eliminarReservaSinOferta();
+    				String resultado2 = "En actualizarOfertaActiva";
+        			resultado2 += "\n Reserva eliminada: " + tbResEliminada;
+        			panelDatos.actualizarInterfaz(resultado2);
+    				}
     			
-    			long tbResActualizada = parranderos.actualizarReservas();
-
-    			String resultado = "En actualizarOfertaActiva";
-    			resultado += "\n Cambia oferta a desactivada: " + tbActualizada;
-    			resultado +=  "\n" + listarPrueba (lista);
-    			resultado += "\n Cambia las reservas: " + tbResActualizada;
-    			panelDatos.actualizarInterfaz(resultado);
-    			resultado += "\n Operación terminada";
     		}
     		else
     		{
@@ -1032,6 +1048,22 @@ public class InterfazAlohandesApp extends JFrame implements ActionListener
     private String listarPrueba (List<long[]> lista) 
     {
     	String resp = "Las ofertas disponibles y las reservas a cambiar son:\n";
+    	int i = 1;
+        for ( long [] tupla : lista)
+        {
+			long [] datos = tupla;
+	        String resp1 = i++ + ". " + "[";
+			resp1 += "ofertas disponibles: " + datos [0] + ", ";
+			resp1 += "reservas a cambiar: " + datos [1];
+	        resp1 += "]";
+	        resp += resp1 + "\n";
+        }
+        return resp;
+	}
+    
+    private String listarReservaAcambiar (List<long[]> lista) 
+    {
+    	String resp = "La oferta y la reserva a cambiar son:\n";
     	int i = 1;
         for ( long [] tupla : lista)
         {

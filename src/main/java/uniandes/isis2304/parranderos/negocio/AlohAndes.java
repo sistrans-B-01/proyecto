@@ -224,12 +224,36 @@ public class AlohAndes
         return resp;
 	}
 	
+	public long actualizarOfertaDisponible( )
+	{
+		log.info("Actualizando las oferta ");
+		long resp= pp.actualizarOfertaDisponible();
+		log.info ("Actualizando las oferta: " + resp);
+        return resp;
+	}
+	
 	public List<long[]> darReservasPorCambiar()
 	{
 		log.info("Listando las reservas a cambiar");
 		List<long[]> tuplas= pp.darReservasPorCambiar();
 		log.info("Listando las reservas a cambiar");
 		return tuplas;
+	}
+	
+	public List<long[]> darReservaPorCambiar( )
+	{
+		log.info("Listando las reservas a cambiar");
+		List<long[]> tuplas= pp.darReservaPorCambiar();
+		log.info("Listando las reservas a cambiar");
+		return tuplas;
+	}
+	
+	public long eliminarReservaSinOferta( )
+	{
+		log.info ("Eliminando reserva: " );
+        long resp = pp.eliminarReservaSinOferta();		
+        log.info ("Eliminando reserva: " + resp + " tuplas eliminadas");
+        return resp;
 	}
 	
 	public long actulizarOfertaDesactiva (long ido)
