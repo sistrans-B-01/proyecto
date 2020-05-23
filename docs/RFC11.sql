@@ -1,4 +1,6 @@
 --RFC11 ADMINISTRADOR
+create index fechaofeclie on reserva(fechallegada, idcliente, idoferta);
+
 select 'HABITACION' as ALOJAMIENTO, cliente.*, oferta.id as idOferta
 from cliente, oferta, reserva, ofertahabitacion
 where oferta.id= reserva.idoferta and cliente.numeroidentificacion= reserva.idcliente 
@@ -24,8 +26,11 @@ where oferta.id= reserva.idoferta and cliente.numeroidentificacion= reserva.idcl
       and ofertaapartamento.idoferta= oferta.id
 group by oferta.id, cliente.numeroidentificacion, cliente.tipocliente, cliente.tipoidentificacion, cliente.nombre;
 
+drop index fechaofeclie;
 
 --RFC11 CLIENTE
+create index fechaclieofe on reserva(fechallegada, idoferta, idcliente);
+
 select 'HABITACION' as ALOJAMIENTO, cliente.*, oferta.id as idOferta
 from cliente, oferta, reserva, ofertahabitacion
 where oferta.id= reserva.idoferta and cliente.numeroidentificacion= 305 and cliente.numeroidentificacion= reserva.idcliente 
@@ -51,3 +56,4 @@ where oferta.id= reserva.idoferta and cliente.numeroidentificacion= 305 and clie
       and ofertaapartamento.idoferta= oferta.id
 group by oferta.id, cliente.numeroidentificacion, cliente.tipocliente, cliente.tipoidentificacion, cliente.nombre;
 
+drop index fechaclieofe;
