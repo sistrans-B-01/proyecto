@@ -1071,6 +1071,36 @@ public class InterfazAlohandesApp extends JFrame implements ActionListener
 		}
     }
     
+    public void listarNoConsumo()
+    {
+    	try
+    	{
+    		String numClien = JOptionPane.showInputDialog (this, "Identificacion", "Listar no consumo", JOptionPane.QUESTION_MESSAGE);
+    		if(Long.valueOf(numClien)==0)
+    		{
+    			List<Object[]> lista= parranderos.darNoConsumoAdministrador();
+        		String resultado= "En listarNoConsumo";
+        		resultado += "\n" + listarNoConsumo(lista);
+        		panelDatos.actualizarInterfaz(resultado);
+        		resultado += "\n Operacion terminada";
+    		}
+    		else
+    		{
+    			List<Object[]> lista1= parranderos.darNoConsumoCliente(Long.valueOf(numClien));
+        		String resultado= "En listarNoConsumo";
+        		resultado += "\n" + listarNoConsumo(lista1);
+        		panelDatos.actualizarInterfaz(resultado);
+        		resultado += "\n Operacion terminada";
+    		}
+    	}
+    	catch (Exception e) 
+    	{
+//			e.printStackTrace();
+			String resultado = generarMensajeError(e);
+			panelDatos.actualizarInterfaz(resultado);
+		}
+    }
+    
     /* ****************************************************************
 	 * 			Métodos para las listas
 	 *****************************************************************/   
@@ -1215,9 +1245,34 @@ public class InterfazAlohandesApp extends JFrame implements ActionListener
 			resp1 += "Nombre cliente: " + nom + ", ";
 			resp1 += "Numero identificacion: " + numIden + ",";
 			resp1 += "Tipo identificacion: " + tipoIden + ",";
-			resp1 += "Tipo cliente: " + tipoCliente;
-			resp1 += "Oferta: " + oferta;
+			resp1 += "Tipo cliente: " + tipoCliente+ ",";
+			resp1 += "Oferta: " + oferta+ ",";
 			resp1 += "Reservas: " + reser;
+	        resp1 += "]";
+	        resp += resp1 + "\n";
+    	}
+    	return resp;
+    }
+    
+    private String listarNoConsumo(List<Object[]> lista)
+    {
+    	String resp= "El no consumo de Alohandes: \n";
+    	int i=1;
+    	for( Object[] tupla: lista)
+    	{
+    		String aloja= (String) tupla[0];
+    		String nom= (String) tupla[1];
+    		long numIden = (long) tupla[2];
+    		String tipoIden = (String) tupla[3];
+    		String tipoCliente = (String) tupla[4];
+    		long oferta = (long) tupla[5];
+    		String resp1 = i++ + ". " + "[";
+    		resp1 += "Alojamiento: " + aloja + ", ";
+			resp1 += "Nombre cliente: " + nom + ", ";
+			resp1 += "Numero identificacion: " + numIden + ",";
+			resp1 += "Tipo identificacion: " + tipoIden + ",";
+			resp1 += "Tipo cliente: " + tipoCliente+ ",";
+			resp1 += "Oferta: " + oferta+ ",";
 	        resp1 += "]";
 	        resp += resp1 + "\n";
     	}

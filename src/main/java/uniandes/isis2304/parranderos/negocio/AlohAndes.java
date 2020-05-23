@@ -320,6 +320,23 @@ public class AlohAndes
 		log.info("Listando el consumo de Alohandes: Listo!");
 		return tuplas;
 	}
+	
+	public List<Object[]> darNoConsumoAdministrador()
+	{
+		log.info("Listando el no consumo de Alohandes");
+		List<Object[]> tuplas= pp.darNoConsumoAdministrador();
+		log.info("Listando el no consumo de Alohandes: Listo!");
+		return tuplas;
+	}
+	
+	public List<Object[]> darNoConsumoCliente(long numClien)
+	{
+		log.info("Listando el no consumo de Alohandes");
+		List<Object[]> tuplas= pp.darNoConsumoCliente(numClien);
+		log.info("Listando el no consumo de Alohandes: Listo!");
+		return tuplas;
+	}
+	
 	/* ****************************************************************
 	 * 			Métodos para manejar las OFERTAS HABITACION
 	 *****************************************************************/

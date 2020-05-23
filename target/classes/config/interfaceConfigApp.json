@@ -132,6 +132,10 @@
 				{
 				    "label": "ListarConsumo",
 				    "event": "listarConsumo"
+				},
+				{
+				    "label": "ListarNoConsumo",
+				    "event": "listarNoConsumo"
 				}
 			]
 		},
