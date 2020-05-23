@@ -4,6 +4,7 @@ import org.apache.log4j.Logger;
 
 import com.google.gson.JsonObject;
 import java.sql.Timestamp;
+import java.util.LinkedList;
 import java.util.List;
 
 import javax.jdo.PersistenceManager;
@@ -232,11 +233,23 @@ public class AlohAndes
         return resp;
 	}
 	
-	public List<long[]> darReservasPorCambiar()
+	public List<VOOferta> darVOofertas ()
+	{
+		log.info ("Generando los VO de las bebidas");       
+        List<VOOferta> voBebidas = new LinkedList<VOOferta> ();
+        for (Oferta beb : pp.darOfertas())
+        {
+        	voBebidas.add (beb);
+        }
+        log.info ("Generando los VO de las bebidas: " + voBebidas.size() + " existentes");
+        return voBebidas;
+	}
+	
+	public List<Object[]> darReservasPorCambiar()
 	{
 		log.info("Listando las reservas a cambiar");
-		List<long[]> tuplas= pp.darReservasPorCambiar();
-		log.info("Listando las reservas a cambiar");
+		List<Object[]> tuplas= pp.darReservasPorCambiar();
+		log.info("Listando las reservas a cambiar: Listo");
 		return tuplas;
 	}
 	
@@ -244,7 +257,7 @@ public class AlohAndes
 	{
 		log.info("Listando las reservas a cambiar");
 		List<long[]> tuplas= pp.darReservaPorCambiar();
-		log.info("Listando las reservas a cambiar");
+		log.info("Listando las reservas a cambiar:Listo");
 		return tuplas;
 	}
 	
@@ -292,6 +305,21 @@ public class AlohAndes
 		return tuplas;
 	}
 	
+	public List<Object[]> darConsumoAdministrador()
+	{
+		log.info("Listando el consumo de Alohandes");
+		List<Object[]> tuplas= pp.darConsumoAdministrador();
+		log.info("Listando el consumo de Alohandes: Listo!");
+		return tuplas;
+	}
+	
+	public List<Object[]> darConsumoCliente(long numClien)
+	{
+		log.info("Listando el consumo de Alohandes");
+		List<Object[]> tuplas= pp.darConsumoCliente(numClien);
+		log.info("Listando el consumo de Alohandes: Listo!");
+		return tuplas;
+	}
 	/* ****************************************************************
 	 * 			Métodos para manejar las OFERTAS HABITACION
 	 *****************************************************************/

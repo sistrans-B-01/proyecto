@@ -107,4 +107,57 @@ public class SQLCliente
 		Query q = pm.newQuery(SQL, sql);
 	    return q.executeList();
 	}
+	
+	public List<Object> darConsumoAdministrador( PersistenceManager pm)
+	{
+		String sql= "select 'HABITACION' as ALOJAMIENTO, cliente.*, oferta.id as idOferta, count(reserva.id) as reservas";
+		      sql+= " from " + pp.darTablaCliente()+ ", " + pp.darTablaOferta()+ ", " + pp.darTablaReserva()+ ", " + pp.darTablaOfertaHabitacion();
+		      sql+= " where oferta.id= reserva.idoferta and cliente.numeroidentificacion= reserva.idcliente";
+		      sql+= " and reserva.fechallegada BETWEEN '31-DIC-2019' and '20-ENE-2020'";
+		      sql+= " and ofertahabitacion.idoferta= oferta.id";
+		      sql+= " group by oferta.id, cliente.numeroidentificacion, cliente.tipocliente, cliente.tipoidentificacion, cliente.nombre";
+		      sql+= " UNION";
+		      sql+= " select 'VIVIENDA' as ALOJAMIENTO, cliente.*, oferta.id as idOferta, count(reserva.id) as reservas";
+		      sql+= " from "+ pp.darTablaCliente()+ ", " + pp.darTablaOferta()+ ", " + pp.darTablaReserva()+ ", " + pp.darTablaOfertaVivienda();
+		      sql+= " where oferta.id= reserva.idoferta and cliente.numeroidentificacion= reserva.idcliente";
+		      sql+= " and reserva.fechallegada BETWEEN '31-DIC-2019' and '20-ENE-2020'";
+		      sql+= " and ofertavivienda.idoferta= oferta.id";
+		      sql+= " group by oferta.id, cliente.numeroidentificacion, cliente.tipocliente, cliente.tipoidentificacion, cliente.nombre";
+		      sql+= " UNION";
+		      sql+= " select 'APARTAMENTO' as ALOJAMIENTO, cliente.*, oferta.id as idOferta, count(reserva.id) as reservas";
+		      sql+= " from "+ pp.darTablaCliente()+ ", " + pp.darTablaOferta()+ ", " + pp.darTablaReserva()+ ", " + pp.darTablaOfertaApartamento();
+		      sql+= " where oferta.id= reserva.idoferta and cliente.numeroidentificacion= reserva.idcliente";
+		      sql+= " and reserva.fechallegada BETWEEN '31-DIC-2019' and '20-ENE-2020'";
+		      sql+= " and ofertaapartamento.idoferta= oferta.id";
+		      sql+= " group by oferta.id, cliente.numeroidentificacion, cliente.tipocliente, cliente.tipoidentificacion, cliente.nombre";
+		Query q = pm.newQuery(SQL, sql);
+		return q.executeList(); 
+	}
+	
+	public List<Object> darConsumoCliente( PersistenceManager pm, long numClien)
+	{
+		String sql= "select 'HABITACION' as ALOJAMIENTO, cliente.*, oferta.id as idOferta, count(reserva.id) as reservas";
+		      sql+= " from " + pp.darTablaCliente()+ ", " + pp.darTablaOferta()+ ", " + pp.darTablaReserva()+ ", " + pp.darTablaOfertaHabitacion();
+		      sql+= " where oferta.id= reserva.idoferta and cliente.numeroidentificacion= ? and cliente.numeroidentificacion= reserva.idcliente";
+		      sql+= " and reserva.fechallegada BETWEEN '31-DIC-2019' and '20-ENE-2020'";
+		      sql+= " and ofertahabitacion.idoferta= oferta.id";
+		      sql+= " group by oferta.id, cliente.numeroidentificacion, cliente.tipocliente, cliente.tipoidentificacion, cliente.nombre";
+		      sql+= " UNION";
+		      sql+= " select 'VIVIENDA' as ALOJAMIENTO, cliente.*, oferta.id as idOferta, count(reserva.id) as reservas";
+		      sql+= " from "+ pp.darTablaCliente()+ ", " + pp.darTablaOferta()+ ", " + pp.darTablaReserva()+ ", " + pp.darTablaOfertaVivienda();
+		      sql+= " where oferta.id= reserva.idoferta and cliente.numeroidentificacion= ? and cliente.numeroidentificacion= reserva.idcliente";
+		      sql+= " and reserva.fechallegada BETWEEN '31-DIC-2019' and '20-ENE-2020'";
+		      sql+= " and ofertavivienda.idoferta= oferta.id";
+		      sql+= " group by oferta.id, cliente.numeroidentificacion, cliente.tipocliente, cliente.tipoidentificacion, cliente.nombre";
+		      sql+= " UNION";
+		      sql+= " select 'APARTAMENTO' as ALOJAMIENTO, cliente.*, oferta.id as idOferta, count(reserva.id) as reservas";
+		      sql+= " from "+ pp.darTablaCliente()+ ", " + pp.darTablaOferta()+ ", " + pp.darTablaReserva()+ ", " + pp.darTablaOfertaApartamento();
+		      sql+= " where oferta.id= reserva.idoferta and cliente.numeroidentificacion= ? and cliente.numeroidentificacion= reserva.idcliente";
+		      sql+= " and reserva.fechallegada BETWEEN '31-DIC-2019' and '20-ENE-2020'";
+		      sql+= " and ofertaapartamento.idoferta= oferta.id";
+		      sql+= " group by oferta.id, cliente.numeroidentificacion, cliente.tipocliente, cliente.tipoidentificacion, cliente.nombre";
+		Query q = pm.newQuery(SQL, sql);
+		q.setParameters(numClien, numClien, numClien);
+		return q.executeList(); 
+	}
 }

@@ -726,6 +726,66 @@ public class PersistenciaAlohAndes
 		return info;
 	}
 	
+	public List<Object[]> darConsumoAdministrador()
+	{
+		List<Object []> info = new LinkedList <Object []> ();
+		List<Object> tuplas= sqlCliente.darConsumoAdministrador(pmf.getPersistenceManager());
+		for (Object tupla : tuplas)
+		{
+			Object [] datos = (Object []) tupla;
+			String alojamiento = (String) datos [0];
+			String nombre= (String) datos[1];
+			long numIden = ((BigDecimal) datos[2]).longValue();
+			String tipoIden= (String) datos[3];
+			String tipoCliente= (String) datos[4];
+			long oferta = ((BigDecimal) datos[5]).longValue();
+			int reservas = ((BigDecimal) datos[6]).intValue();
+			
+			Object [] consumo = new Object [7];
+			consumo[0] = alojamiento;
+			consumo [1] = nombre;
+			consumo[2] = numIden;
+			consumo[3] = tipoIden;
+			consumo[4] = tipoCliente;
+			consumo[5] = oferta;
+			consumo[6] = reservas;
+
+			info.add (consumo);
+			
+		}
+		return info;
+	}
+	
+	public List<Object[]> darConsumoCliente(long numClien)
+	{
+		List<Object []> info = new LinkedList <Object []> ();
+		List<Object> tuplas= sqlCliente.darConsumoCliente(pmf.getPersistenceManager(), numClien);
+		for (Object tupla : tuplas)
+		{
+			Object [] datos = (Object []) tupla;
+			String alojamiento = (String) datos [0];
+			String nombre= (String) datos[1];
+			long numIden = ((BigDecimal) datos[2]).longValue();
+			String tipoIden= (String) datos[3];
+			String tipoCliente= (String) datos[4];
+			long oferta = ((BigDecimal) datos[5]).longValue();
+			int reservas = ((BigDecimal) datos[6]).intValue();
+			
+			Object [] consumo = new Object [7];
+			consumo[0] = alojamiento;
+			consumo [1] = nombre;
+			consumo[2] = numIden;
+			consumo[3] = tipoIden;
+			consumo[4] = tipoCliente;
+			consumo[5] = oferta;
+			consumo[6] = reservas;
+
+			info.add (consumo);
+			
+		}
+		return info;
+	}
+	
 	/* ****************************************************************
 	 * 			Métodos para manejar los APARTAMENTO
 	 *****************************************************************/
@@ -1133,16 +1193,21 @@ public class PersistenciaAlohAndes
         }
 	} 
 	
-	public List<long[]> darReservasPorCambiar()
+	public List<Object[]> darReservasPorCambiar()
 	{
-		List<long[]> respuesta = new LinkedList<long[]>();
+		List<Object[]> respuesta = new LinkedList<Object[]>();
 		List<Object[]> tuplas = sqlOferta.darReservasPorCambiar(pmf.getPersistenceManager());
 		for( Object[] tupla : tuplas)
 		{
-			long[] datos = new long [2];
-			datos[0]= ((BigDecimal) tupla [0]).longValue ();
-			datos[1]= ((BigDecimal) tupla [1]).longValue ();
-			respuesta.add(datos);	
+			Object[] datos = (Object[]) tupla;
+			long res = ((BigDecimal) datos [0]).longValue ();
+			long ofe = ((BigDecimal) datos [1]).longValue ();
+			
+			Object [] reservas = new Object [2];
+			reservas[0]= res;
+			reservas[1]= ofe;
+			
+			respuesta.add(reservas);	
 		}
 		return respuesta;
 	}

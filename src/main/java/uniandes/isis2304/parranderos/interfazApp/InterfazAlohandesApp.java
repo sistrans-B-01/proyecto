@@ -15,7 +15,7 @@
 
 package uniandes.isis2304.parranderos.interfazApp;
 
-import java.awt.BorderLayout;  
+import java.awt.BorderLayout;   
 import java.awt.Color;
 import java.awt.Desktop;
 import java.awt.event.ActionEvent;
@@ -782,11 +782,11 @@ public class InterfazAlohandesApp extends JFrame implements ActionListener
     		{
     			long tbActualizada = parranderos.actulizarOfertaActiva(Long.valueOf(idOfe));
     			
-    			List <long[]> lista = parranderos.darReservasPorCambiar();
+    			List <Object[]> lista = parranderos.darReservasPorCambiar();
     		    
-    			List<long[]> lista2 = parranderos.darReservaPorCambiar();
-    			while( !lista2.isEmpty())
-    			{	
+    			//for( int i=1; i<= lista.size(); i++)
+    			//{	
+    				List<long[]> lista2 = parranderos.darReservaPorCambiar();
     				long tbResActualizada = parranderos.actualizarReservas();
         			long tbOfeActualizada = parranderos.actualizarOfertaDisponible();
         			
@@ -798,21 +798,20 @@ public class InterfazAlohandesApp extends JFrame implements ActionListener
         			resultado += "\n Cambia la oferta: " + tbOfeActualizada;
         			panelDatos.actualizarInterfaz(resultado);
         			resultado += "\n Operación terminada";
-        			lista2= parranderos.darReservaPorCambiar();
-    			}
-    			if( lista2.isEmpty())
+    			//}
+    			/**if( lista2.isEmpty())
     				{
     				long tbResEliminada = parranderos.eliminarReservaSinOferta();
     				String resultado2 = "En actualizarOfertaActiva";
         			resultado2 += "\n Reserva eliminada: " + tbResEliminada;
         			panelDatos.actualizarInterfaz(resultado2);
-    				}
+    				}**/
     			
     		}
-    		else
-    		{
-    			panelDatos.actualizarInterfaz("Operación cancelada por el usuario");
-    		}			
+    		//else
+    		//{
+    		//	panelDatos.actualizarInterfaz("Operación cancelada por el usuario");
+    		//}			
 		} 
     	catch (Exception e) 
     	{
@@ -1042,19 +1041,50 @@ public class InterfazAlohandesApp extends JFrame implements ActionListener
 		}
     }
     
+    public void listarConsumo()
+    {
+    	try
+    	{
+    		String numClien = JOptionPane.showInputDialog (this, "Identificacion", "Listar consumo", JOptionPane.QUESTION_MESSAGE);
+    		if(Long.valueOf(numClien)==0)
+    		{
+    			List<Object[]> lista= parranderos.darConsumoAdministrador();
+        		String resultado= "En listarConsumo";
+        		resultado += "\n" + listarConsumo(lista);
+        		panelDatos.actualizarInterfaz(resultado);
+        		resultado += "\n Operacion terminada";
+    		}
+    		else
+    		{
+    			List<Object[]> lista1= parranderos.darConsumoCliente(Long.valueOf(numClien));
+        		String resultado= "En listarConsumo";
+        		resultado += "\n" + listarConsumo(lista1);
+        		panelDatos.actualizarInterfaz(resultado);
+        		resultado += "\n Operacion terminada";
+    		}
+    	}
+    	catch (Exception e) 
+    	{
+//			e.printStackTrace();
+			String resultado = generarMensajeError(e);
+			panelDatos.actualizarInterfaz(resultado);
+		}
+    }
+    
     /* ****************************************************************
 	 * 			Métodos para las listas
-	 *****************************************************************/
-    private String listarPrueba (List<long[]> lista) 
+	 *****************************************************************/   
+    private String listarPrueba (List<Object[]> lista) 
     {
     	String resp = "Las ofertas disponibles y las reservas a cambiar son:\n";
     	int i = 1;
-        for ( long [] tupla : lista)
+        for ( Object [] tupla : lista)
         {
-			long [] datos = tupla;
+        	long res = (long) tupla[0];
+        	long ofe = (long) tupla[1];
 	        String resp1 = i++ + ". " + "[";
-			resp1 += "ofertas disponibles: " + datos [0] + ", ";
-			resp1 += "reservas a cambiar: " + datos [1];
+			resp1 += "ofertas disponibles: " + res + ", ";
+			resp1 += "reservas a cambiar: " + ofe;
 	        resp1 += "]";
 	        resp += resp1 + "\n";
         }
@@ -1165,6 +1195,33 @@ public class InterfazAlohandesApp extends JFrame implements ActionListener
     	}
     	return resp;
 
+    }
+    
+    private String listarConsumo(List<Object[]> lista)
+    {
+    	String resp= "El consumo de Alohandes: \n";
+    	int i=1;
+    	for( Object[] tupla: lista)
+    	{
+    		String aloja= (String) tupla[0];
+    		String nom= (String) tupla[1];
+    		long numIden = (long) tupla[2];
+    		String tipoIden = (String) tupla[3];
+    		String tipoCliente = (String) tupla[4];
+    		long oferta = (long) tupla[5];
+    		int reser = (int) tupla[6];
+    		String resp1 = i++ + ". " + "[";
+    		resp1 += "Alojamiento: " + aloja + ", ";
+			resp1 += "Nombre cliente: " + nom + ", ";
+			resp1 += "Numero identificacion: " + numIden + ",";
+			resp1 += "Tipo identificacion: " + tipoIden + ",";
+			resp1 += "Tipo cliente: " + tipoCliente;
+			resp1 += "Oferta: " + oferta;
+			resp1 += "Reservas: " + reser;
+	        resp1 += "]";
+	        resp += resp1 + "\n";
+    	}
+    	return resp;
     }
 
     /* ****************************************************************
