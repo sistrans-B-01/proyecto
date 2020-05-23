@@ -1046,19 +1046,25 @@ public class InterfazAlohandesApp extends JFrame implements ActionListener
     	try
     	{
     		String numClien = JOptionPane.showInputDialog (this, "Identificacion", "Listar consumo", JOptionPane.QUESTION_MESSAGE);
+    		long start=System.currentTimeMillis();
     		if(Long.valueOf(numClien)==0)
     		{
     			List<Object[]> lista= parranderos.darConsumoAdministrador();
+    			long tiempo= System.currentTimeMillis() - start;
         		String resultado= "En listarConsumo";
         		resultado += "\n" + listarConsumo(lista);
+        		resultado += "\n tiempo:"+tiempo;
         		panelDatos.actualizarInterfaz(resultado);
         		resultado += "\n Operacion terminada";
     		}
     		else
     		{
     			List<Object[]> lista1= parranderos.darConsumoCliente(Long.valueOf(numClien));
+    			long tiempo1= System.nanoTime()-start;
+    			System.out.println("tiempo: " + tiempo1);
         		String resultado= "En listarConsumo";
         		resultado += "\n" + listarConsumo(lista1);
+        		resultado += "\n tiempo:"+tiempo1;
         		panelDatos.actualizarInterfaz(resultado);
         		resultado += "\n Operacion terminada";
     		}
@@ -1076,19 +1082,24 @@ public class InterfazAlohandesApp extends JFrame implements ActionListener
     	try
     	{
     		String numClien = JOptionPane.showInputDialog (this, "Identificacion", "Listar no consumo", JOptionPane.QUESTION_MESSAGE);
+    		long start=System.nanoTime();
     		if(Long.valueOf(numClien)==0)
     		{
     			List<Object[]> lista= parranderos.darNoConsumoAdministrador();
+    			long tiempo= System.nanoTime() - start;
         		String resultado= "En listarNoConsumo";
         		resultado += "\n" + listarNoConsumo(lista);
+        		resultado += "\n tiempo:"+tiempo;
         		panelDatos.actualizarInterfaz(resultado);
         		resultado += "\n Operacion terminada";
     		}
     		else
     		{
     			List<Object[]> lista1= parranderos.darNoConsumoCliente(Long.valueOf(numClien));
+    			long tiempo1= System.nanoTime() - start;
         		String resultado= "En listarNoConsumo";
         		resultado += "\n" + listarNoConsumo(lista1);
+        		resultado += "\n tiempo:"+tiempo1;
         		panelDatos.actualizarInterfaz(resultado);
         		resultado += "\n Operacion terminada";
     		}
