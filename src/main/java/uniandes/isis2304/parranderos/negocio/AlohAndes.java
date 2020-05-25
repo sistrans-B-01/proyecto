@@ -538,25 +538,25 @@ public class AlohAndes
         return resp;
 	}
 	
-	public List<Cliente> darRecordsSemanalesOfertas() 
+	public String darRecordsSemanalesOfertas() 
 	{
 		log.info ("consultandoRecordsSemanalesOfertas "  );
-		List<Cliente> resp = pp.darRecordsSemanalesOfertas();		
+		String resp = pp.darRecordsSemanalesOfertas();		
         log.info ("consultandoRecordsSemanalesOfertas");
         return resp;
 	}
-	public List<Cliente> darRecordsSemanalesOperadores() 
+	public String darRecordsSemanalesOperadores() 
 	{
 		log.info ("consultandoRecordsSemanalesOperadores "  );
-		List<Cliente> resp = pp.darRecordsSemanalesOperadores();		
+		String resp = pp.darRecordsSemanalesOperadores();		
         log.info ("consultandoRecordsSemanalesOperadores");
         return resp;
 	}
 	
-	public List<Cliente> darBuenosClientes () 
+	public String darBuenosClientes () 
 	{
 		log.info ("consultandoBuenosClientes "  );
-		List<Cliente> resp = pp.darBuenosClientes();		
+		String resp = pp.darBuenosClientes();		
         log.info ("consultandoBuenosClientes");
         return resp;
 	}

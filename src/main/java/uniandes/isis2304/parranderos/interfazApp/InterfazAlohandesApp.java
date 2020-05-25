@@ -1397,17 +1397,14 @@ public class InterfazAlohandesApp extends JFrame implements ActionListener
     	try 
     	{
     		
-    		List<Cliente> resp = parranderos.darRecordsSemanalesOfertas();
-    		List<Cliente> resp2 = parranderos.darRecordsSemanalesOperadores();
+    		String resp = parranderos.darRecordsSemanalesOfertas();
+    		String resp2 = parranderos.darRecordsSemanalesOperadores();
 
 		
-			String resultado="los Records Semanales son: \n";
-			for(Cliente tempCli: resp) 
-    		{
-    			 resultado+=tempCli.toString();
-    			resultado+="\n";
-    			
-    		}
+    		String resultado="las Ofertas record por semana son: \n";
+    		resultado+= resp+"\n";
+    		resultado+="los Opereadores record por semana son: \n";
+    		resultado+= resp2+"\n";
     			
     		panelDatos.actualizarInterfaz(resultado );
 		}
@@ -1427,16 +1424,11 @@ public class InterfazAlohandesApp extends JFrame implements ActionListener
     	try 
     	{
     		
-    		List<Cliente> resp = parranderos.darBuenosClientes();
+    		String resp = parranderos.darBuenosClientes();
 
 		
 			String resultado="Los buenos clientes son: \n";
-			for(Cliente tempCli: resp) 
-    		{
-    			 resultado+=tempCli.toString();
-    			resultado+="\n";
-    			
-    		}
+			resultado+=resp;
     			
     		panelDatos.actualizarInterfaz(resultado );
 		}
