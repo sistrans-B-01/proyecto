@@ -2181,8 +2181,23 @@ public class PersistenciaAlohAndes
 	public String darBuenosClientes() 
 	{
 		PersistenceManager pm = pmf.getPersistenceManager();
+		List<Object> tuplas = sqlOferta.darBuenosClientes(pm);
 		String respuesta = "";
 		
+		for ( Object tupla : tuplas)
+        {
+			Object [] datos = (Object []) tupla;
+			String numeroIdentificacion = (String) datos[0];
+			String tipoid = (String) datos[1];
+			String nombre = (String) datos[2];
+			String tipocliente = (String) datos[3];
+			String numeroReservas = (String) datos[4];
+			String costoTotal = (String) datos[5];
+			String totalReservasSuite = (String) datos[6];
+			String tempOfe = " numeroIdentificacion:"+ numeroIdentificacion+", tipoid: "+tipoid+", nombre: "+nombre+", tipocliente: "+tipocliente+", numeroReservas: "+numeroReservas+", costoTotal: "+costoTotal+", totalReservasSuite: "+totalReservasSuite;
+			
+			respuesta += tempOfe +"\n";
+        }
 
 		return respuesta;
 	}
