@@ -14,6 +14,7 @@ public class Oferta implements VOOferta
 	private int diasUsada;
 	private int descuento;
 	private String tiempoContrato;
+	private int numeroSemana;
 	private String activa;
 	private String disponible;
 	
@@ -28,13 +29,14 @@ public class Oferta implements VOOferta
 		this.diasUsada= 0;
 		this.descuento=0;
 		this.tiempoContrato="";
+		this.numeroSemana=0;
 		this.activa="";
 		this.disponible= "";
 		
 	}
 	
 	public Oferta( long id, Timestamp fin, Timestamp ini, int dia, int usada, int des,
-			String tiem, String activa2, String disponible2)
+			String tiem, int numSem, String activa2, String disponible2)
 	{
 		this.id=id;
 		this.fechaFin=fin;
@@ -43,6 +45,7 @@ public class Oferta implements VOOferta
 		this.diasUsada=usada;
 		this.descuento=des;
 		this.tiempoContrato=tiem;
+		this.numeroSemana=numSem;
 		this.activa= activa2;
 		this.disponible= disponible2;
 	}
@@ -127,6 +130,14 @@ public class Oferta implements VOOferta
 	}
 
 	public void setDisponible(String disponible) {
+		this.disponible = disponible;
+	}
+	
+	public String getNumeroSemana() {
+		return disponible;
+	}
+
+	public void setNumeroSemana(String disponible) {
 		this.disponible = disponible;
 	}
 }

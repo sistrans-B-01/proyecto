@@ -534,12 +534,13 @@ public class InterfazAlohandesApp extends JFrame implements ActionListener
     		String fechaIni= JOptionPane.showInputDialog(this, "Fecha de inicio", "Adicionar una oferta", JOptionPane.QUESTION_MESSAGE);
     		String fechaFin= JOptionPane.showInputDialog(this, "Fecha de finalizacion", "Adicionar una oferta", JOptionPane.QUESTION_MESSAGE);
     		String tiempoCont= JOptionPane.showInputDialog(this, "Tiempo del contrato", "Adicionar una oferta", JOptionPane.QUESTION_MESSAGE);
+    		String numeroSemana= JOptionPane.showInputDialog(this, "numeroSemana", "Adicionar una oferta", JOptionPane.QUESTION_MESSAGE);
     		String activa= JOptionPane.showInputDialog(this, "Oferta activa", "Adicionar una oferta", JOptionPane.QUESTION_MESSAGE);
     		String disponible= JOptionPane.showInputDialog(this, "Oferta disponible", "Adicionar una oferta", JOptionPane.QUESTION_MESSAGE);
 
     		if (fechaIni != null && fechaFin != null)
     		{
-        		VOOferta tb = parranderos.adicionarOferta(Integer.valueOf(descuento), Integer.valueOf(diasActiva), Integer.valueOf(diasUsada), Timestamp.valueOf(fechaFin), Timestamp.valueOf(fechaIni), tiempoCont, activa, disponible);
+        		VOOferta tb = parranderos.adicionarOferta(Integer.valueOf(descuento), Integer.valueOf(diasActiva), Integer.valueOf(diasUsada), Timestamp.valueOf(fechaFin), Timestamp.valueOf(fechaIni), tiempoCont,Integer.valueOf(numeroSemana),  activa, disponible);
         		if (tb == null)
         		{
         			throw new Exception ("No se pudo crear una oferta con fecha Inicio: " + fechaIni + "y fecha Final: " + fechaFin);
@@ -1396,10 +1397,11 @@ public class InterfazAlohandesApp extends JFrame implements ActionListener
     	try 
     	{
     		
-    		List<Cliente> resp = parranderos.darBuenosClientes();
+    		List<Cliente> resp = parranderos.darRecordsSemanalesOfertas();
+    		List<Cliente> resp2 = parranderos.darRecordsSemanalesOperadores();
 
 		
-			String resultado="Los Clientes Habituales Son: \n";
+			String resultado="los Records Semanales son: \n";
 			for(Cliente tempCli: resp) 
     		{
     			 resultado+=tempCli.toString();
@@ -1428,7 +1430,7 @@ public class InterfazAlohandesApp extends JFrame implements ActionListener
     		List<Cliente> resp = parranderos.darBuenosClientes();
 
 		
-			String resultado="Los Clientes Habituales Son: \n";
+			String resultado="Los buenos clientes son: \n";
 			for(Cliente tempCli: resp) 
     		{
     			 resultado+=tempCli.toString();

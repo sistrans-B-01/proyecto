@@ -54,10 +54,10 @@ public class SQLOferta
 	 * @param sedes - El número de sedes del bar
 	 * @return El número de tuplas insertadas
 	 */
-	public long adicionarOferta (PersistenceManager pm, long ido, int des, int dias, int usada, Timestamp fin, Timestamp lle, String tiem, String activa, String disponible) 
+	public long adicionarOferta (PersistenceManager pm, long ido, int des, int dias, int usada, Timestamp fin, Timestamp lle, String tiem, int numSem, String activa, String disponible) 
 	{
-        Query q = pm.newQuery(SQL, "INSERT INTO " + pp.darTablaOferta () + "(id, descuento, diasactiva, diasusada, fechafin, fechainicio, tiempocontrato, activa, disponible) values (?, ?, ?, ?, ?, ?, ?, ?, ?)");
-        q.setParameters(ido, des, dias, usada, fin, lle, tiem, activa, disponible);
+        Query q = pm.newQuery(SQL, "INSERT INTO " + pp.darTablaOferta () + "(id, descuento, diasactiva, diasusada, fechafin, fechainicio, tiempocontrato, numerosemana ,activa, disponible) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        q.setParameters(ido, des, dias, usada, fin, lle, tiem, numSem,activa, disponible);
         return (long) q.executeUnique();
 	}
 
