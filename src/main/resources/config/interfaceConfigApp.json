@@ -170,7 +170,7 @@
 			[
 				{
 					"label": "12-RECORDS SEMANALES",
-					"event": "darRecordsSemnales"
+					"event": "darRecordsSemanales"
 				},
 				{
 					"label": "13-BUENOS CLIENTES",
