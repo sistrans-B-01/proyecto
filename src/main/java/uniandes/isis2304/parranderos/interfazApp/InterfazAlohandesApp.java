@@ -1388,6 +1388,64 @@ public class InterfazAlohandesApp extends JFrame implements ActionListener
 		}
     }
 
+    /* ****************************************************************
+   	 * 			Métodos RFC12-HIGHLIGHTS SEMANALES
+   	 *****************************************************************/
+    public void darRecordsSemanales( )
+    {
+    	try 
+    	{
+    		
+    		List<Cliente> resp = parranderos.darBuenosClientes();
+
+		
+			String resultado="Los Clientes Habituales Son: \n";
+			for(Cliente tempCli: resp) 
+    		{
+    			 resultado+=tempCli.toString();
+    			resultado+="\n";
+    			
+    		}
+    			
+    		panelDatos.actualizarInterfaz(resultado );
+		}
+    	catch (Exception e) 
+    	{
+//			e.printStackTrace();
+			String resultado = generarMensajeError(e);
+			panelDatos.actualizarInterfaz(resultado);
+		}
+    }
+    
+    /* ****************************************************************
+   	 * 			Métodos RFC13-BUENOS CLIENTES
+   	 *****************************************************************/
+    public void darBuenosClientes( )
+    {
+    	try 
+    	{
+    		
+    		List<Cliente> resp = parranderos.darBuenosClientes();
+
+		
+			String resultado="Los Clientes Habituales Son: \n";
+			for(Cliente tempCli: resp) 
+    		{
+    			 resultado+=tempCli.toString();
+    			resultado+="\n";
+    			
+    		}
+    			
+    		panelDatos.actualizarInterfaz(resultado );
+		}
+    	catch (Exception e) 
+    	{
+//			e.printStackTrace();
+			String resultado = generarMensajeError(e);
+			panelDatos.actualizarInterfaz(resultado);
+		}
+    }
+    
 	/**
 	/* ****************************************************************
 	 * 			Métodos administrativos
