@@ -165,6 +165,19 @@
 				}
 			]
 		},
+		{ "menuTitle": "RFC12-13",
+		  "options":
+			[
+				{
+					"label": "12-RECORDS SEMANALES",
+					"event": "darRecordsSemnales"
+				},
+				{
+					"label": "13-BUENOS CLIENTES",
+					"event": "darBuenosClientes"
+				}
+			]
+		},
 		{ "menuTitle": "Mantenimiento",
 		  "options":
 			[
