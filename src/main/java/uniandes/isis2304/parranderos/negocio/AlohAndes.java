@@ -538,6 +538,22 @@ public class AlohAndes
         return resp;
 	}
 	
+	public List<Cliente> darRecordsSemanales () 
+	{
+		log.info ("consultandoClientesHabituales "  );
+		List<Cliente> resp = pp.darClientesHabituales();		
+        log.info ("consultandoClientesHabituales");
+        return resp;
+	}
+	
+	public List<Cliente> darBuenosClientes () 
+	{
+		log.info ("consultandoClientesHabituales "  );
+		List<Cliente> resp = pp.darClientesHabituales();		
+        log.info ("consultandoClientesHabituales");
+        return resp;
+	}
+	
 	/* ****************************************************************
 	 * 			Métodos para administración
 	 *****************************************************************/
