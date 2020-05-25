@@ -181,17 +181,10 @@
 		{ "menuTitle": "Mantenimiento",
 		  "options":
 			[
-				{
-					"label": "Mostrar log Parranderos",
-					"event": "mostrarLogParranderos"
-				},
+				
 				{
 					"label": "Mostrar log datanucleus",
 					"event": "mostrarLogDatanuecleus"
-				},
-				{
-					"label": "Limpiar log de parranderos",
-					"event": "limpiarLogParranderos"
 				},
 				{
 					"label": "Limpiar log de datanucleus",
