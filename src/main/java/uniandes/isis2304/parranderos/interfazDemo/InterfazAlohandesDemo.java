@@ -318,7 +318,7 @@ public class InterfazAlohandesDemo extends JFrame implements ActionListener
 			VOCliente cliente= parranderos.adicionarCliente("Oscar", 10, "CC", "PROFESOR");
 			VOCliente cliente1= parranderos.adicionarCliente("Oscar1", 10, "CC", "EMPLEADO");
 			VOCliente cliente2= parranderos.adicionarCliente("Oscar2", 10, "CC", "EGRESADO");
-			VOOferta oferta= parranderos.adicionarOferta(20, 5, 0, Timestamp.valueOf("2020-01-30 00:00:00"), Timestamp.valueOf("2020-01-01 00:00:00"),"UNA SEMANA", "1", "Y");
+			VOOferta oferta= parranderos.adicionarOferta(20, 5, 0, Timestamp.valueOf("2020-01-30 00:00:00"), Timestamp.valueOf("2020-01-01 00:00:00"),"UNA SEMANA", 1,"1", "Y");
 			VOOfertaApartamento ofeApto= parranderos.adicionarOfertaApartamento(oferta.getId(), apto.getUbicacion());
 			VOReserva reserva = parranderos.adicionarReserva(200000, 200000, Timestamp.valueOf("2020-01-08 00:00:00"), Timestamp.valueOf("2020-01-01 00:00:00"), "UNA SEMANA", cliente.getNumeroIdentificacion(), cliente.getTipoIdentificacion(), oferta.getId());
 			VOReserva reserva1= parranderos.adicionarReserva(200000, 200000, Timestamp.valueOf("2020-01-18 00:00:00"), Timestamp.valueOf("2020-01-11 00:00:00"), "UNA SEMANA", cliente1.getNumeroIdentificacion(), cliente1.getTipoIdentificacion(), oferta.getId());

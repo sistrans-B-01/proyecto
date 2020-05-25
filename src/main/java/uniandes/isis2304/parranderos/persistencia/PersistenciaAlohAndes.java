@@ -1103,7 +1103,7 @@ public class PersistenciaAlohAndes
 	 * 			Métodos para manejar las OFERTA
 	 *****************************************************************/
 
-	public Oferta adicionarOferta(int des, int dias, int usada, Timestamp fin, Timestamp lle, String tiem, String activa, String disponible) 
+	public Oferta adicionarOferta(int des, int dias, int usada, Timestamp fin, Timestamp lle, String tiem, int numSem,String activa, String disponible) 
 	{
 		PersistenceManager pm = pmf.getPersistenceManager();
         Transaction tx=pm.currentTransaction();
@@ -1111,12 +1111,12 @@ public class PersistenciaAlohAndes
         {
             tx.begin();
             long ido = nextval ();
-            long tuplasInsertadas = sqlOferta.adicionarOferta(pm, ido, des, dias, usada, fin, lle, tiem, activa, disponible);
+            long tuplasInsertadas = sqlOferta.adicionarOferta(pm, ido, des, dias, usada, fin, lle, tiem, numSem,activa, disponible);
             tx.commit();
 
             log.trace ("Inserción de Oferta: " + ido + ": " + tuplasInsertadas + " tuplas insertadas");
 
-            return new Oferta(ido, fin, lle, dias, usada, des, tiem, activa, disponible);
+            return new Oferta(ido, fin, lle, dias, usada, des, tiem, numSem, activa, disponible);
         }
         catch (Exception e)
         {
@@ -1186,10 +1186,11 @@ public class PersistenciaAlohAndes
 			Timestamp fechaFin = (Timestamp) datos [4];
 			Timestamp fechaIni = (Timestamp) datos [5];
 			String tiempoContrato = (String) datos [6];
-			String activa = (String) datos[7];
-			String disponible= (String) datos[8];
+			int numSem = ((BigDecimal) datos[7]).intValue();
+			String activa = (String) datos[8];
+			String disponible= (String) datos[9];
 
-			Oferta resp = new Oferta(idOferta, fechaFin, fechaIni, diasActiva, diasUsada, descuento, tiempoContrato, activa, disponible);	
+			Oferta resp = new Oferta(idOferta, fechaFin, fechaIni, diasActiva, diasUsada, descuento, tiempoContrato, numSem, activa, disponible);	
 			
 			respuesta.add(resp);
         }
@@ -2060,10 +2061,8 @@ public class PersistenciaAlohAndes
 		PersistenceManager pm = pmf.getPersistenceManager();
 		List<Cliente> respuesta = new LinkedList <Cliente> ();
 		List<Object> tuplas = sqlResColRes.darClientesHabituales(pm);
-		System.out.println(tuplas.size());
 		for ( Object tupla : tuplas)
         {
-        	System.out.println("CO2");
 			Object [] datos = (Object []) tupla;
 			long identificacion = ((BigDecimal) datos [0]).longValue ();
 			String tipoid = (String) datos[1];
@@ -2077,15 +2076,13 @@ public class PersistenciaAlohAndes
 		return respuesta;
 	}
 	
-	public List<Cliente> darRecordsSemanales() 
+	public List<Cliente> darRecordsSemanalesOfertas() 
 	{
 		PersistenceManager pm = pmf.getPersistenceManager();
 		List<Cliente> respuesta = new LinkedList <Cliente> ();
 		List<Object> tuplas = sqlResColRes.darClientesHabituales(pm);
-		System.out.println(tuplas.size());
 		for ( Object tupla : tuplas)
         {
-        	System.out.println("CO2");
 			Object [] datos = (Object []) tupla;
 			long identificacion = ((BigDecimal) datos [0]).longValue ();
 			String tipoid = (String) datos[1];
@@ -2095,6 +2092,14 @@ public class PersistenciaAlohAndes
 			Cliente tempCli = new Cliente(identificacion, tipoid, nom, tipoc);
 			respuesta.add(tempCli);
         }
+
+		return respuesta;
+	}
+	public List<Cliente> darRecordsSemanalesOperadores() 
+	{
+		PersistenceManager pm = pmf.getPersistenceManager();
+		List<Cliente> respuesta = new LinkedList <Cliente> ();
+	
 
 		return respuesta;
 	}
@@ -2103,20 +2108,7 @@ public class PersistenciaAlohAndes
 	{
 		PersistenceManager pm = pmf.getPersistenceManager();
 		List<Cliente> respuesta = new LinkedList <Cliente> ();
-		List<Object> tuplas = sqlResColRes.darClientesHabituales(pm);
-		System.out.println(tuplas.size());
-		for ( Object tupla : tuplas)
-        {
-        	System.out.println("CO2");
-			Object [] datos = (Object []) tupla;
-			long identificacion = ((BigDecimal) datos [0]).longValue ();
-			String tipoid = (String) datos[1];
-			String nom = (String) datos[2];
-			String tipoc = (String) datos[3];
-			
-			Cliente tempCli = new Cliente(identificacion, tipoid, nom, tipoc);
-			respuesta.add(tempCli);
-        }
+		
 
 		return respuesta;
 	}

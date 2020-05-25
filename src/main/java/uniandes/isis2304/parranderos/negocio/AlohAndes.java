@@ -177,10 +177,10 @@ public class AlohAndes
 	 * @param idh - El id de la habitacion
 	 * @return El objeto Oferta adicionado. null si ocurre alguna Excepción
 	 */
-	public Oferta adicionarOferta (int desc, int dias, int usada, Timestamp fin, Timestamp lle, String tiem, String activa, String disponible)
+	public Oferta adicionarOferta (int desc, int dias, int usada, Timestamp fin, Timestamp lle, String tiem, int numeroSemana,String activa, String disponible)
 	{
         log.info ("Adicionando Oferta: [" + lle + ", " + fin + "]");
-        Oferta oferta = pp.adicionarOferta(desc, dias, usada, fin, lle, tiem, activa, disponible);
+        Oferta oferta = pp.adicionarOferta(desc, dias, usada, fin, lle, tiem, numeroSemana,activa, disponible);
         log.info ("Adicionando oferta: " + oferta);
         return oferta;
 	}
@@ -538,19 +538,26 @@ public class AlohAndes
         return resp;
 	}
 	
-	public List<Cliente> darRecordsSemanales () 
+	public List<Cliente> darRecordsSemanalesOfertas() 
 	{
-		log.info ("consultandoClientesHabituales "  );
-		List<Cliente> resp = pp.darClientesHabituales();		
-        log.info ("consultandoClientesHabituales");
+		log.info ("consultandoRecordsSemanalesOfertas "  );
+		List<Cliente> resp = pp.darRecordsSemanalesOfertas();		
+        log.info ("consultandoRecordsSemanalesOfertas");
+        return resp;
+	}
+	public List<Cliente> darRecordsSemanalesOperadores() 
+	{
+		log.info ("consultandoRecordsSemanalesOperadores "  );
+		List<Cliente> resp = pp.darRecordsSemanalesOperadores();		
+        log.info ("consultandoRecordsSemanalesOperadores");
         return resp;
 	}
 	
 	public List<Cliente> darBuenosClientes () 
 	{
-		log.info ("consultandoClientesHabituales "  );
-		List<Cliente> resp = pp.darClientesHabituales();		
-        log.info ("consultandoClientesHabituales");
+		log.info ("consultandoBuenosClientes "  );
+		List<Cliente> resp = pp.darBuenosClientes();		
+        log.info ("consultandoBuenosClientes");
         return resp;
 	}
 	
