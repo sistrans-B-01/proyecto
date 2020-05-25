@@ -2076,38 +2076,112 @@ public class PersistenciaAlohAndes
 		return respuesta;
 	}
 	
-	public List<Cliente> darRecordsSemanalesOfertas() 
+	public String darRecordsSemanalesOfertas() 
 	{
 		PersistenceManager pm = pmf.getPersistenceManager();
-		List<Cliente> respuesta = new LinkedList <Cliente> ();
-		List<Object> tuplas = sqlResColRes.darClientesHabituales(pm);
-		for ( Object tupla : tuplas)
-        {
-			Object [] datos = (Object []) tupla;
-			long identificacion = ((BigDecimal) datos [0]).longValue ();
-			String tipoid = (String) datos[1];
-			String nom = (String) datos[2];
-			String tipoc = (String) datos[3];
+		String respuesta ="";
+		List<Object> tuplas = sqlOferta.darRecordsSemanalesOfertas(pm);
+		for (int i=0; i<tuplas.size();i++)
+		{
+			Object [] datos = (Object []) tuplas.get(i);
 			
-			Cliente tempCli = new Cliente(identificacion, tipoid, nom, tipoc);
-			respuesta.add(tempCli);
-        }
+			String semanaTemporal = "";
+			if((String) datos [0] != semanaTemporal  )
+			{
+			semanaTemporal= (String) datos [0];
+			String totalUso = (String) datos[1];
+			String identificacion = (String) datos[2];
+			String descuento = (String) datos[3];
+			String fechaFin = (String) datos[5];
+			String fechaInicio = (String) datos[6];
+			String tiempoContrato = (String) datos[7];
+			String disponible = (String) datos[9];
+			
+			String tempOfe = "numeroSemana: "+ semanaTemporal + ", dias de uso: " + totalUso + ", identificacion:" + identificacion + ", descuento: " + descuento+ ", fechaFin: " + fechaFin+ " fechaInicio: " + fechaInicio+ ", tiempoContrato: " +tiempoContrato+ ", disponible:" + disponible;
+			respuesta += "mejor de la semana: ";
+			respuesta += tempOfe +"\n";
+			}
+			
+			//ultima de la semana
+			if(((i+1)<tuplas.size()))
+			{
+			Object[] datos2 = (Object []) tuplas.get(i+1);
+			String semanaTemp2= (String) datos2[0];
+			if(semanaTemp2 != semanaTemporal)
+			{
+				
+				String totalUso = (String) datos[1];
+				String identificacion = (String) datos[2];
+				String descuento = (String) datos[3];
+				String fechaFin = (String) datos[5];
+				String fechaInicio = (String) datos[6];
+				String tiempoContrato = (String) datos[7];
+				String disponible = (String) datos[9];
+				
+				String tempOfe = "numeroSemana: "+ semanaTemporal + ", dias de uso: " + totalUso + ", identificacion:" + identificacion + ", descuento: " + descuento+ ", fechaFin: " + fechaFin+ " fechaInicio: " + fechaInicio+ ", tiempoContrato: " +tiempoContrato+ ", disponible:" + disponible;
+				
+				respuesta += "peor de la semana: ";
+				respuesta += tempOfe +"\n";
+			}
+			
+			}
+		}
 
 		return respuesta;
 	}
-	public List<Cliente> darRecordsSemanalesOperadores() 
+	public String darRecordsSemanalesOperadores() 
 	{
 		PersistenceManager pm = pmf.getPersistenceManager();
-		List<Cliente> respuesta = new LinkedList <Cliente> ();
-	
+		String respuesta ="";
+		List<Object> tuplas = sqlOferta.darRecordsSemanalesOperadores(pm);
+		for (int i=0; i<tuplas.size();i++)
+		{
+			Object [] datos = (Object []) tuplas.get(i);
+			
+			String semanaTemporal = "";
+			if((String) datos [0] != semanaTemporal  )
+			{
+			semanaTemporal= (String) datos [0];
+			String numeroSolicitudes = (String) datos[1];
+			String registro = (String) datos[2];
+			String tipoRegistro = (String) datos[3];
+			String nombre = (String) datos[5];
+			String horario = (String) datos[6];
+			
+			String tempOfe = "numeroSemana: "+ semanaTemporal + ", numeroSolicitudes: " + numeroSolicitudes + ", registro:" + registro + ", tipoRegistro: " + tipoRegistro+ ", nombre: " + nombre+ " horario: " + horario;
+			respuesta += "mejor de la semana: ";
+			respuesta += tempOfe +"\n";
+			}
+			
+			//ultima de la semana
+			if(((i+1)<tuplas.size()))
+			{
+			Object[] datos2 = (Object []) tuplas.get(i+1);
+			String semanaTemp2= (String) datos2[0];
+			if(semanaTemp2 != semanaTemporal)
+			{
+				
+				String numeroSolicitudes = (String) datos[1];
+				String registro = (String) datos[2];
+				String tipoRegistro = (String) datos[3];
+				String nombre = (String) datos[5];
+				String horario = (String) datos[6];
+				
+				String tempOfe = "numeroSemana: "+ semanaTemporal + ", numeroSolicitudes: " + numeroSolicitudes + ", registro:" + registro + ", tipoRegistro: " + tipoRegistro+ ", nombre: " + nombre+ " horario: " + horario;
+				respuesta += "peor de la semana: ";
+				respuesta += tempOfe +"\n";
+			}
+			
+			}
+		}
 
 		return respuesta;
 	}
 	
-	public List<Cliente> darBuenosClientes() 
+	public String darBuenosClientes() 
 	{
 		PersistenceManager pm = pmf.getPersistenceManager();
-		List<Cliente> respuesta = new LinkedList <Cliente> ();
+		String respuesta = "";
 		
 
 		return respuesta;
