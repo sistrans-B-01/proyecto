@@ -1,6 +1,6 @@
 package uniandes.isis2304.parranderos.negocio;
 
-import org.apache.log4j.Logger;  
+import org.apache.log4j.Logger;   
 
 import com.google.gson.JsonObject;
 import java.sql.Timestamp;
@@ -305,34 +305,34 @@ public class AlohAndes
 		return tuplas;
 	}
 	
-	public List<Object[]> darConsumoAdministrador()
+	public List<Object[]> darConsumoAdministrador(String ordenar)
 	{
 		log.info("Listando el consumo de Alohandes");
-		List<Object[]> tuplas= pp.darConsumoAdministrador();
+		List<Object[]> tuplas= pp.darConsumoAdministrador(ordenar);
 		log.info("Listando el consumo de Alohandes: Listo!");
 		return tuplas;
 	}
 	
-	public List<Object[]> darConsumoCliente(long numClien)
+	public List<Object[]> darConsumoCliente(long numClien, String ordenar)
 	{
 		log.info("Listando el consumo de Alohandes");
-		List<Object[]> tuplas= pp.darConsumoCliente(numClien);
+		List<Object[]> tuplas= pp.darConsumoCliente(numClien, ordenar);
 		log.info("Listando el consumo de Alohandes: Listo!");
 		return tuplas;
 	}
 	
-	public List<Object[]> darNoConsumoAdministrador()
+	public List<Object[]> darNoConsumoAdministrador(String ordenar)
 	{
 		log.info("Listando el no consumo de Alohandes");
-		List<Object[]> tuplas= pp.darNoConsumoAdministrador();
+		List<Object[]> tuplas= pp.darNoConsumoAdministrador(ordenar);
 		log.info("Listando el no consumo de Alohandes: Listo!");
 		return tuplas;
 	}
 	
-	public List<Object[]> darNoConsumoCliente(long numClien)
+	public List<Object[]> darNoConsumoCliente(long numClien, String ordenar)
 	{
 		log.info("Listando el no consumo de Alohandes");
-		List<Object[]> tuplas= pp.darNoConsumoCliente(numClien);
+		List<Object[]> tuplas= pp.darNoConsumoCliente(numClien, ordenar);
 		log.info("Listando el no consumo de Alohandes: Listo!");
 		return tuplas;
 	}

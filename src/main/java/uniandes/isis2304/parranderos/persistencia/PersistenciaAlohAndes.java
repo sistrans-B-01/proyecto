@@ -726,70 +726,10 @@ public class PersistenciaAlohAndes
 		return info;
 	}
 	
-	public List<Object[]> darConsumoAdministrador()
+	public List<Object[]> darConsumoAdministrador(String ordenar)
 	{
 		List<Object []> info = new LinkedList <Object []> ();
-		List<Object> tuplas= sqlCliente.darConsumoAdministrador(pmf.getPersistenceManager());
-		for (Object tupla : tuplas)
-		{
-			Object [] datos = (Object []) tupla;
-			String alojamiento = (String) datos [0];
-			String nombre= (String) datos[1];
-			long numIden = ((BigDecimal) datos[2]).longValue();
-			String tipoIden= (String) datos[3];
-			String tipoCliente= (String) datos[4];
-			long oferta = ((BigDecimal) datos[5]).longValue();
-			int reservas = ((BigDecimal) datos[6]).intValue();
-			
-			Object [] consumo = new Object [7];
-			consumo[0] = alojamiento;
-			consumo [1] = nombre;
-			consumo[2] = numIden;
-			consumo[3] = tipoIden;
-			consumo[4] = tipoCliente;
-			consumo[5] = oferta;
-			consumo[6] = reservas;
-
-			info.add (consumo);
-			
-		}
-		return info;
-	}
-	
-	public List<Object[]> darConsumoCliente(long numClien)
-	{
-		List<Object []> info = new LinkedList <Object []> ();
-		List<Object> tuplas= sqlCliente.darConsumoCliente(pmf.getPersistenceManager(), numClien);
-		for (Object tupla : tuplas)
-		{
-			Object [] datos = (Object []) tupla;
-			String alojamiento = (String) datos [0];
-			String nombre= (String) datos[1];
-			long numIden = ((BigDecimal) datos[2]).longValue();
-			String tipoIden= (String) datos[3];
-			String tipoCliente= (String) datos[4];
-			long oferta = ((BigDecimal) datos[5]).longValue();
-			int reservas = ((BigDecimal) datos[6]).intValue();
-			
-			Object [] consumo = new Object [7];
-			consumo[0] = alojamiento;
-			consumo [1] = nombre;
-			consumo[2] = numIden;
-			consumo[3] = tipoIden;
-			consumo[4] = tipoCliente;
-			consumo[5] = oferta;
-			consumo[6] = reservas;
-
-			info.add (consumo);
-			
-		}
-		return info;
-	}
-	
-	public List<Object[]> darNoConsumoAdministrador()
-	{
-		List<Object []> info = new LinkedList <Object []> ();
-		List<Object> tuplas= sqlCliente.darNoConsumoAdministrador(pmf.getPersistenceManager());
+		List<Object> tuplas= sqlCliente.darConsumoAdministrador(pmf.getPersistenceManager(), ordenar);
 		for (Object tupla : tuplas)
 		{
 			Object [] datos = (Object []) tupla;
@@ -814,10 +754,66 @@ public class PersistenciaAlohAndes
 		return info;
 	}
 	
-	public List<Object[]> darNoConsumoCliente(long numClien)
+	public List<Object[]> darConsumoCliente(long numClien, String ordenar)
 	{
 		List<Object []> info = new LinkedList <Object []> ();
-		List<Object> tuplas= sqlCliente.darNoConsumoCliente(pmf.getPersistenceManager(), numClien);
+		List<Object> tuplas= sqlCliente.darConsumoCliente(pmf.getPersistenceManager(), numClien, ordenar);
+		for (Object tupla : tuplas)
+		{
+			Object [] datos = (Object []) tupla;
+			String alojamiento = (String) datos [0];
+			String nombre= (String) datos[1];
+			long numIden = ((BigDecimal) datos[2]).longValue();
+			String tipoIden= (String) datos[3];
+			String tipoCliente= (String) datos[4];
+			long oferta = ((BigDecimal) datos[5]).longValue();
+			
+			Object [] consumo = new Object [7];
+			consumo[0] = alojamiento;
+			consumo [1] = nombre;
+			consumo[2] = numIden;
+			consumo[3] = tipoIden;
+			consumo[4] = tipoCliente;
+			consumo[5] = oferta;
+
+			info.add (consumo);
+			
+		}
+		return info;
+	}
+	
+	public List<Object[]> darNoConsumoAdministrador(String ordenar)
+	{
+		List<Object []> info = new LinkedList <Object []> ();
+		List<Object> tuplas= sqlCliente.darNoConsumoAdministrador(pmf.getPersistenceManager(), ordenar);
+		for (Object tupla : tuplas)
+		{
+			Object [] datos = (Object []) tupla;
+			String alojamiento = (String) datos [0];
+			String nombre= (String) datos[1];
+			long numIden = ((BigDecimal) datos[2]).longValue();
+			String tipoIden= (String) datos[3];
+			String tipoCliente= (String) datos[4];
+			long oferta = ((BigDecimal) datos[5]).longValue();
+			
+			Object [] consumo = new Object [7];
+			consumo[0] = alojamiento;
+			consumo [1] = nombre;
+			consumo[2] = numIden;
+			consumo[3] = tipoIden;
+			consumo[4] = tipoCliente;
+			consumo[5] = oferta;
+
+			info.add (consumo);
+			
+		}
+		return info;
+	}
+	
+	public List<Object[]> darNoConsumoCliente(long numClien, String ordenar)
+	{
+		List<Object []> info = new LinkedList <Object []> ();
+		List<Object> tuplas= sqlCliente.darNoConsumoCliente(pmf.getPersistenceManager(), numClien, ordenar);
 		for (Object tupla : tuplas)
 		{
 			Object [] datos = (Object []) tupla;
