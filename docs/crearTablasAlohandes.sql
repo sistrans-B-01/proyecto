@@ -113,7 +113,7 @@ ENABLE;
 
 ALTER TABLE VIVIENDA
 ADD CONSTRAINT CK_V_NUMEROHABITACIONES
-	CHECK (numerohabitaciones > 1)
+	CHECK (numerohabitaciones > 0)
 ENABLE;
 
 --Crear tabla HABITACION
