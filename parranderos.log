@@ -1,5 +1,0 @@
-<<<<<<< HEAD
-=======>>>>>>> master21:22:24,650 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Interfaz
-21:22:24,651 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se aplica configuración indicada en el archivo de configuración
-21:22:24,682 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazAlohandesApp] - Se encontró un archivo de configuración válido: Tablas BD
-21:22:40,862 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.AlohAndes] - consultandoRecordsSemanalesOfertas 
