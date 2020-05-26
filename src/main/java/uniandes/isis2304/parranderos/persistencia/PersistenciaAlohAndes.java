@@ -2131,6 +2131,7 @@ public class PersistenciaAlohAndes
 	}
 	public String darRecordsSemanalesOperadores() 
 	{
+		System.out.println(" ");
 		PersistenceManager pm = pmf.getPersistenceManager();
 		String respuesta ="";
 		List<Object> tuplas = sqlOferta.darRecordsSemanalesOperadores(pm);
@@ -2180,6 +2181,7 @@ public class PersistenciaAlohAndes
 	
 	public String darBuenosClientes() 
 	{
+		System.out.println("");
 		PersistenceManager pm = pmf.getPersistenceManager();
 		List<Object> tuplas = sqlOferta.darBuenosClientes(pm);
 		String respuesta = "";
