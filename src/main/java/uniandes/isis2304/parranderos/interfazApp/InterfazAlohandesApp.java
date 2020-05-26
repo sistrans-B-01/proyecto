@@ -15,7 +15,7 @@
 
 package uniandes.isis2304.parranderos.interfazApp;
 
-import java.awt.BorderLayout;   
+import java.awt.BorderLayout;    
 import java.awt.Color;
 import java.awt.Desktop;
 import java.awt.event.ActionEvent;
@@ -26,7 +26,6 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.lang.reflect.Method;
-import java.math.BigDecimal;
 import java.sql.Timestamp;
 import java.util.List;
 
@@ -1047,10 +1046,11 @@ public class InterfazAlohandesApp extends JFrame implements ActionListener
     	try
     	{
     		String numClien = JOptionPane.showInputDialog (this, "Identificacion", "Listar consumo", JOptionPane.QUESTION_MESSAGE);
+    		String ordenar = JOptionPane.showInputDialog (this, "¿Cómo lo quiere ordenar?", "Listar consumo", JOptionPane.QUESTION_MESSAGE);
     		long start=System.currentTimeMillis();
     		if(Long.valueOf(numClien)==0)
     		{
-    			List<Object[]> lista= parranderos.darConsumoAdministrador();
+    			List<Object[]> lista= parranderos.darConsumoAdministrador(ordenar);
     			long tiempo= System.currentTimeMillis() - start;
         		String resultado= "En listarConsumo";
         		resultado += "\n" + listarConsumo(lista);
@@ -1060,7 +1060,7 @@ public class InterfazAlohandesApp extends JFrame implements ActionListener
     		}
     		else
     		{
-    			List<Object[]> lista1= parranderos.darConsumoCliente(Long.valueOf(numClien));
+    			List<Object[]> lista1= parranderos.darConsumoCliente(Long.valueOf(numClien), ordenar);
     			long tiempo1= System.nanoTime()-start;
     			System.out.println("tiempo: " + tiempo1);
         		String resultado= "En listarConsumo";
@@ -1083,10 +1083,11 @@ public class InterfazAlohandesApp extends JFrame implements ActionListener
     	try
     	{
     		String numClien = JOptionPane.showInputDialog (this, "Identificacion", "Listar no consumo", JOptionPane.QUESTION_MESSAGE);
+    		String ordenar = JOptionPane.showInputDialog (this, "¿Cómo lo quiere ordenar?", "Listar consumo", JOptionPane.QUESTION_MESSAGE);
     		long start=System.nanoTime();
     		if(Long.valueOf(numClien)==0)
     		{
-    			List<Object[]> lista= parranderos.darNoConsumoAdministrador();
+    			List<Object[]> lista= parranderos.darNoConsumoAdministrador(ordenar);
     			long tiempo= System.nanoTime() - start;
         		String resultado= "En listarNoConsumo";
         		resultado += "\n" + listarNoConsumo(lista);
@@ -1096,7 +1097,7 @@ public class InterfazAlohandesApp extends JFrame implements ActionListener
     		}
     		else
     		{
-    			List<Object[]> lista1= parranderos.darNoConsumoCliente(Long.valueOf(numClien));
+    			List<Object[]> lista1= parranderos.darNoConsumoCliente(Long.valueOf(numClien), ordenar);
     			long tiempo1= System.nanoTime() - start;
         		String resultado= "En listarNoConsumo";
         		resultado += "\n" + listarNoConsumo(lista1);
@@ -1251,15 +1252,13 @@ public class InterfazAlohandesApp extends JFrame implements ActionListener
     		String tipoIden = (String) tupla[3];
     		String tipoCliente = (String) tupla[4];
     		long oferta = (long) tupla[5];
-    		int reser = (int) tupla[6];
     		String resp1 = i++ + ". " + "[";
     		resp1 += "Alojamiento: " + aloja + ", ";
 			resp1 += "Nombre cliente: " + nom + ", ";
 			resp1 += "Numero identificacion: " + numIden + ",";
 			resp1 += "Tipo identificacion: " + tipoIden + ",";
 			resp1 += "Tipo cliente: " + tipoCliente+ ",";
-			resp1 += "Oferta: " + oferta+ ",";
-			resp1 += "Reservas: " + reser;
+			resp1 += "Oferta: " + oferta;
 	        resp1 += "]";
 	        resp += resp1 + "\n";
     	}
