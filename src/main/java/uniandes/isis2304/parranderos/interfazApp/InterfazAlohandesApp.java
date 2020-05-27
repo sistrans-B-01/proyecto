@@ -1051,21 +1051,21 @@ public class InterfazAlohandesApp extends JFrame implements ActionListener
     		if(Long.valueOf(numClien)==0)
     		{
     			List<Object[]> lista= parranderos.darConsumoAdministrador(ordenar);
-    			long tiempo= System.currentTimeMillis() - start;
+    			double tiempo= (System.currentTimeMillis() - start)/1000.0;
         		String resultado= "En listarConsumo";
         		resultado += "\n" + listarConsumo(lista);
-        		resultado += "\n tiempo:"+tiempo;
+        		resultado += "\n tiempo:"+tiempo + " segundos";
         		panelDatos.actualizarInterfaz(resultado);
         		resultado += "\n Operacion terminada";
     		}
     		else
     		{
     			List<Object[]> lista1= parranderos.darConsumoCliente(Long.valueOf(numClien), ordenar);
-    			long tiempo1= System.nanoTime()-start;
+    			double tiempo1= (System.currentTimeMillis()-start)/1000.0;
     			System.out.println("tiempo: " + tiempo1);
         		String resultado= "En listarConsumo";
         		resultado += "\n" + listarConsumo(lista1);
-        		resultado += "\n tiempo:"+tiempo1;
+        		resultado += "\n tiempo:"+tiempo1 + " segundos";
         		panelDatos.actualizarInterfaz(resultado);
         		resultado += "\n Operacion terminada";
     		}
